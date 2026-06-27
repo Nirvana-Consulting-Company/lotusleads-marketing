@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#E64B8B">
+  <title>Lead Management — LotusLeads Pipeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- @seo -->
+  <title>Lead Management | LotusLeads</title>
+  <meta name="description" content="Organize, score, and track every commercial lead in one place. AI-powered pipeline management built for field-service sales teams."/>
+  <link rel="canonical" href="https://lotusleads.ai/lead-management.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lead Management | LotusLeads"/>
+  <meta property="og:description" content="Organize, score, and track every commercial lead in one place. AI-powered pipeline management built for field-service sales teams."/>
+  <meta property="og:url" content="https://lotusleads.ai/lead-management.html"/>
+  <meta property="og:image" content="https://lotusleads.ai/images/dashboard-overview.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="LotusLeads"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Lead Management | LotusLeads"/>
+  <meta name="twitter:description" content="Organize, score, and track every commercial lead in one place. AI-powered pipeline management built for field-service sales teams."/>
+  <meta name="twitter:image" content="https://lotusleads.ai/images/dashboard-overview.png"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- @seo -->
+</head>
+<body class="font-[Inter] bg-white text-gray-900 antialiased">
+<!-- NAV_START -->
+
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 bg-white transition-shadow duration-300" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <span class="text-xl font-bold text-gray-900 tracking-tight">LotusLeads</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center gap-8">
+        <!-- Product Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">
+            Product
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+            <a href="/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
+            <a href="/icp.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
+            <a href="/property-intelligence.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
+            <a href="/lead-management.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
+            <a href="/campaigns.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
+            <a href="/competitive-intel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
+            <a href="/analytics.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+          </div>
+        </div>
+        <a href="/pricing.html" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Pricing</a>
+        <a href="/about.html" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
+      </div>
+
+      <!-- Right: Login + CTA + Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="/login" class="hidden lg:inline-block text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Login</a>
+        <a href="/signup" class="hidden lg:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 shadow-sm transition-all">Start Free Trial</a>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
+    <div class="px-4 py-4 space-y-2">
+      <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Product</p>
+      <a href="/features.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
+      <a href="/icp.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
+      <a href="/property-intelligence.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
+      <a href="/lead-management.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
+      <a href="/campaigns.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
+      <a href="/competitive-intel.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
+      <a href="/analytics.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/pricing.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Pricing</a>
+      <a href="/about.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/login" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Login</a>
+      <a href="/signup" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Start Free Trial</a>
+    </div>
+  </div>
+</nav>
+<!-- Spacer for fixed nav -->
+<div class="h-16"></div>
+<script>
+  document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+</script>
+<script>
+  (function(){
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 10){ nav.classList.add('shadow-md'); }
+      else { nav.classList.remove('shadow-md'); }
+    });
+  })();
+</script>
+
+<!-- NAV_END -->
+<main>
+
+  <!-- Hero -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="inline-block px-4 py-1.5 rounded-full text-sm font-semibold text-white mb-6" style="background:#E64B8B;">Lead Management</span>
+        <h1 class="text-4xl lg:text-6xl font-900 leading-tight mb-6">Your entire pipeline in one place.</h1>
+        <p class="text-lg lg:text-xl text-gray-600 leading-relaxed">Enriched leads with full contact data, inline editing, status tracking, and a Ready tab that shows only fully-analyzed leads waiting for action.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+          <img src="images/lead-detail.png" alt="Lead detail with enriched contact data" class="w-full h-auto">
+          <div class="p-6">
+            <p class="text-sm font-medium text-gray-500">Lead detail with enriched contact data</p>
+          </div>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+          <img src="images/lead-activity.png" alt="Activity timeline with email tracking" class="w-full h-auto">
+          <div class="p-6">
+            <p class="text-sm font-medium text-gray-500">Activity timeline with email tracking</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Capability Cards -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-16">What you can do</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Enriched Contacts</h3>
+          <p class="text-gray-600 leading-relaxed">Apollo data: email, phone, LinkedIn profile, job title, and company details. Every lead comes with the contact information you need to reach decision-makers.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Inline Editing</h3>
+          <p class="text-gray-600 leading-relaxed">Update any field directly on the lead card. Change status, add notes, correct contact info, or update company details without opening a separate form.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Pipeline Status</h3>
+          <p class="text-gray-600 leading-relaxed">New &rarr; Contacted &rarr; Qualified &rarr; Won. Track every lead through your sales process with clear stage progression and conversion visibility.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Ready Inbox</h3>
+          <p class="text-gray-600 leading-relaxed">Fully analyzed leads waiting for action. The Ready tab filters out leads still being enriched and shows only those with complete data, scores, and property analysis.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Activity Timeline</h3>
+          <p class="text-gray-600 leading-relaxed">Every email, call, note, and status change tracked in chronological order. See the complete history of every interaction with a lead at a glance.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">CSV Export</h3>
+          <p class="text-gray-600 leading-relaxed">Download leads for external tools. Export filtered lead lists with all enriched data to CSV for use in other CRMs, spreadsheets, or reporting tools.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- More Features -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-16">More Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <a href="icp.html" class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#E64B8B] transition-colors">
+          <h3 class="font-bold mb-2">AI ICP & Prospecting</h3>
+          <p class="text-sm text-gray-500">Natural language ICP builder with AI fit scoring.</p>
+        </a>
+        <a href="property-intelligence.html" class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#E64B8B] transition-colors">
+          <h3 class="font-bold mb-2">Property Intelligence</h3>
+          <p class="text-sm text-gray-500">AI-powered satellite and street view property analysis.</p>
+        </a>
+        <a href="campaigns.html" class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#E64B8B] transition-colors">
+          <h3 class="font-bold mb-2">Campaign Outreach</h3>
+          <p class="text-sm text-gray-500">AI-generated personalized email sequences.</p>
+        </a>
+        <a href="competitive-intel.html" class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#E64B8B] transition-colors">
+          <h3 class="font-bold mb-2">Competitive Intelligence</h3>
+          <p class="text-sm text-gray-500">Real competitor data with vulnerability analysis.</p>
+        </a>
+        <a href="analytics.html" class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#E64B8B] transition-colors">
+          <h3 class="font-bold mb-2">Analytics & Dashboard</h3>
+          <p class="text-sm text-gray-500">Real-time pipeline metrics and AI scoring.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24" style="background:#E64B8B;">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">Ready to try Lead Management?</h2>
+      <p class="text-lg text-pink-100 mb-10 max-w-2xl mx-auto">See your entire pipeline with enriched contacts and actionable insights.</p>
+      <a href="#" class="inline-block px-8 py-4 bg-white text-[#E64B8B] font-bold rounded-xl text-lg hover:bg-gray-100 transition-colors">Start Free Trial</a>
+    </div>
+  </section>
+
+</main>
+<!-- FOOTER_START -->
+
+<footer class="bg-[#111827] text-gray-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+
+      <!-- Col 1: Brand -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <span class="text-lg font-bold text-white tracking-tight">LotusLeads</span>
+        </a>
+        <p class="text-sm leading-relaxed text-gray-400">AI-powered sales intelligence for B2B service companies.</p>
+      </div>
+
+      <!-- Col 2: Product -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/features.html" class="hover:text-white transition-colors">How It Works</a></li>
+          <li><a href="/icp.html" class="hover:text-white transition-colors">AI ICP Builder</a></li>
+          <li><a href="/property-intelligence.html" class="hover:text-white transition-colors">Property Intelligence</a></li>
+          <li><a href="/campaigns.html" class="hover:text-white transition-colors">Campaign Outreach</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Solutions -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Solutions</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/lead-management.html" class="hover:text-white transition-colors">Lead Management</a></li>
+          <li><a href="/competitive-intel.html" class="hover:text-white transition-colors">Competitive Intel</a></li>
+          <li><a href="/analytics.html" class="hover:text-white transition-colors">Analytics</a></li>
+          <li><a href="/#autopilot" class="hover:text-white transition-colors">Auto-Pilot</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Company -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/about.html" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/pricing.html" class="hover:text-white transition-colors">Pricing</a></li>
+          <li><a href="/login" class="hover:text-white transition-colors">Login</a></li>
+          <li><a href="/signup" class="hover:text-white transition-colors">Start Free Trial</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+      <span>&copy; 2026 LotusLeads. All rights reserved.</span>
+      <span>Built by <a href="https://nirvanaconsultingcompany.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Nirvana Consulting</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- FOOTER_END -->
+</body>
+</html>

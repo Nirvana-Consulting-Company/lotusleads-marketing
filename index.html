@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#E64B8B">
+  <title>LotusLeads — AI Sales Intelligence for Field Services</title>
+  <meta name="description" content="AI-powered prospecting, property analysis, and automated outreach for solar, landscaping, roofing, HVAC, and field service companies.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="LotusLeads — AI Sales Intelligence for Field Services">
+  <meta property="og:description" content="AI-powered prospecting, property analysis, and automated outreach for solar, landscaping, roofing, HVAC, and field service companies.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/dashboard-overview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LotusLeads — AI Sales Intelligence for Field Services">
+  <meta name="twitter:description" content="AI-powered prospecting, property analysis, and automated outreach for solar, landscaping, roofing, HVAC, and field service companies.">
+  <link rel="canonical" href="https://lotusleads.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lotus: {
+              DEFAULT: '#E64B8B',
+              dark: '#d43d7a',
+              darker: '#b8326e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- @seo -->
+  <title>LotusLeads — AI Sales Intelligence for Field Services</title>
+  <meta name="description" content="AI-powered prospecting, property analysis, and automated outreach for B2B field-service companies. Find, qualify, and win more commercial accounts."/>
+  <link rel="canonical" href="https://lotusleads.ai/"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="LotusLeads — AI Sales Intelligence for Field Services"/>
+  <meta property="og:description" content="AI-powered prospecting, property analysis, and automated outreach for B2B field-service companies. Find, qualify, and win more commercial accounts."/>
+  <meta property="og:url" content="https://lotusleads.ai/"/>
+  <meta property="og:image" content="https://lotusleads.ai/images/dashboard-overview.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="LotusLeads"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="LotusLeads — AI Sales Intelligence for Field Services"/>
+  <meta name="twitter:description" content="AI-powered prospecting, property analysis, and automated outreach for B2B field-service companies. Find, qualify, and win more commercial accounts."/>
+  <meta name="twitter:image" content="https://lotusleads.ai/images/dashboard-overview.png"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Schema.org LD+JSON -->
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "LotusLeads",
+    "url": "https://lotusleads.ai",
+    "logo": "https://lotusleads.ai/images/logo.png",
+    "sameAs": [],
+    "description": "AI-powered prospecting, property analysis, and automated outreach for B2B field-service companies. Find, qualify, and win more commercial accounts."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LotusLeads",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://lotusleads.ai",
+    "description": "AI-powered prospecting, property analysis, and automated outreach for B2B field-service companies. Find, qualify, and win more commercial accounts.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free trial available"
+    }
+  }
+]
+  </script>
+  <!-- @seo -->
+  <style>
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="font-[Inter] bg-white text-gray-900 antialiased">
+
+  <!-- NAV_START -->
+
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 bg-white transition-shadow duration-300" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <span class="text-xl font-bold text-gray-900 tracking-tight">LotusLeads</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center gap-8">
+        <!-- Product Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">
+            Product
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+            <a href="/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
+            <a href="/icp.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
+            <a href="/property-intelligence.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
+            <a href="/lead-management.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
+            <a href="/campaigns.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
+            <a href="/competitive-intel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
+            <a href="/analytics.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+          </div>
+        </div>
+        <a href="/pricing.html" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Pricing</a>
+        <a href="/about.html" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
+      </div>
+
+      <!-- Right: Login + CTA + Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="/login" class="hidden lg:inline-block text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Login</a>
+        <a href="/signup" class="hidden lg:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 shadow-sm transition-all">Start Free Trial</a>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
+    <div class="px-4 py-4 space-y-2">
+      <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Product</p>
+      <a href="/features.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
+      <a href="/icp.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
+      <a href="/property-intelligence.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
+      <a href="/lead-management.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
+      <a href="/campaigns.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
+      <a href="/competitive-intel.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
+      <a href="/analytics.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/pricing.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Pricing</a>
+      <a href="/about.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/login" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Login</a>
+      <a href="/signup" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Start Free Trial</a>
+    </div>
+  </div>
+</nav>
+<!-- Spacer for fixed nav -->
+<div class="h-16"></div>
+<script>
+  document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+</script>
+<script>
+  (function(){
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 10){ nav.classList.add('shadow-md'); }
+      else { nav.classList.remove('shadow-md'); }
+    });
+  })();
+</script>
+
+<!-- NAV_END -->
+
+  <main>
+
+    <!-- ===================== HERO SECTION ===================== -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-pink-50/40">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-pink-100/30 blur-3xl"></div>
+        <div class="absolute -bottom-20 -left-40 w-[400px] h-[400px] rounded-full bg-pink-50/40 blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 lg:pt-28 lg:pb-32">
+        <div class="text-center max-w-4xl mx-auto">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-50 border border-pink-200 mb-8">
+            <span class="w-2 h-2 rounded-full bg-[#E64B8B] animate-pulse"></span>
+            <span class="text-sm font-medium text-[#E64B8B]">AI-Powered Sales Intelligence</span>
+          </div>
+
+          <!-- H1 -->
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08]">
+            <span class="block text-gray-900">Prospect.</span>
+            <span class="block text-gray-900">Analyze.</span>
+            <span class="block text-[#E64B8B]">Close.</span>
+          </h1>
+
+          <!-- Subheading -->
+          <p class="mt-8 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Define your ideal customer once. LotusLeads finds them, enriches their data, analyzes their property, and writes personalized outreach &mdash; automatically, every day.
+          </p>
+
+          <!-- CTAs -->
+          <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#pricing" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-[#E64B8B] to-[#d43d7a] shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:scale-[1.02] transition-all duration-200">
+              Start for Free
+            </a>
+            <a href="#how-it-works" class="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-gray-700 rounded-xl border-2 border-gray-300 hover:border-[#E64B8B] hover:text-[#E64B8B] transition-all duration-200">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+              See How It Works
+            </a>
+          </div>
+
+          <!-- Hero Image -->
+          <div class="mt-16 relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-pink-100 to-purple-100 rounded-3xl blur-2xl opacity-40"></div>
+            <img src="/images/dashboard-overview.png" alt="LotusLeads Dashboard — AI-powered sales intelligence platform overview showing leads, scores, and outreach campaigns" class="relative w-full rounded-2xl shadow-2xl border border-gray-200">
+          </div>
+
+          <!-- Trust line -->
+          <p class="mt-10 text-sm text-gray-500">
+            No credit card required &middot; 14-day free trial &middot; Cancel anytime
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INDUSTRIES BAR ===================== -->
+    <section class="py-16 bg-white border-y border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase mb-8">Built for Every Service Industry</p>
+        <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 justify-start lg:justify-center">
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-orange-400"></span>Solar</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 border border-green-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>Landscaping</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>HVAC</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 border border-red-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>Security</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>Property Mgmt</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>IT/Networking</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span>Plumbing</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 border border-yellow-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>Electrical</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-50 border border-lime-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-lime-500"></span>Pest Control</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-50 border border-sky-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span>Snow Removal</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>Roofing</span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-200 text-sm font-medium text-gray-700 whitespace-nowrap"><span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>Cleaning</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section id="how-it-works" class="py-24 lg:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="text-center mb-20">
+          <p class="text-sm font-semibold tracking-[0.15em] text-[#E64B8B] uppercase mb-3">How It Works</p>
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">Four steps to more revenue</h2>
+          <p class="mt-5 text-lg text-gray-500 max-w-2xl mx-auto">From defining your ideal customer to closing deals &mdash; LotusLeads automates the entire pipeline.</p>
+        </div>
+
+        <!-- Step 1 — Image RIGHT -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 lg:mb-32">
+          <div>
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#E64B8B] to-[#d43d7a] text-white text-lg font-bold mb-6">1</div>
+            <h3 class="text-3xl font-bold text-gray-900 mb-3">Describe Your Ideal Customer</h3>
+            <p class="text-lg text-gray-500 mb-6">Tell AI who you want to find. Describe your ideal customer in plain English &mdash; industry, location, company size, property type &mdash; and our AI builds a precision targeting profile instantly.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Natural language ICP definition &mdash; no forms or filters</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">AI interprets intent and builds search parameters</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Target any geography, industry, or property type</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Save and reuse profiles for ongoing prospecting</span>
+              </li>
+            </ul>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-3xl blur-xl opacity-60"></div>
+            <img src="/images/icp-chat.png" alt="LotusLeads ICP Chat — describe your ideal customer in plain English and AI builds the targeting profile" class="relative w-full rounded-2xl shadow-xl border border-gray-200">
+          </div>
+        </div>
+
+        <!-- Step 2 — Image LEFT -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 lg:mb-32">
+          <div class="order-2 lg:order-1 relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-blue-50 to-pink-50 rounded-3xl blur-xl opacity-60"></div>
+            <img src="/images/dashboard-opportunities.png" alt="LotusLeads Opportunities Dashboard — AI-scored and ranked leads with enriched company data" class="relative w-full rounded-2xl shadow-xl border border-gray-200">
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#E64B8B] to-[#d43d7a] text-white text-lg font-bold mb-6">2</div>
+            <h3 class="text-3xl font-bold text-gray-900 mb-3">AI Scores &amp; Ranks Results</h3>
+            <p class="text-lg text-gray-500 mb-6">See who's worth your time. Every lead is automatically enriched with company data, contact information, and scored by fit &mdash; so your team focuses on the highest-value opportunities first.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Intelligent lead scoring based on ICP match</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Auto-enrichment with emails, phones, and decision-makers</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Ranked results so your best leads surface first</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Duplicate detection and CRM deduplication</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 3 — Image RIGHT -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 lg:mb-32">
+          <div>
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#E64B8B] to-[#d43d7a] text-white text-lg font-bold mb-6">3</div>
+            <h3 class="text-3xl font-bold text-gray-900 mb-3">Deep Property Intelligence</h3>
+            <p class="text-lg text-gray-500 mb-6">Know the property before the first call. AI analyzes satellite imagery, building footprints, roof conditions, lot size, and more &mdash; giving your reps property-specific talking points before they ever pick up the phone.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Satellite imagery and aerial property analysis</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Building footprint, roof area, and lot size data</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Property-specific talking points for every lead</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Condition scoring for roof, landscape, and HVAC opportunities</span>
+              </li>
+            </ul>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-3xl blur-xl opacity-60"></div>
+            <img src="/images/lead-property.png" alt="LotusLeads Property Intelligence — satellite imagery analysis with building footprint, roof condition, and lot data" class="relative w-full rounded-2xl shadow-xl border border-gray-200">
+          </div>
+        </div>
+
+        <!-- Step 4 — Image LEFT -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="order-2 lg:order-1 relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-3xl blur-xl opacity-60"></div>
+            <img src="/images/campaign-dashboard.png" alt="LotusLeads Campaign Dashboard — automated email sequences and outreach campaign management" class="relative w-full rounded-2xl shadow-xl border border-gray-200">
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#E64B8B] to-[#d43d7a] text-white text-lg font-bold mb-6">4</div>
+            <h3 class="text-3xl font-bold text-gray-900 mb-3">Automated Outreach</h3>
+            <p class="text-lg text-gray-500 mb-6">Personalized campaigns that run themselves. AI drafts hyper-personalized email sequences using property data, company intel, and industry context &mdash; then sends them on your schedule.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">AI-written emails personalized with property data</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Multi-step sequences with automated follow-ups</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Smart scheduling for optimal open rates</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-gray-600">Reply detection and automatic sequence pausing</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== AUTOMATION SECTION ===================== -->
+    <section class="py-24 lg:py-28 bg-[#111827]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <p class="text-sm font-semibold tracking-[0.15em] text-[#E64B8B] uppercase mb-3">Full Automation</p>
+          <h2 class="text-4xl lg:text-5xl font-bold text-white">Set it. Forget it. Close deals.</h2>
+          <p class="mt-5 text-lg text-gray-400 max-w-2xl mx-auto">Enable auto-pilot on your saved searches and LotusLeads will prospect, enrich, score, and draft outreach while you sleep. Wake up to a pipeline full of qualified leads.</p>
+        </div>
+
+        <!-- Timeline cards -->
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <!-- 6:00 AM -->
+          <div class="relative bg-gray-800/60 border border-gray-700 rounded-2xl p-8 hover:border-[#E64B8B]/40 transition-colors duration-300">
+            <div class="text-sm font-semibold text-[#E64B8B] mb-4">6:00 AM</div>
+            <h3 class="text-xl font-bold text-white mb-3">Auto-Prospect</h3>
+            <p class="text-gray-400 leading-relaxed">LotusLeads runs your saved ICP searches, finds new matching leads, enriches them with contact data, and scores every result &mdash; before you wake up.</p>
+            <div class="absolute top-8 -right-4 hidden md:block">
+              <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </div>
+          </div>
+
+          <!-- 6:10 AM -->
+          <div class="relative bg-gray-800/60 border border-gray-700 rounded-2xl p-8 hover:border-[#E64B8B]/40 transition-colors duration-300">
+            <div class="text-sm font-semibold text-[#E64B8B] mb-4">6:10 AM</div>
+            <h3 class="text-xl font-bold text-white mb-3">Auto-Pipeline</h3>
+            <p class="text-gray-400 leading-relaxed">New leads are automatically added to your pipeline, tagged by source, and queued into the right outreach sequence based on their score and industry.</p>
+            <div class="absolute top-8 -right-4 hidden md:block">
+              <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </div>
+          </div>
+
+          <!-- 8:00 AM -->
+          <div class="bg-gray-800/60 border border-[#E64B8B]/30 rounded-2xl p-8 shadow-lg shadow-pink-500/5">
+            <div class="text-sm font-semibold text-[#E64B8B] mb-4">8:00 AM</div>
+            <h3 class="text-xl font-bold text-white mb-3">You Open Your Inbox</h3>
+            <p class="text-gray-400 leading-relaxed">Your morning report is waiting: new leads found, emails sent, replies received. Just review, approve, and close &mdash; the hard work is already done.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRICING SECTION ===================== -->
+    <section id="pricing" class="py-24 lg:py-28 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <p class="text-sm font-semibold tracking-[0.15em] text-[#E64B8B] uppercase mb-3">Pricing</p>
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">Simple pricing. Serious results.</h2>
+          <p class="mt-5 text-lg text-gray-500 max-w-2xl mx-auto">Choose the plan that fits your team. All plans include a 14-day free trial.</p>
+
+          <!-- Billing toggle -->
+          <div class="mt-10 inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full p-1.5 shadow-sm">
+            <button id="toggle-monthly" onclick="setBilling('monthly')" class="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 bg-gradient-to-r from-[#E64B8B] to-[#d43d7a] text-white shadow-sm">Monthly</button>
+            <button id="toggle-annual" onclick="setBilling('annual')" class="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900">Annual <span class="text-[#E64B8B] font-bold">(save 20%)</span></button>
+          </div>
+        </div>
+
+        <!-- Plan cards -->
+        <div class="grid lg:grid-cols-3 gap-8 items-start max-w-6xl mx-auto">
+
+          <!-- Starter -->
+          <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 lg:p-10 flex flex-col">
+            <h3 class="text-xl font-bold text-gray-900">Starter</h3>
+            <p class="mt-2 text-sm text-gray-500">For solo reps and small teams getting started with AI prospecting.</p>
+            <div class="mt-6 flex items-baseline gap-1">
+              <span class="text-5xl font-black text-gray-900 price-value" data-monthly="399" data-annual="319">$399</span>
+              <span class="text-lg text-gray-500">/mo</span>
+            </div>
+            <p class="mt-1 text-xs text-gray-400 annual-note hidden">Billed annually</p>
+            <a href="#" class="mt-8 block w-full text-center px-6 py-3.5 rounded-xl text-sm font-semibold border-2 border-gray-300 text-gray-700 hover:border-[#E64B8B] hover:text-[#E64B8B] transition-all duration-200">Start Free Trial</a>
+            <hr class="my-8 border-gray-100">
+            <ul class="space-y-3.5 flex-1">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Up to 500 leads/month</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">1 user seat</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">AI ICP builder</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Lead scoring &amp; enrichment</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Basic property analysis</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Email support</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Professional (Most Popular) -->
+          <div class="relative bg-white border-2 border-[#E64B8B] rounded-2xl shadow-xl shadow-pink-500/10 p-8 lg:p-10 flex flex-col lg:scale-105 z-10">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+              <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-[#E64B8B] to-[#d43d7a] text-white text-xs font-bold uppercase tracking-wider shadow-lg">Most Popular</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Professional</h3>
+            <p class="mt-2 text-sm text-gray-500">For growing teams that need full automation and deep property intelligence.</p>
+            <div class="mt-6 flex items-baseline gap-1">
+              <span class="text-5xl font-black text-gray-900 price-value" data-monthly="999" data-annual="799">$999</span>
+              <span class="text-lg text-gray-500">/mo</span>
+            </div>
+            <p class="mt-1 text-xs text-gray-400 annual-note hidden">Billed annually</p>
+            <a href="#" class="mt-8 block w-full text-center px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#E64B8B] to-[#d43d7a] shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:scale-[1.02] transition-all duration-200">Start Free Trial</a>
+            <hr class="my-8 border-gray-100">
+            <ul class="space-y-3.5 flex-1">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Up to 2,500 leads/month</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">5 user seats</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Everything in Starter</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Full autopilot automation</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Deep property intelligence</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">AI-powered email outreach</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">CRM integrations</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Priority support</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-8 lg:p-10 flex flex-col">
+            <h3 class="text-xl font-bold text-gray-900">Enterprise</h3>
+            <p class="mt-2 text-sm text-gray-500">For large teams and agencies that need unlimited scale and custom solutions.</p>
+            <div class="mt-6 flex items-baseline gap-1">
+              <span class="text-5xl font-black text-gray-900 price-value" data-monthly="3,499" data-annual="2,799">$3,499</span>
+              <span class="text-lg text-gray-500">/mo</span>
+            </div>
+            <p class="mt-1 text-xs text-gray-400 annual-note hidden">Billed annually</p>
+            <a href="#" class="mt-8 block w-full text-center px-6 py-3.5 rounded-xl text-sm font-semibold border-2 border-gray-300 text-gray-700 hover:border-[#E64B8B] hover:text-[#E64B8B] transition-all duration-200">Contact Sales</a>
+            <hr class="my-8 border-gray-100">
+            <ul class="space-y-3.5 flex-1">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Unlimited leads</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Unlimited user seats</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Everything in Professional</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Custom AI model training</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">White-label options</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Dedicated account manager</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">SSO &amp; advanced security</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-gray-600">Custom API access</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FINAL CTA SECTION ===================== -->
+    <section class="py-24 lg:py-28 bg-gradient-to-br from-[#E64B8B] via-[#d43d7a] to-[#b8326e] relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl lg:text-5xl font-bold text-white">Your competitors are already using AI.</h2>
+        <p class="mt-6 text-lg text-pink-100 max-w-2xl mx-auto leading-relaxed">
+          Every day you wait, your competitors are finding better leads, sending better emails, and closing more deals with AI. Don't get left behind.
+        </p>
+        <div class="mt-10">
+          <a href="#pricing" class="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-[#E64B8B] bg-white rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-200">
+            Start Free &mdash; 14 Days
+          </a>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-pink-100">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            No credit card
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Full access
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Cancel anytime
+          </span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER_START -->
+
+<footer class="bg-[#111827] text-gray-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+
+      <!-- Col 1: Brand -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <span class="text-lg font-bold text-white tracking-tight">LotusLeads</span>
+        </a>
+        <p class="text-sm leading-relaxed text-gray-400">AI-powered sales intelligence for B2B service companies.</p>
+      </div>
+
+      <!-- Col 2: Product -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/features.html" class="hover:text-white transition-colors">How It Works</a></li>
+          <li><a href="/icp.html" class="hover:text-white transition-colors">AI ICP Builder</a></li>
+          <li><a href="/property-intelligence.html" class="hover:text-white transition-colors">Property Intelligence</a></li>
+          <li><a href="/campaigns.html" class="hover:text-white transition-colors">Campaign Outreach</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Solutions -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Solutions</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/lead-management.html" class="hover:text-white transition-colors">Lead Management</a></li>
+          <li><a href="/competitive-intel.html" class="hover:text-white transition-colors">Competitive Intel</a></li>
+          <li><a href="/analytics.html" class="hover:text-white transition-colors">Analytics</a></li>
+          <li><a href="/#autopilot" class="hover:text-white transition-colors">Auto-Pilot</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Company -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/about.html" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/pricing.html" class="hover:text-white transition-colors">Pricing</a></li>
+          <li><a href="/login" class="hover:text-white transition-colors">Login</a></li>
+          <li><a href="/signup" class="hover:text-white transition-colors">Start Free Trial</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+      <span>&copy; 2026 LotusLeads. All rights reserved.</span>
+      <span>Built by <a href="https://nirvanaconsultingcompany.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Nirvana Consulting</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- FOOTER_END -->
+
+  <!-- Pricing toggle script -->
+  <script>
+    function setBilling(plan) {
+      const monthlyBtn = document.getElementById('toggle-monthly');
+      const annualBtn = document.getElementById('toggle-annual');
+      const prices = document.querySelectorAll('.price-value');
+      const annualNotes = document.querySelectorAll('.annual-note');
+
+      if (plan === 'monthly') {
+        monthlyBtn.className = 'px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 bg-gradient-to-r from-[#E64B8B] to-[#d43d7a] text-white shadow-sm';
+        annualBtn.className = 'px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900';
+        prices.forEach(function(el) {
+          el.textContent = '$' + el.getAttribute('data-monthly');
+        });
+        annualNotes.forEach(function(el) {
+          el.classList.add('hidden');
+        });
+      } else {
+        annualBtn.className = 'px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 bg-gradient-to-r from-[#E64B8B] to-[#d43d7a] text-white shadow-sm';
+        monthlyBtn.className = 'px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900';
+        prices.forEach(function(el) {
+          el.textContent = '$' + el.getAttribute('data-annual');
+        });
+        annualNotes.forEach(function(el) {
+          el.classList.remove('hidden');
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>

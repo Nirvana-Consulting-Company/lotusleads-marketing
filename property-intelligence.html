@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#E64B8B">
+  <title>Property Intelligence — LotusLeads AI Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- @seo -->
+  <title>Property Intelligence | LotusLeads</title>
+  <meta name="description" content="Enrich every lead with property data: square footage, roof age, lot size, ownership, and more. Prioritize accounts with real building insights."/>
+  <link rel="canonical" href="https://lotusleads.ai/property-intelligence.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Property Intelligence | LotusLeads"/>
+  <meta property="og:description" content="Enrich every lead with property data: square footage, roof age, lot size, ownership, and more. Prioritize accounts with real building insights."/>
+  <meta property="og:url" content="https://lotusleads.ai/property-intelligence.html"/>
+  <meta property="og:image" content="https://lotusleads.ai/images/dashboard-overview.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="LotusLeads"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Property Intelligence | LotusLeads"/>
+  <meta name="twitter:description" content="Enrich every lead with property data: square footage, roof age, lot size, ownership, and more. Prioritize accounts with real building insights."/>
+  <meta name="twitter:image" content="https://lotusleads.ai/images/dashboard-overview.png"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  <!-- @seo -->
+</head>
+<body class="font-[Inter] bg-white text-gray-900 antialiased">
+<!-- NAV_START -->
+
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 bg-white transition-shadow duration-300" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <span class="text-xl font-bold text-gray-900 tracking-tight">LotusLeads</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center gap-8">
+        <!-- Product Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">
+            Product
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+            <a href="/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
+            <a href="/icp.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
+            <a href="/property-intelligence.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
+            <a href="/lead-management.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
+            <a href="/campaigns.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
+            <a href="/competitive-intel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
+            <a href="/analytics.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+          </div>
+        </div>
+        <a href="/pricing.html" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Pricing</a>
+        <a href="/about.html" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
+      </div>
+
+      <!-- Right: Login + CTA + Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="/login" class="hidden lg:inline-block text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Login</a>
+        <a href="/signup" class="hidden lg:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 shadow-sm transition-all">Start Free Trial</a>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
+    <div class="px-4 py-4 space-y-2">
+      <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Product</p>
+      <a href="/features.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
+      <a href="/icp.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
+      <a href="/property-intelligence.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
+      <a href="/lead-management.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
+      <a href="/campaigns.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
+      <a href="/competitive-intel.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
+      <a href="/analytics.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/pricing.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Pricing</a>
+      <a href="/about.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/login" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Login</a>
+      <a href="/signup" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Start Free Trial</a>
+    </div>
+  </div>
+</nav>
+<!-- Spacer for fixed nav -->
+<div class="h-16"></div>
+<script>
+  document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+</script>
+<script>
+  (function(){
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 10){ nav.classList.add('shadow-md'); }
+      else { nav.classList.remove('shadow-md'); }
+    });
+  })();
+</script>
+
+<!-- NAV_END -->
+<main>
+
+  <!-- Hero -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="inline-block px-4 py-1.5 rounded-full text-sm font-semibold text-white mb-6" style="background:#E64B8B;">Property Intelligence</span>
+        <h1 class="text-4xl lg:text-6xl font-900 leading-tight mb-6">Know the property before the first call.</h1>
+        <p class="text-lg lg:text-xl text-gray-600 leading-relaxed">AI analyzes satellite imagery, street view, and Google Maps interior photos to assess every property. Industry-specific metrics — solar gets kW and ROI, landscaping gets turf and zones.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+          <img src="images/lead-bi.png" alt="3-stage intelligence: Geo, Property, Service Mapping" class="w-full h-auto">
+          <div class="p-6">
+            <p class="text-sm font-medium text-gray-500">3-stage intelligence: Geo &rarr; Property &rarr; Service Mapping</p>
+          </div>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+          <img src="images/lead-property.png" alt="Satellite imagery with property analysis" class="w-full h-auto">
+          <div class="p-6">
+            <p class="text-sm font-medium text-gray-500">Satellite imagery with property analysis</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Capability Cards -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-16">What you can do</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Satellite Tiles</h3>
+          <p class="text-gray-600 leading-relaxed">Multi-zone coverage for large properties. AI stitches multiple satellite tiles together to analyze entire commercial complexes, not just a single viewport.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Street View</h3>
+          <p class="text-gray-600 leading-relaxed">Building exterior assessment from Google Street View. AI evaluates building condition, signage, parking, and accessibility without leaving your desk.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Interior Photos</h3>
+          <p class="text-gray-600 leading-relaxed">Google Maps business photos analyzed by AI. Understand interior layout, equipment, fixtures, and condition — all from publicly available imagery.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Viewport Sizing</h3>
+          <p class="text-gray-600 leading-relaxed">Measured acreage from Google geocoding. Get accurate property size estimates so you can quote confidently before the site visit.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Industry Metrics</h3>
+          <p class="text-gray-600 leading-relaxed">Solar: kW capacity, kWh generation, savings estimates. HVAC: tonnage requirements. Landscaping: turf area, zones. Metrics tailored to your industry.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:#E64B8B;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Opportunity Score</h3>
+          <p class="text-gray-600 leading-relaxed">A-D grade with dollar estimates. AI evaluates property condition, size, and service fit to rank opportunities by revenue potential and close probability.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- More Features -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-16">More Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <a href="icp.html" class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#E64B8B] transition-colors">
+          <h3 class="font-bold mb-2">AI ICP & Prospecting</h3>
+          <p class="text-sm text-gray-500">Natural language ICP builder with AI fit scoring.</p>
+        </a>
+        <a href="lead-management.html" class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#E64B8B] transition-colors">
+          <h3 class="font-bold mb-2">Lead Management</h3>
+          <p class="text-sm text-gray-500">Your entire pipeline in one place with enriched contacts.</p>
+        </a>
+        <a href="campaigns.html" class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#E64B8B] transition-colors">
+          <h3 class="font-bold mb-2">Campaign Outreach</h3>
+          <p class="text-sm text-gray-500">AI-generated personalized email sequences.</p>
+        </a>
+        <a href="competitive-intel.html" class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#E64B8B] transition-colors">
+          <h3 class="font-bold mb-2">Competitive Intelligence</h3>
+          <p class="text-sm text-gray-500">Real competitor data with vulnerability analysis.</p>
+        </a>
+        <a href="analytics.html" class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#E64B8B] transition-colors">
+          <h3 class="font-bold mb-2">Analytics & Dashboard</h3>
+          <p class="text-sm text-gray-500">Real-time pipeline metrics and AI scoring.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24" style="background:#E64B8B;">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">Ready to try Property Intelligence?</h2>
+      <p class="text-lg text-pink-100 mb-10 max-w-2xl mx-auto">AI-powered property analysis gives you the edge before the first conversation.</p>
+      <a href="#" class="inline-block px-8 py-4 bg-white text-[#E64B8B] font-bold rounded-xl text-lg hover:bg-gray-100 transition-colors">Start Free Trial</a>
+    </div>
+  </section>
+
+</main>
+<!-- FOOTER_START -->
+
+<footer class="bg-[#111827] text-gray-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+
+      <!-- Col 1: Brand -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <span class="text-lg font-bold text-white tracking-tight">LotusLeads</span>
+        </a>
+        <p class="text-sm leading-relaxed text-gray-400">AI-powered sales intelligence for B2B service companies.</p>
+      </div>
+
+      <!-- Col 2: Product -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/features.html" class="hover:text-white transition-colors">How It Works</a></li>
+          <li><a href="/icp.html" class="hover:text-white transition-colors">AI ICP Builder</a></li>
+          <li><a href="/property-intelligence.html" class="hover:text-white transition-colors">Property Intelligence</a></li>
+          <li><a href="/campaigns.html" class="hover:text-white transition-colors">Campaign Outreach</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Solutions -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Solutions</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/lead-management.html" class="hover:text-white transition-colors">Lead Management</a></li>
+          <li><a href="/competitive-intel.html" class="hover:text-white transition-colors">Competitive Intel</a></li>
+          <li><a href="/analytics.html" class="hover:text-white transition-colors">Analytics</a></li>
+          <li><a href="/#autopilot" class="hover:text-white transition-colors">Auto-Pilot</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Company -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/about.html" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/pricing.html" class="hover:text-white transition-colors">Pricing</a></li>
+          <li><a href="/login" class="hover:text-white transition-colors">Login</a></li>
+          <li><a href="/signup" class="hover:text-white transition-colors">Start Free Trial</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+      <span>&copy; 2026 LotusLeads. All rights reserved.</span>
+      <span>Built by <a href="https://nirvanaconsultingcompany.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Nirvana Consulting</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- FOOTER_END -->
+</body>
+</html>
