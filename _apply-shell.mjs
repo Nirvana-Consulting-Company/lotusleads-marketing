@@ -262,12 +262,12 @@ function buildSeoBlock(pageName, meta) {
   <meta name="twitter:image" content="${ogImage}"/>
 
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-56EC8T5DJ2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-56EC8T5DJ2');
   </script>`;
 
   // Schema.org LD+JSON for index.html only
