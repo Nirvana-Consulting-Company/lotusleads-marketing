@@ -36,17 +36,17 @@ const SHARED_NAV = `
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="absolute left-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
-            <a href="/features.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
-            <a href="/icp.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
-            <a href="/property-intelligence.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
-            <a href="/lead-management.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
-            <a href="/campaigns.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
-            <a href="/competitive-intel.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
-            <a href="/analytics.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+            <a href="/features" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
+            <a href="/icp" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
+            <a href="/property-intelligence" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
+            <a href="/lead-management" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
+            <a href="/campaigns" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
+            <a href="/competitive-intel" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
+            <a href="/analytics" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
           </div>
         </div>
-        <a href="/pricing.html" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Pricing</a>
-        <a href="/about.html" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
+        <a href="/pricing" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Pricing</a>
+        <a href="/about" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
       </div>
 
       <!-- Right: Login + CTA + Hamburger -->
@@ -64,16 +64,16 @@ const SHARED_NAV = `
   <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
     <div class="px-4 py-4 space-y-2">
       <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Product</p>
-      <a href="/features.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
-      <a href="/icp.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
-      <a href="/property-intelligence.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
-      <a href="/lead-management.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
-      <a href="/campaigns.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
-      <a href="/competitive-intel.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
-      <a href="/analytics.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+      <a href="/features" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
+      <a href="/icp" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
+      <a href="/property-intelligence" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
+      <a href="/lead-management" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
+      <a href="/campaigns" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
+      <a href="/competitive-intel" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
+      <a href="/analytics" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
       <hr class="my-2 border-gray-100"/>
-      <a href="/pricing.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Pricing</a>
-      <a href="/about.html" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
+      <a href="/pricing" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Pricing</a>
+      <a href="/about" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
       <hr class="my-2 border-gray-100"/>
       <a href="/login" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Login</a>
       <a href="/signup" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Start Free Trial</a>
@@ -119,10 +119,10 @@ const SHARED_FOOTER = `
       <div>
         <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="/features.html" class="hover:text-white transition-colors">How It Works</a></li>
-          <li><a href="/icp.html" class="hover:text-white transition-colors">AI ICP Builder</a></li>
-          <li><a href="/property-intelligence.html" class="hover:text-white transition-colors">Property Intelligence</a></li>
-          <li><a href="/campaigns.html" class="hover:text-white transition-colors">Campaign Outreach</a></li>
+          <li><a href="/features" class="hover:text-white transition-colors">How It Works</a></li>
+          <li><a href="/icp" class="hover:text-white transition-colors">AI ICP Builder</a></li>
+          <li><a href="/property-intelligence" class="hover:text-white transition-colors">Property Intelligence</a></li>
+          <li><a href="/campaigns" class="hover:text-white transition-colors">Campaign Outreach</a></li>
         </ul>
       </div>
 
@@ -130,9 +130,9 @@ const SHARED_FOOTER = `
       <div>
         <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Solutions</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="/lead-management.html" class="hover:text-white transition-colors">Lead Management</a></li>
-          <li><a href="/competitive-intel.html" class="hover:text-white transition-colors">Competitive Intel</a></li>
-          <li><a href="/analytics.html" class="hover:text-white transition-colors">Analytics</a></li>
+          <li><a href="/lead-management" class="hover:text-white transition-colors">Lead Management</a></li>
+          <li><a href="/competitive-intel" class="hover:text-white transition-colors">Competitive Intel</a></li>
+          <li><a href="/analytics" class="hover:text-white transition-colors">Analytics</a></li>
           <li><a href="/#autopilot" class="hover:text-white transition-colors">Auto-Pilot</a></li>
         </ul>
       </div>
@@ -141,8 +141,8 @@ const SHARED_FOOTER = `
       <div>
         <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="/about.html" class="hover:text-white transition-colors">About</a></li>
-          <li><a href="/pricing.html" class="hover:text-white transition-colors">Pricing</a></li>
+          <li><a href="/about" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/pricing" class="hover:text-white transition-colors">Pricing</a></li>
           <li><a href="/login" class="hover:text-white transition-colors">Login</a></li>
           <li><a href="/signup" class="hover:text-white transition-colors">Start Free Trial</a></li>
         </ul>
@@ -172,47 +172,47 @@ const PAGE_META = {
   'features.html': {
     title: 'Platform Features | LotusLeads',
     description: 'Explore LotusLeads\u2019 full feature set: AI ICP builder, property intelligence, lead management, campaign outreach, competitive intel, and analytics.',
-    canonical: '/features.html',
+    canonical: '/features',
   },
   'pricing.html': {
     title: 'Pricing Plans | LotusLeads',
     description: 'Simple, transparent pricing for AI-powered sales intelligence. Choose the plan that fits your team and start closing more commercial accounts.',
-    canonical: '/pricing.html',
+    canonical: '/pricing',
   },
   'about.html': {
     title: 'About LotusLeads | Our Mission & Team',
     description: 'Learn how LotusLeads is helping B2B service companies win more commercial accounts with AI-driven sales intelligence and property data.',
-    canonical: '/about.html',
+    canonical: '/about',
   },
   'icp.html': {
     title: 'AI ICP & Prospecting | LotusLeads',
     description: 'Build your ideal customer profile with AI. Automatically discover and rank prospects that match your best-fit commercial accounts.',
-    canonical: '/icp.html',
+    canonical: '/icp',
   },
   'property-intelligence.html': {
     title: 'Property Intelligence | LotusLeads',
     description: 'Enrich every lead with property data: square footage, roof age, lot size, ownership, and more. Prioritize accounts with real building insights.',
-    canonical: '/property-intelligence.html',
+    canonical: '/property-intelligence',
   },
   'lead-management.html': {
     title: 'Lead Management | LotusLeads',
     description: 'Organize, score, and track every commercial lead in one place. AI-powered pipeline management built for field-service sales teams.',
-    canonical: '/lead-management.html',
+    canonical: '/lead-management',
   },
   'campaigns.html': {
     title: 'Campaign Outreach | LotusLeads',
     description: 'Launch personalized email and multi-channel campaigns at scale. Automate follow-ups and track engagement across your pipeline.',
-    canonical: '/campaigns.html',
+    canonical: '/campaigns',
   },
   'competitive-intel.html': {
     title: 'Competitive Intel | LotusLeads',
     description: 'See which competitors serve your target properties. Win more bids with data-driven competitive positioning and market insights.',
-    canonical: '/competitive-intel.html',
+    canonical: '/competitive-intel',
   },
   'analytics.html': {
     title: 'Analytics & Reporting | LotusLeads',
     description: 'Real-time dashboards for pipeline health, win rates, territory coverage, and team performance. Make data-driven sales decisions.',
-    canonical: '/analytics.html',
+    canonical: '/analytics',
   },
 };
 
@@ -313,7 +313,7 @@ function generateSitemap(htmlFiles) {
     const loc =
       name === 'index.html'
         ? BASE_URL + '/'
-        : BASE_URL + '/' + name;
+        : BASE_URL + '/' + name.replace('.html', '');
     const priority = name === 'index.html' ? '1.0' : '0.8';
     return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <priority>${priority}</priority>\n  </url>`;
   });
