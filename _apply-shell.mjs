@@ -242,6 +242,9 @@ function buildSeoBlock(pageName, meta) {
   <title>${meta.title}</title>
   <meta name="description" content="${meta.description}"/>
   <link rel="canonical" href="${fullUrl}"/>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/images/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="${meta.title}"/>
