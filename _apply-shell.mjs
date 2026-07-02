@@ -23,7 +23,7 @@ const SHARED_NAV = `
 
       <!-- Logo -->
       <a href="/" class="shrink-0">
-        <img src="/images/logo.png" alt="LotusLeads" class="h-10">
+        <img src="/images/logo.png" alt="LotusLeads" class="h-12">
       </a>
 
       <!-- Desktop Links -->
@@ -108,7 +108,7 @@ const SHARED_FOOTER = `
       <!-- Col 1: Brand -->
       <div class="col-span-2 md:col-span-1">
         <a href="/" class="mb-4 inline-block">
-          <img src="/images/logo.png" alt="LotusLeads" class="h-10 brightness-0 invert">
+          <img src="/images/logo.png" alt="LotusLeads" class="h-12 brightness-0 invert">
         </a>
         <p class="text-sm leading-relaxed text-gray-400">AI-powered sales intelligence for B2B service companies.</p>
       </div>
