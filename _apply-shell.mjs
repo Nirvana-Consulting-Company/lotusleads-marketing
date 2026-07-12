@@ -45,6 +45,26 @@ const SHARED_NAV = `
             <a href="/analytics" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
           </div>
         </div>
+        <!-- Industries Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">
+            Industries
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 max-h-80 overflow-y-auto">
+            <a href="/industries" class="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-pink-50 hover:text-pink-600">All Industries</a>
+            <hr class="my-1 border-gray-100"/>
+            <a href="/industries/solar" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Solar</a>
+            <a href="/industries/landscaping" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Landscaping</a>
+            <a href="/industries/hvac" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">HVAC</a>
+            <a href="/industries/roofing" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Roofing</a>
+            <a href="/industries/security" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Security</a>
+            <a href="/industries/plumbing" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Plumbing</a>
+            <a href="/industries/electrical" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Electrical</a>
+            <a href="/industries/cleaning" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Commercial Cleaning</a>
+          </div>
+        </div>
+        <a href="/blog" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Blog</a>
         <a href="/pricing" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Pricing</a>
         <a href="/about" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
       </div>
@@ -74,6 +94,17 @@ const SHARED_NAV = `
       <hr class="my-2 border-gray-100"/>
       <a href="/pricing" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Pricing</a>
       <a href="/about" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
+      <hr class="my-2 border-gray-100"/>
+      <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Industries</p>
+      <a href="/industries" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Industries</a>
+      <a href="/industries/solar" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Solar</a>
+      <a href="/industries/landscaping" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Landscaping</a>
+      <a href="/industries/hvac" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">HVAC</a>
+      <a href="/industries/roofing" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Roofing</a>
+      <a href="/industries/security" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Security</a>
+      <a href="/industries/cleaning" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Commercial Cleaning</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/blog" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Blog</a>
       <hr class="my-2 border-gray-100"/>
       <a href="/login" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Login</a>
       <a href="/signup" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Start Free Trial</a>
@@ -126,14 +157,15 @@ const SHARED_FOOTER = `
         </ul>
       </div>
 
-      <!-- Col 3: Solutions -->
+      <!-- Col 3: Industries -->
       <div>
-        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Solutions</h4>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Industries</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="/lead-management" class="hover:text-white transition-colors">Lead Management</a></li>
-          <li><a href="/competitive-intel" class="hover:text-white transition-colors">Competitive Intel</a></li>
-          <li><a href="/analytics" class="hover:text-white transition-colors">Analytics</a></li>
-          <li><a href="/#autopilot" class="hover:text-white transition-colors">Auto-Pilot</a></li>
+          <li><a href="/industries/solar" class="hover:text-white transition-colors">Solar</a></li>
+          <li><a href="/industries/landscaping" class="hover:text-white transition-colors">Landscaping</a></li>
+          <li><a href="/industries/hvac" class="hover:text-white transition-colors">HVAC</a></li>
+          <li><a href="/industries/roofing" class="hover:text-white transition-colors">Roofing</a></li>
+          <li><a href="/industries" class="hover:text-white transition-colors">All Industries &rarr;</a></li>
         </ul>
       </div>
 
@@ -145,6 +177,7 @@ const SHARED_FOOTER = `
           <li><a href="/pricing" class="hover:text-white transition-colors">Pricing</a></li>
           <li><a href="/login" class="hover:text-white transition-colors">Login</a></li>
           <li><a href="/signup" class="hover:text-white transition-colors">Start Free Trial</a></li>
+          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
         </ul>
       </div>
     </div>
@@ -335,16 +368,66 @@ Sitemap: ${BASE_URL}/sitemap.xml
 }
 
 // ---------------------------------------------------------------------------
+// HELPERS: recursive HTML file discovery
+// ---------------------------------------------------------------------------
+function findHtmlFiles(dir) {
+  let results = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory() && !entry.name.startsWith('_') && !entry.name.startsWith('.') && entry.name !== 'node_modules') {
+      results = results.concat(findHtmlFiles(full));
+    } else if (entry.isFile() && entry.name.endsWith('.html')) {
+      results.push(full);
+    }
+  }
+  return results;
+}
+
+function fileToCanonical(filePath) {
+  let rel = path.relative(ROOT, filePath).replace(/\\/g, '/');
+  if (rel === 'index.html') return '/';
+  if (rel.endsWith('/index.html')) return '/' + rel.replace('/index.html', '');
+  return '/' + rel.replace('.html', '');
+}
+
+function autoMeta(filePath) {
+  const html = fs.readFileSync(filePath, 'utf-8');
+  const titleMatch = html.match(/<title>([^<]+)<\/title>/);
+  const descMatch = html.match(/<meta\s+name="description"\s+content="([^"]+)"/);
+  const title = titleMatch ? titleMatch[1] : 'LotusLeads';
+  const description = descMatch ? descMatch[1] : '';
+  return { title, description, canonical: fileToCanonical(filePath) };
+}
+
+/** Generate sitemap.xml from the list of HTML files (supports subdirectories). */
+function generateSitemapAll(htmlFiles) {
+  const urls = htmlFiles.map((file) => {
+    const stat = fs.statSync(file);
+    const lastmod = stat.mtime.toISOString().split('T')[0];
+    const canonical = fileToCanonical(file);
+    const loc = BASE_URL + (canonical === '/' ? '/' : canonical);
+    let priority = '0.5';
+    if (canonical === '/') priority = '1.0';
+    else if (!canonical.includes('/industries/') && !canonical.includes('/blog/')) priority = '0.8';
+    else if (canonical.match(/^\/industries\/[^/]+$/) || canonical === '/industries' || canonical === '/blog') priority = '0.7';
+    else priority = '0.5';
+    return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <priority>${priority}</priority>\n  </url>`;
+  });
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.join('\n')}
+</urlset>
+`;
+}
+
+// ---------------------------------------------------------------------------
 // MAIN
 // ---------------------------------------------------------------------------
 function main() {
   console.log('[apply-shell] Starting build...');
 
-  // Collect all .html files in root directory
-  const htmlFiles = fs
-    .readdirSync(ROOT)
-    .filter((f) => f.endsWith('.html'))
-    .map((f) => path.join(ROOT, f));
+  const htmlFiles = findHtmlFiles(ROOT);
 
   if (htmlFiles.length === 0) {
     console.log('[apply-shell] No .html files found. Nothing to do.');
@@ -355,6 +438,7 @@ function main() {
 
   for (const filePath of htmlFiles) {
     const pageName = path.basename(filePath);
+    const relPath = path.relative(ROOT, filePath).replace(/\\/g, '/');
     let html = fs.readFileSync(filePath, 'utf-8');
     let changed = false;
 
@@ -372,36 +456,29 @@ function main() {
 
     // 3. Inject SEO block
     if (html.includes('<!-- @seo -->')) {
-      const meta = PAGE_META[pageName];
-      if (meta) {
-        const seoBlock = buildSeoBlock(pageName, meta);
-        // Replace between first and second <!-- @seo --> markers
-        const parts = html.split('<!-- @seo -->');
-        if (parts.length >= 3) {
-          // Markers exist in pairs: parts[0] + marker + seo + marker + parts[2]
-          html = parts[0] + '<!-- @seo -->' + seoBlock + '\n  <!-- @seo -->' + parts.slice(2).join('<!-- @seo -->');
-          changed = true;
-        } else if (parts.length === 2) {
-          // Only one marker -- insert after it (and add closing marker)
-          html = parts[0] + '<!-- @seo -->' + seoBlock + '\n  <!-- @seo -->' + parts[1];
-          changed = true;
-        }
-      } else {
-        console.log(`  [warn] No PAGE_META entry for ${pageName}, skipping SEO.`);
+      const meta = PAGE_META[pageName] || autoMeta(filePath);
+      const seoBlock = buildSeoBlock(pageName, meta);
+      const parts = html.split('<!-- @seo -->');
+      if (parts.length >= 3) {
+        html = parts[0] + '<!-- @seo -->' + seoBlock + '\n  <!-- @seo -->' + parts.slice(2).join('<!-- @seo -->');
+        changed = true;
+      } else if (parts.length === 2) {
+        html = parts[0] + '<!-- @seo -->' + seoBlock + '\n  <!-- @seo -->' + parts[1];
+        changed = true;
       }
     }
 
     if (changed) {
       fs.writeFileSync(filePath, html, 'utf-8');
-      console.log(`  [ok] ${pageName}`);
+      console.log(`  [ok] ${relPath}`);
     } else {
-      console.log(`  [skip] ${pageName} (no markers found)`);
+      console.log(`  [skip] ${relPath} (no markers found)`);
     }
   }
 
   // 4. Generate sitemap.xml
   const sitemapPath = path.join(ROOT, 'sitemap.xml');
-  fs.writeFileSync(sitemapPath, generateSitemap(htmlFiles), 'utf-8');
+  fs.writeFileSync(sitemapPath, generateSitemapAll(htmlFiles), 'utf-8');
   console.log(`  [ok] sitemap.xml (${htmlFiles.length} URLs)`);
 
   // 5. Generate robots.txt

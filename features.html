@@ -71,6 +71,26 @@
             <a href="/analytics" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
           </div>
         </div>
+        <!-- Industries Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">
+            Industries
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 max-h-80 overflow-y-auto">
+            <a href="/industries" class="block px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-pink-50 hover:text-pink-600">All Industries</a>
+            <hr class="my-1 border-gray-100"/>
+            <a href="/industries/solar" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Solar</a>
+            <a href="/industries/landscaping" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Landscaping</a>
+            <a href="/industries/hvac" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">HVAC</a>
+            <a href="/industries/roofing" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Roofing</a>
+            <a href="/industries/security" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Security</a>
+            <a href="/industries/plumbing" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Plumbing</a>
+            <a href="/industries/electrical" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Electrical</a>
+            <a href="/industries/cleaning" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Commercial Cleaning</a>
+          </div>
+        </div>
+        <a href="/blog" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Blog</a>
         <a href="/pricing" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Pricing</a>
         <a href="/about" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
       </div>
@@ -100,6 +120,17 @@
       <hr class="my-2 border-gray-100"/>
       <a href="/pricing" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Pricing</a>
       <a href="/about" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
+      <hr class="my-2 border-gray-100"/>
+      <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Industries</p>
+      <a href="/industries" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Industries</a>
+      <a href="/industries/solar" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Solar</a>
+      <a href="/industries/landscaping" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Landscaping</a>
+      <a href="/industries/hvac" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">HVAC</a>
+      <a href="/industries/roofing" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Roofing</a>
+      <a href="/industries/security" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Security</a>
+      <a href="/industries/cleaning" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Commercial Cleaning</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/blog" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Blog</a>
       <hr class="my-2 border-gray-100"/>
       <a href="/login" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Login</a>
       <a href="/signup" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Start Free Trial</a>
@@ -597,14 +628,15 @@
         </ul>
       </div>
 
-      <!-- Col 3: Solutions -->
+      <!-- Col 3: Industries -->
       <div>
-        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Solutions</h4>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Industries</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="/lead-management" class="hover:text-white transition-colors">Lead Management</a></li>
-          <li><a href="/competitive-intel" class="hover:text-white transition-colors">Competitive Intel</a></li>
-          <li><a href="/analytics" class="hover:text-white transition-colors">Analytics</a></li>
-          <li><a href="/#autopilot" class="hover:text-white transition-colors">Auto-Pilot</a></li>
+          <li><a href="/industries/solar" class="hover:text-white transition-colors">Solar</a></li>
+          <li><a href="/industries/landscaping" class="hover:text-white transition-colors">Landscaping</a></li>
+          <li><a href="/industries/hvac" class="hover:text-white transition-colors">HVAC</a></li>
+          <li><a href="/industries/roofing" class="hover:text-white transition-colors">Roofing</a></li>
+          <li><a href="/industries" class="hover:text-white transition-colors">All Industries &rarr;</a></li>
         </ul>
       </div>
 
@@ -616,6 +648,7 @@
           <li><a href="/pricing" class="hover:text-white transition-colors">Pricing</a></li>
           <li><a href="/login" class="hover:text-white transition-colors">Login</a></li>
           <li><a href="/signup" class="hover:text-white transition-colors">Start Free Trial</a></li>
+          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
         </ul>
       </div>
     </div>
