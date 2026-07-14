@@ -706,6 +706,15 @@ ${ind.features.map(f => `        <div class="bg-white rounded-2xl border border-
     </div>
   </section>
 
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50 border-y border-blue-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">Property Managers</p>
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-4">Need ${ind.name.toLowerCase()} services for your property?</h2>
+      <p class="text-base text-gray-500 mb-8">Get free, no-obligation quotes from top-rated commercial ${ind.name.toLowerCase()} contractors in your area. Tell us about your property — we'll match you with 2–4 vetted providers.</p>
+      <a href="/request-quotes?service=${ind.slug}" class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 hover:shadow-xl transition-all">Request Free Quotes <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+    </div>
+  </section>
+
   <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
     <div class="max-w-5xl mx-auto">
       <p class="text-xs font-bold text-[#E64B8B] uppercase tracking-widest text-center mb-4">Available In</p>
@@ -805,6 +814,15 @@ function generateCityPage(ind, city) {
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50 border-y border-blue-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">Property Managers in ${city.name}</p>
+      <h2 class="text-2xl font-black text-gray-900 mb-4">Need ${ind.name.toLowerCase()} services in ${city.name}?</h2>
+      <p class="text-base text-gray-500 mb-8">Get free quotes from vetted ${ind.name.toLowerCase()} contractors serving the ${city.name} metro area. No obligation.</p>
+      <a href="/request-quotes?service=${ind.slug}" class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 hover:shadow-xl transition-all">Request Free Quotes <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
     </div>
   </section>
 

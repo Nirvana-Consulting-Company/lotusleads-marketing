@@ -73,6 +73,7 @@ const SHARED_NAV = `
         <a href="/blog" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Blog</a>
         <a href="/pricing" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Pricing</a>
         <a href="/about" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
+        <a href="/request-quotes" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Request Quotes</a>
       </div>
 
       <!-- Right: Login + CTA + Hamburger -->
@@ -112,6 +113,7 @@ const SHARED_NAV = `
       <hr class="my-2 border-gray-100"/>
       <a href="/blog" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Blog</a>
       <hr class="my-2 border-gray-100"/>
+      <a href="/request-quotes" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-blue-600">Request Quotes</a>
       <a href="/login" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Login</a>
       <a href="/signup" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Start Free Trial</a>
     </div>
@@ -306,6 +308,11 @@ const PAGE_META = {
     title: 'Analytics & Reporting | LotusLeads',
     description: 'Real-time dashboards for pipeline health, win rates, territory coverage, and team performance. Make data-driven sales decisions.',
     canonical: '/analytics',
+  },
+  'request-quotes.html': {
+    title: 'Request Free Quotes from Commercial Service Providers | LotusLeads',
+    description: 'Get free, no-obligation quotes from vetted commercial field service companies in your area. Landscaping, HVAC, solar, roofing, cleaning, and more.',
+    canonical: '/request-quotes',
   },
 };
 
