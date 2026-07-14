@@ -226,6 +226,8 @@ const SHARED_FOOTER = `
           <li><a href="/industries/solar/denver" class="hover:text-white transition-colors">Denver</a></li>
           <li><a href="/industries/solar/seattle" class="hover:text-white transition-colors">Seattle</a></li>
           <li><a href="/industries/solar/austin" class="hover:text-white transition-colors">Austin</a></li>
+          <li><a href="/industries/solar/new-york-city" class="hover:text-white transition-colors">New York City</a></li>
+          <li><a href="/industries/solar/boston" class="hover:text-white transition-colors">Boston</a></li>
         </ul>
       </div>
 
@@ -323,6 +325,16 @@ const PAGE_META = {
     title: 'Request Free Quotes from Commercial Service Providers | LotusLeads',
     description: 'Get free, no-obligation quotes from vetted commercial field service companies in your area. Landscaping, HVAC, solar, roofing, cleaning, and more.',
     canonical: '/request-quotes',
+  },
+  'for-property-managers.html': {
+    title: 'Find Commercial Service Contractors | LotusLeads for Property Managers',
+    description: 'Get free quotes from vetted commercial contractors — landscaping, HVAC, solar, roofing, cleaning, and more. LotusLeads matches property managers with top-rated service providers.',
+    canonical: '/for-property-managers',
+  },
+  'playbook.html': {
+    title: 'Free Download: The Commercial Prospecting Playbook | LotusLeads',
+    description: 'Download the free guide used by top field service companies to find, qualify, and win commercial property contracts. 30+ pages of strategies, templates, and frameworks.',
+    canonical: '/playbook',
   },
 };
 
