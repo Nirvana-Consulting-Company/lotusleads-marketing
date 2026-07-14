@@ -614,6 +614,126 @@ const BLOG_ARTICLES = [
 ];
 
 // ============================================================================
+// DATA: COMPARISONS
+// ============================================================================
+const COMPARISONS = [
+  {
+    slug: 'lotusleads-vs-thumbtack',
+    competitor: 'Thumbtack',
+    competitorDesc: 'General marketplace connecting homeowners with local service pros.',
+    verdict: 'LotusLeads is purpose-built for commercial B2B field service sales. Thumbtack serves residential consumers.',
+    rows: [
+      { feature: 'Target Market', lotus: 'Commercial B2B properties', comp: 'Residential consumers' },
+      { feature: 'Property Intelligence', lotus: 'Satellite imagery, lot size, roof area, building data', comp: 'None — address only' },
+      { feature: 'Lead Source', lotus: 'AI prospecting + inbound marketplace', comp: 'Consumer-initiated requests' },
+      { feature: 'Decision-Maker Data', lotus: 'Apollo-enriched contacts (title, email, phone)', comp: 'Homeowner contact only' },
+      { feature: 'Outreach Automation', lotus: 'AI-written multi-step email sequences', comp: 'Manual messaging' },
+      { feature: 'Contract Value', lotus: '$10K–$500K+ commercial contracts', comp: '$200–$5K residential jobs' },
+      { feature: 'Competitive Intel', lotus: 'See who services each property', comp: 'No competitor data' },
+      { feature: 'Pricing Model', lotus: 'Flat monthly SaaS fee', comp: 'Pay-per-lead (credits)' },
+    ],
+  },
+  {
+    slug: 'lotusleads-vs-angi',
+    competitor: 'Angi (Angie\'s List)',
+    competitorDesc: 'Consumer home services marketplace with reviews and booking.',
+    verdict: 'Angi focuses on residential homeowner requests. LotusLeads gives commercial contractors AI-powered outbound prospecting and property intelligence.',
+    rows: [
+      { feature: 'Target Market', lotus: 'Commercial B2B properties', comp: 'Residential homeowners' },
+      { feature: 'Property Intelligence', lotus: 'Satellite analysis, building data, lot measurements', comp: 'None' },
+      { feature: 'Lead Generation', lotus: 'AI outbound + inbound quotes marketplace', comp: 'Consumer-initiated requests' },
+      { feature: 'Contact Enrichment', lotus: 'Decision-maker title, email, phone via Apollo', comp: 'Homeowner contact only' },
+      { feature: 'Outreach', lotus: 'Automated personalized email campaigns', comp: 'Manual responses to inquiries' },
+      { feature: 'Contract Value', lotus: '$10K–$500K+ commercial contracts', comp: '$100–$10K residential projects' },
+      { feature: 'ICP Targeting', lotus: 'AI ideal customer profile builder', comp: 'Category-based matching' },
+      { feature: 'Pricing', lotus: 'Flat monthly fee, unlimited outreach', comp: 'Pay-per-lead or annual advertising fee' },
+    ],
+  },
+  {
+    slug: 'lotusleads-vs-servicetitan',
+    competitor: 'ServiceTitan',
+    competitorDesc: 'Operations and CRM platform for residential home service companies.',
+    verdict: 'ServiceTitan is a world-class operations platform for residential service businesses. LotusLeads is a sales intelligence tool for commercial prospecting — they complement each other.',
+    rows: [
+      { feature: 'Primary Function', lotus: 'Sales intelligence & lead generation', comp: 'Field operations & dispatching' },
+      { feature: 'Target Market', lotus: 'Commercial B2B properties', comp: 'Residential homeowners' },
+      { feature: 'Property Intelligence', lotus: 'Satellite imagery & building analysis', comp: 'Customer address records' },
+      { feature: 'AI Prospecting', lotus: 'Automatic ICP matching & lead discovery', comp: 'No outbound prospecting' },
+      { feature: 'Outreach Automation', lotus: 'Multi-step AI email campaigns', comp: 'Marketing automation (add-on)' },
+      { feature: 'Dispatching & Scheduling', lotus: 'Not included — sales-focused', comp: 'Best-in-class field dispatch' },
+      { feature: 'Invoicing & Payments', lotus: 'Not included', comp: 'Full invoicing suite' },
+      { feature: 'Best For', lotus: 'Commercial sales teams needing pipeline', comp: 'Residential ops teams needing efficiency' },
+    ],
+  },
+  {
+    slug: 'lotusleads-vs-jobber',
+    competitor: 'Jobber',
+    competitorDesc: 'Field service management software for small service businesses.',
+    verdict: 'Jobber manages existing work (scheduling, quoting, invoicing). LotusLeads finds new work (prospecting, analysis, outreach). Use both for a complete sales-to-ops workflow.',
+    rows: [
+      { feature: 'Primary Function', lotus: 'Lead generation & sales intelligence', comp: 'Job management & scheduling' },
+      { feature: 'Target Market', lotus: 'Commercial B2B properties', comp: 'Residential & small commercial' },
+      { feature: 'Property Intelligence', lotus: 'Satellite analysis, measurements, scoring', comp: 'Customer address book' },
+      { feature: 'Prospecting', lotus: 'AI-powered outbound lead discovery', comp: 'No prospecting tools' },
+      { feature: 'Outreach', lotus: 'Automated personalized email campaigns', comp: 'Manual email/SMS to existing clients' },
+      { feature: 'Quoting', lotus: 'Property-data-informed quotes', comp: 'Full quoting & approval workflow' },
+      { feature: 'Scheduling', lotus: 'Not included', comp: 'Drag-and-drop crew scheduling' },
+      { feature: 'Best For', lotus: 'Growing commercial pipeline', comp: 'Managing existing job workflow' },
+    ],
+  },
+  {
+    slug: 'lotusleads-vs-housecall-pro',
+    competitor: 'Housecall Pro',
+    competitorDesc: 'All-in-one home service software for scheduling, dispatching, and payments.',
+    verdict: 'Housecall Pro streamlines residential operations. LotusLeads powers commercial sales. Different problems, different tools — they integrate well together.',
+    rows: [
+      { feature: 'Primary Function', lotus: 'Commercial sales intelligence', comp: 'Home service operations' },
+      { feature: 'Market Focus', lotus: 'Large commercial properties', comp: 'Residential homeowners' },
+      { feature: 'Property Data', lotus: 'Satellite imagery, building analysis, lot data', comp: 'Customer address only' },
+      { feature: 'Lead Generation', lotus: 'AI prospecting + inbound marketplace', comp: 'No outbound prospecting' },
+      { feature: 'Outreach', lotus: 'AI-written multi-step email campaigns', comp: 'Automated review requests' },
+      { feature: 'Dispatching', lotus: 'Not included', comp: 'GPS tracking & dispatching' },
+      { feature: 'Payments', lotus: 'Not included', comp: 'In-field payment processing' },
+      { feature: 'Best For', lotus: 'Commercial revenue growth', comp: 'Residential ops efficiency' },
+    ],
+  },
+  {
+    slug: 'lotusleads-vs-buildzoom',
+    competitor: 'BuildZoom',
+    competitorDesc: 'Construction marketplace matching property owners with licensed contractors.',
+    verdict: 'BuildZoom focuses on construction projects with permit data. LotusLeads serves recurring commercial services (landscaping, HVAC, cleaning) with AI-powered prospecting and property intelligence.',
+    rows: [
+      { feature: 'Focus', lotus: 'Recurring commercial field services', comp: 'Construction & renovation projects' },
+      { feature: 'Property Intelligence', lotus: 'Satellite analysis, building data, competitor mapping', comp: 'Permit & licensing data' },
+      { feature: 'Lead Source', lotus: 'AI outbound + inbound marketplace', comp: 'Project-based inbound leads' },
+      { feature: 'Outreach', lotus: 'Automated personalized campaigns', comp: 'Bid on posted projects' },
+      { feature: 'Industries', lotus: '12 field service verticals', comp: 'General construction' },
+      { feature: 'Decision-Maker Data', lotus: 'Enriched contacts with Apollo', comp: 'Project owner contact only' },
+      { feature: 'Pricing', lotus: 'Flat monthly SaaS', comp: 'Commission on matched projects' },
+      { feature: 'Best For', lotus: 'Commercial service companies', comp: 'Licensed general contractors' },
+    ],
+  },
+];
+
+// ============================================================================
+// DATA: CONTRACTORS
+// ============================================================================
+const CONTRACTORS = [
+  { slug: 'greenedge-landscaping', name: 'GreenEdge Landscaping', industry: 'Landscaping', city: 'Chicago', state: 'IL', rating: 4.9, reviews: 127, since: 2012, employees: '25–50', services: ['Commercial Landscaping', 'Snow Removal', 'Irrigation', 'Hardscaping'], description: 'Full-service commercial landscaping company serving the greater Chicago metro. Specializing in office parks, retail centers, and HOA communities with year-round maintenance programs.', certs: ['NALP Certified', 'Licensed & Insured', 'OSHA Compliant'] },
+  { slug: 'summit-solar-solutions', name: 'Summit Solar Solutions', industry: 'Solar', city: 'Phoenix', state: 'AZ', rating: 4.8, reviews: 94, since: 2015, employees: '15–30', services: ['Commercial Solar Installation', 'Solar Panel Maintenance', 'Energy Audits', 'Battery Storage'], description: 'Commercial solar installer serving Arizona businesses. NABCEP-certified team designing and installing systems for warehouses, office buildings, and retail properties.', certs: ['NABCEP Certified', 'ROC Licensed', 'Tesla Powerwall Certified'] },
+  { slug: 'arctic-air-hvac', name: 'Arctic Air HVAC', industry: 'HVAC', city: 'Dallas', state: 'TX', rating: 4.7, reviews: 203, since: 2008, employees: '50–100', services: ['Commercial HVAC Installation', 'Preventive Maintenance', 'Rooftop Units', 'Building Automation'], description: 'Leading commercial HVAC contractor in the DFW metroplex. Specializing in rooftop units, chiller systems, and building automation for office, retail, and industrial properties.', certs: ['NATE Certified', 'LEED Accredited', 'EPA 608 Universal'] },
+  { slug: 'ironclad-roofing', name: 'Ironclad Roofing', industry: 'Roofing', city: 'Atlanta', state: 'GA', rating: 4.8, reviews: 156, since: 2010, employees: '30–60', services: ['Commercial Roof Replacement', 'TPO & EPDM Systems', 'Roof Inspections', 'Emergency Repairs'], description: 'Commercial roofing contractor serving the Southeast. Experts in flat roof systems including TPO, EPDM, and modified bitumen for industrial and commercial properties.', certs: ['GAF Master Select', 'Carlisle Authorized', 'OSHA 30 Certified'] },
+  { slug: 'sentinel-security-systems', name: 'Sentinel Security Systems', industry: 'Security', city: 'Houston', state: 'TX', rating: 4.9, reviews: 89, since: 2014, employees: '20–40', services: ['Access Control', 'Video Surveillance', 'Alarm Monitoring', 'Fire Detection'], description: 'Commercial security integrator serving Houston and Southeast Texas. Custom security solutions for office buildings, warehouses, retail, and healthcare facilities.', certs: ['ESA Member', 'UL Listed', 'State Licensed (B14455)'] },
+  { slug: 'pristine-commercial-cleaning', name: 'Pristine Commercial Cleaning', industry: 'Commercial Cleaning', city: 'Miami', state: 'FL', rating: 4.6, reviews: 178, since: 2011, employees: '100–200', services: ['Nightly Janitorial', 'Floor Care', 'Window Cleaning', 'Post-Construction Cleanup'], description: 'Full-service commercial cleaning company serving South Florida. Providing janitorial, specialty floor care, and facility maintenance for Class A office buildings, medical facilities, and retail.', certs: ['ISSA CIMS Certified', 'GBAC STAR', 'Licensed & Bonded'] },
+  { slug: 'cascade-plumbing-group', name: 'Cascade Plumbing Group', industry: 'Plumbing', city: 'Seattle', state: 'WA', rating: 4.7, reviews: 112, since: 2009, employees: '20–40', services: ['Commercial Plumbing', 'Backflow Prevention', 'Water Heater Systems', 'Tenant Improvements'], description: 'Commercial plumbing contractor serving the Puget Sound region. Specializing in multi-story buildings, restaurant build-outs, and medical facility plumbing systems.', certs: ['Licensed Master Plumber', 'Backflow Assembly Tester', 'Bonded & Insured'] },
+  { slug: 'voltwise-electrical', name: 'VoltWise Electrical', industry: 'Electrical', city: 'Denver', state: 'CO', rating: 4.8, reviews: 67, since: 2016, employees: '15–30', services: ['Commercial Electrical', 'EV Charging Installation', 'LED Retrofits', 'Generator Systems'], description: 'Commercial electrical contractor in Colorado. Specializing in EV charging infrastructure, energy-efficient lighting retrofits, and electrical system upgrades for commercial properties.', certs: ['Licensed Master Electrician', 'EVITP Certified', 'OSHA Compliant'] },
+  { slug: 'guardian-pest-solutions', name: 'Guardian Pest Solutions', industry: 'Pest Control', city: 'Tampa', state: 'FL', rating: 4.9, reviews: 145, since: 2013, employees: '25–50', services: ['Commercial Pest Control', 'Termite Treatment', 'Wildlife Removal', 'Mosquito Management'], description: 'Commercial pest management company serving Central Florida. IPM-based programs for restaurants, healthcare facilities, warehouses, and hospitality properties.', certs: ['QualityPro Certified', 'GreenPro Certified', 'State Licensed (JE282633)'] },
+  { slug: 'northstar-snow-ice', name: 'NorthStar Snow & Ice', industry: 'Snow Removal', city: 'Minneapolis', state: 'MN', rating: 4.7, reviews: 91, since: 2011, employees: '30–60', services: ['Snow Plowing', 'Ice Management', 'Sidewalk Clearing', 'Roof Snow Removal'], description: 'Minnesota’s premier commercial snow and ice management company. Serving retail centers, office campuses, hospitals, and industrial parks with 24/7 response during snow events.', certs: ['SIMA Certified', 'Certified Snow Professional', 'Fully Insured'] },
+  { slug: 'nexgen-it-solutions', name: 'NexGen IT Solutions', industry: 'IT & Networking', city: 'Austin', state: 'TX', rating: 4.8, reviews: 53, since: 2017, employees: '10–25', services: ['Structured Cabling', 'Wireless Networks', 'Server Room Build-Outs', 'VoIP Systems'], description: 'Commercial IT infrastructure company in Austin. Building enterprise-grade networks for tech offices, co-working spaces, medical facilities, and multi-tenant buildings.', certs: ['BICSI Certified', 'Cisco Partner', 'CompTIA Network+'] },
+  { slug: 'premier-property-management', name: 'Premier Property Management', industry: 'Property Management', city: 'Los Angeles', state: 'CA', rating: 4.6, reviews: 134, since: 2007, employees: '50–100', services: ['Property Management', 'Tenant Relations', 'Facility Maintenance', 'Financial Reporting'], description: 'Full-service commercial property management company in Greater Los Angeles. Managing office buildings, retail centers, and industrial properties with an owner-focused approach.', certs: ['CPM Designation', 'AMO Accredited', 'CA RE License'] },
+];
+
+// ============================================================================
 // TEMPLATES
 // ============================================================================
 const HEAD_TEMPLATE = (title, desc) => `<!DOCTYPE html>
@@ -952,6 +1072,249 @@ ${FOOT_TEMPLATE}`;
 }
 
 // ============================================================================
+// COMPARISON PAGE GENERATOR
+// ============================================================================
+function generateComparisonPage(comp) {
+  const title = `LotusLeads vs ${comp.competitor} — Commercial Field Service Comparison`;
+  const desc = `How does LotusLeads compare to ${comp.competitor}? Side-by-side comparison for commercial field service companies looking for the best sales intelligence platform.`;
+
+  return `${HEAD_TEMPLATE(title, desc.slice(0, 160))}
+<main>
+  <article class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="mb-8">
+        <a href="/compare" class="text-sm text-[#E64B8B] font-medium hover:underline">&larr; All Comparisons</a>
+      </div>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-pink-50 text-[#E64B8B] text-xs font-semibold rounded-full">Comparison</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-4">LotusLeads vs ${comp.competitor}</h1>
+      <p class="text-lg text-gray-500 leading-relaxed mb-4">${comp.competitorDesc}</p>
+      <p class="text-base text-gray-600 leading-relaxed mb-12"><strong>Bottom line:</strong> ${comp.verdict}</p>
+
+      <div class="overflow-x-auto -mx-4 sm:mx-0">
+        <table class="w-full text-sm border-collapse min-w-[600px]">
+          <thead>
+            <tr>
+              <th class="text-left py-4 px-4 bg-gray-50 font-semibold text-gray-700 rounded-tl-xl">Feature</th>
+              <th class="text-left py-4 px-4 bg-pink-50 font-bold text-[#E64B8B]">LotusLeads</th>
+              <th class="text-left py-4 px-4 bg-gray-50 font-semibold text-gray-700 rounded-tr-xl">${comp.competitor}</th>
+            </tr>
+          </thead>
+          <tbody>
+${comp.rows.map((r, i) => `            <tr class="${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}">
+              <td class="py-3.5 px-4 font-medium text-gray-900">${r.feature}</td>
+              <td class="py-3.5 px-4 text-gray-700">${r.lotus}</td>
+              <td class="py-3.5 px-4 text-gray-500">${r.comp}</td>
+            </tr>`).join('\n')}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-12 grid sm:grid-cols-2 gap-6">
+        <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl border border-pink-100 p-8">
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Choose LotusLeads if you need:</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>AI-powered commercial property prospecting</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Satellite property intelligence and measurements</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Automated outreach to decision-makers</li>
+            <li class="flex items-start gap-2"><svg class="w-4 h-4 text-[#E64B8B] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>High-value commercial contract pipeline</li>
+          </ul>
+        </div>
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-8">
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Choose ${comp.competitor} if you need:</h3>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span>${comp.rows[0].comp}</li>
+            <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span>${comp.rows[comp.rows.length - 1].comp}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-16 p-8 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl border border-pink-100 text-center">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Ready to try LotusLeads?</h3>
+        <p class="text-sm text-gray-600 mb-6">Start finding and winning commercial accounts with AI-powered property intelligence. Free for 14 days.</p>
+        <a href="https://app.lotusleads.ai/auth" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-xl hover:shadow-lg transition-all">Start Free Trial</a>
+      </div>
+    </div>
+  </article>
+</main>
+${FOOT_TEMPLATE}`;
+}
+
+// ============================================================================
+// COMPARISON INDEX PAGE
+// ============================================================================
+function generateComparisonIndex() {
+  const title = 'Compare LotusLeads — Side-by-Side Platform Comparisons';
+  const desc = 'See how LotusLeads compares to Thumbtack, Angi, ServiceTitan, Jobber, and other platforms for commercial field service sales.';
+
+  return `${HEAD_TEMPLATE(title, desc)}
+<main>
+  <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">How LotusLeads Compares</h1>
+      <p class="text-lg text-gray-500 max-w-2xl mx-auto">See how LotusLeads stacks up against other platforms for commercial field service sales intelligence.</p>
+    </div>
+  </section>
+
+  <section class="pb-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto space-y-6">
+${COMPARISONS.map(c => `      <a href="/compare/${c.slug}" class="group flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg hover:border-pink-200 transition-all">
+        <div class="flex-1">
+          <h2 class="text-lg font-bold text-gray-900 group-hover:text-[#E64B8B] transition-colors mb-1">LotusLeads vs ${c.competitor}</h2>
+          <p class="text-sm text-gray-500">${c.competitorDesc}</p>
+        </div>
+        <svg class="w-5 h-5 text-gray-400 group-hover:text-[#E64B8B] transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>`).join('\n')}
+    </div>
+  </section>
+</main>
+${FOOT_TEMPLATE}`;
+}
+
+// ============================================================================
+// CONTRACTOR PROFILE GENERATOR
+// ============================================================================
+function generateContractorProfile(contractor) {
+  const title = `${contractor.name} — ${contractor.industry} in ${contractor.city}, ${contractor.state} | LotusLeads`;
+  const desc = `${contractor.name} is a ${contractor.industry.toLowerCase()} contractor in ${contractor.city}, ${contractor.state}. ${contractor.rating} stars, ${contractor.reviews} reviews. Get a free quote.`;
+  const stars = '★'.repeat(Math.floor(contractor.rating)) + (contractor.rating % 1 >= 0.5 ? '½' : '');
+
+  return `${HEAD_TEMPLATE(title, desc.slice(0, 160))}
+<main>
+  <section class="pt-32 pb-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <a href="/pros" class="text-sm text-[#E64B8B] font-medium hover:underline">&larr; All Contractors</a>
+    </div>
+  </section>
+
+  <section class="pb-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+        <div class="h-3 bg-gradient-to-r from-pink-500 to-rose-600"></div>
+        <div class="p-8 lg:p-10">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+            <div>
+              <h1 class="text-2xl md:text-3xl font-black text-gray-900 mb-2">${contractor.name}</h1>
+              <p class="text-base text-gray-500">${contractor.industry} &middot; ${contractor.city}, ${contractor.state}</p>
+            </div>
+            <div class="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2">
+              <span class="text-amber-500 text-lg">${stars}</span>
+              <span class="text-sm font-bold text-gray-900">${contractor.rating}</span>
+              <span class="text-xs text-gray-500">(${contractor.reviews} reviews)</span>
+            </div>
+          </div>
+
+          <p class="text-base text-gray-600 leading-relaxed mb-8">${contractor.description}</p>
+
+          <div class="grid sm:grid-cols-3 gap-6 mb-8">
+            <div class="bg-gray-50 rounded-xl p-4 text-center">
+              <p class="text-xs text-gray-500 mb-1">In Business Since</p>
+              <p class="text-lg font-bold text-gray-900">${contractor.since}</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-4 text-center">
+              <p class="text-xs text-gray-500 mb-1">Team Size</p>
+              <p class="text-lg font-bold text-gray-900">${contractor.employees}</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-4 text-center">
+              <p class="text-xs text-gray-500 mb-1">Service Area</p>
+              <p class="text-lg font-bold text-gray-900">${contractor.city} Metro</p>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <h2 class="text-lg font-bold text-gray-900 mb-3">Services</h2>
+            <div class="flex flex-wrap gap-2">
+${contractor.services.map(s => `              <span class="px-3 py-1.5 bg-pink-50 border border-pink-100 text-sm text-gray-700 rounded-full">${s}</span>`).join('\n')}
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <h2 class="text-lg font-bold text-gray-900 mb-3">Certifications</h2>
+            <div class="flex flex-wrap gap-2">
+${contractor.certs.map(c => `              <span class="px-3 py-1.5 bg-green-50 border border-green-100 text-sm text-green-700 rounded-full">${c}</span>`).join('\n')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50 border-y border-blue-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-black text-gray-900 mb-4">Need a quote from ${contractor.name}?</h2>
+      <p class="text-base text-gray-500 mb-8">Request a free, no-obligation quote for your commercial property. We'll connect you with ${contractor.name} and other top-rated contractors in ${contractor.city}.</p>
+      <a href="/request-quotes?service=${INDUSTRIES.find(i => i.name === contractor.industry)?.slug || ''}" class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 hover:shadow-xl transition-all">Request Free Quote</a>
+    </div>
+  </section>
+
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#E64B8B] to-[#b8326e]">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-black text-white mb-4">Are you a contractor? Get listed on LotusLeads.</h2>
+      <p class="text-lg text-pink-100 mb-8">Join the marketplace and receive qualified quote requests from property managers in your area.</p>
+      <a href="https://app.lotusleads.ai/auth" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#E64B8B] font-bold rounded-xl hover:shadow-xl transition-all">Start Free Trial</a>
+    </div>
+  </section>
+</main>
+${FOOT_TEMPLATE}`;
+}
+
+// ============================================================================
+// CONTRACTOR INDEX PAGE
+// ============================================================================
+function generateContractorIndex() {
+  const title = 'Find Commercial Contractors | LotusLeads Marketplace';
+  const desc = 'Browse vetted commercial service contractors — landscaping, HVAC, solar, roofing, cleaning, and more. Read reviews and request free quotes.';
+
+  return `${HEAD_TEMPLATE(title, desc)}
+<main>
+  <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-3xl md:text-5xl font-black text-gray-900 mb-4">Find Commercial Contractors</h1>
+      <p class="text-lg text-gray-500 max-w-2xl mx-auto">Browse vetted contractors for your commercial property. Read reviews, compare services, and request free quotes.</p>
+    </div>
+  </section>
+
+  <section class="pb-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+${CONTRACTORS.map(c => `      <a href="/pros/${c.slug}" class="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-lg hover:border-pink-200 transition-all">
+        <div class="h-2 bg-gradient-to-r from-pink-500 to-rose-600"></div>
+        <div class="p-6">
+          <h2 class="text-base font-bold text-gray-900 group-hover:text-[#E64B8B] transition-colors mb-1">${c.name}</h2>
+          <p class="text-sm text-gray-500 mb-3">${c.industry} &middot; ${c.city}, ${c.state}</p>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-amber-500 text-sm">${'★'.repeat(Math.floor(c.rating))}</span>
+            <span class="text-sm font-semibold text-gray-700">${c.rating}</span>
+            <span class="text-xs text-gray-400">(${c.reviews})</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+${c.services.slice(0, 3).map(s => `            <span class="px-2 py-0.5 bg-gray-100 text-xs text-gray-600 rounded-full">${s}</span>`).join('\n')}
+          </div>
+        </div>
+      </a>`).join('\n')}
+    </div>
+  </section>
+
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50 border-y border-blue-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-black text-gray-900 mb-4">Need a specific service?</h2>
+      <p class="text-base text-gray-500 mb-8">Tell us about your property and what you need. We'll match you with 2–4 vetted contractors — free.</p>
+      <a href="/request-quotes" class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 hover:shadow-xl transition-all">Request Free Quotes</a>
+    </div>
+  </section>
+
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#E64B8B] to-[#b8326e]">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-black text-white mb-4">Are you a contractor?</h2>
+      <p class="text-lg text-pink-100 mb-8">Get listed on LotusLeads and receive qualified leads from property managers in your area.</p>
+      <a href="https://app.lotusleads.ai/auth" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#E64B8B] font-bold rounded-xl hover:shadow-xl transition-all">Start Free Trial</a>
+    </div>
+  </section>
+</main>
+${FOOT_TEMPLATE}`;
+}
+
+// ============================================================================
 // MAIN: GENERATE ALL PAGES
 // ============================================================================
 function main() {
@@ -990,11 +1353,33 @@ function main() {
     count++;
   }
 
+  // Comparison pages
+  const compareDir = path.join(ROOT, 'compare');
+  if (!fs.existsSync(compareDir)) fs.mkdirSync(compareDir, { recursive: true });
+  fs.writeFileSync(path.join(compareDir, 'index.html'), generateComparisonIndex(), 'utf-8');
+  count++;
+  for (const comp of COMPARISONS) {
+    fs.writeFileSync(path.join(compareDir, `${comp.slug}.html`), generateComparisonPage(comp), 'utf-8');
+    count++;
+  }
+
+  // Contractor profile pages
+  const prosDir = path.join(ROOT, 'pros');
+  if (!fs.existsSync(prosDir)) fs.mkdirSync(prosDir, { recursive: true });
+  fs.writeFileSync(path.join(prosDir, 'index.html'), generateContractorIndex(), 'utf-8');
+  count++;
+  for (const contractor of CONTRACTORS) {
+    fs.writeFileSync(path.join(prosDir, `${contractor.slug}.html`), generateContractorProfile(contractor), 'utf-8');
+    count++;
+  }
+
   console.log(`[generate] Done — ${count} pages generated.`);
   console.log(`  Industries: ${INDUSTRIES.length} pages`);
   console.log(`  City pages: ${INDUSTRIES.length * CITIES.length} pages`);
   console.log(`  Blog articles: ${BLOG_ARTICLES.length} pages`);
-  console.log(`  Index pages: 2 (industries, blog)`);
+  console.log(`  Comparisons: ${COMPARISONS.length} pages`);
+  console.log(`  Contractor profiles: ${CONTRACTORS.length} pages`);
+  console.log(`  Index pages: 4 (industries, blog, compare, pros)`);
 }
 
 main();
