@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#E64B8B">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+  <!-- @seo -->
+  <title>Free Property Cost Estimator | LotusLeads</title>
+  <meta name="description" content="Get instant AI-powered cost estimates for your property project. Search your address, mark service areas on satellite imagery, and compare Pro vs DIY options."/>
+  <link rel="canonical" href="https://lotusleads.ai/estimate"/>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/images/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Property Cost Estimator | LotusLeads"/>
+  <meta property="og:description" content="Get instant AI-powered cost estimates for your property project. Search your address, mark service areas on satellite imagery, and compare Pro vs DIY options."/>
+  <meta property="og:url" content="https://lotusleads.ai/estimate"/>
+  <meta property="og:image" content="https://lotusleads.ai/images/dashboard-overview.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="LotusLeads"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Free Property Cost Estimator | LotusLeads"/>
+  <meta name="twitter:description" content="Get instant AI-powered cost estimates for your property project. Search your address, mark service areas on satellite imagery, and compare Pro vs DIY options."/>
+  <meta name="twitter:image" content="https://lotusleads.ai/images/dashboard-overview.png"/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-56EC8T5DJ2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-56EC8T5DJ2');
+  </script>
+  <!-- @seo -->
+  <style>
+    .svc-btn.active { border-color: #E64B8B; background: #FDF2F8; color: #BE185D; font-weight: 600; }
+    .step-hidden { display: none; }
+    #map-container { min-height: 400px; height: 50vh; max-height: 600px; }
+    @media (max-width: 640px) { #map-container { min-height: 300px; height: 40vh; } }
+    .mode-btn.active { background: #E64B8B; color: white; }
+    .phase-card { transition: max-height 0.3s ease; overflow: hidden; }
+    .phase-card.collapsed { max-height: 0; }
+    .spin { animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .gate-blur { filter: blur(6px); pointer-events: none; user-select: none; transition: filter 0.4s ease; }
+    .gate-unlocked { filter: none; pointer-events: auto; user-select: auto; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeIn 0.4s ease-out; }
+    .compare-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .compare-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  </style>
+</head>
+<body class="font-[Inter] bg-white text-gray-900 antialiased">
+<!-- NAV_START -->
+
+<nav id="main-nav" class="fixed top-0 inset-x-0 z-50 bg-white transition-shadow duration-300" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <img src="/images/logo-icon.png" alt="LotusLeads" class="h-10">
+        <span class="text-2xl font-bold bg-gradient-to-r from-pink-500 to-rose-600 bg-clip-text text-transparent">Lotus</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center gap-8">
+        <!-- Product Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">
+            Product
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+            <a href="/features" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
+            <a href="/icp" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
+            <a href="/property-intelligence" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
+            <a href="/lead-management" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
+            <a href="/campaigns" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
+            <a href="/competitive-intel" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
+            <a href="/analytics" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+          </div>
+        </div>
+        <!-- Industries Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">
+            Industries
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-2 w-[480px] bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-4">
+            <div class="grid grid-cols-2 gap-x-4 gap-y-1">
+              <a href="/industries/solar" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Solar</a>
+              <a href="/industries/plumbing" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Plumbing</a>
+              <a href="/industries/landscaping" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Landscaping</a>
+              <a href="/industries/electrical" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Electrical</a>
+              <a href="/industries/hvac" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">HVAC</a>
+              <a href="/industries/pest-control" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Pest Control</a>
+              <a href="/industries/roofing" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Roofing</a>
+              <a href="/industries/snow-removal" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Snow Removal</a>
+              <a href="/industries/security" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Security</a>
+              <a href="/industries/cleaning" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Commercial Cleaning</a>
+              <a href="/industries/property-management" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Property Management</a>
+              <a href="/industries/networking" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">IT &amp; Networking</a>
+            </div>
+            <hr class="my-2 border-gray-100"/>
+            <a href="/industries" class="block px-3 py-2 text-sm font-semibold text-pink-600 hover:bg-pink-50 rounded-md">View All Industries &rarr;</a>
+          </div>
+        </div>
+        <a href="/blog" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Blog</a>
+        <a href="/compare" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Compare</a>
+        <a href="/pricing" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Pricing</a>
+        <a href="/about" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
+        <a href="/pros" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Find Contractors</a>
+        <a href="/request-quotes" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Request Quotes</a>
+        <a href="/estimate" class="text-sm font-semibold text-pink-600 hover:text-pink-700 transition-colors">Cost Estimator</a>
+      </div>
+
+      <!-- Right: Login + CTA + Hamburger -->
+      <div class="flex items-center gap-4">
+        <a href="https://app.lotusleads.ai" class="hidden lg:inline-block text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Login</a>
+        <a href="https://app.lotusleads.ai/auth" class="hidden lg:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 shadow-sm transition-all">Start Free Trial</a>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
+    <div class="px-4 py-4 space-y-2">
+      <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Product</p>
+      <a href="/features" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
+      <a href="/icp" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI ICP &amp; Prospecting</a>
+      <a href="/property-intelligence" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
+      <a href="/lead-management" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
+      <a href="/campaigns" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
+      <a href="/competitive-intel" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Competitive Intel</a>
+      <a href="/analytics" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/pricing" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Pricing</a>
+      <a href="/about" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
+      <hr class="my-2 border-gray-100"/>
+      <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Industries</p>
+      <a href="/industries" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Industries</a>
+      <a href="/industries/solar" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Solar</a>
+      <a href="/industries/landscaping" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Landscaping</a>
+      <a href="/industries/hvac" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">HVAC</a>
+      <a href="/industries/roofing" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Roofing</a>
+      <a href="/industries/security" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Security</a>
+      <a href="/industries/cleaning" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Commercial Cleaning</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/blog" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Blog</a>
+      <a href="/compare" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Compare</a>
+      <hr class="my-2 border-gray-100"/>
+      <a href="/pros" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-blue-600">Find Contractors</a>
+      <a href="/request-quotes" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-blue-600">Request Quotes</a>
+      <a href="/estimate" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Cost Estimator</a>
+      <a href="https://app.lotusleads.ai" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Login</a>
+      <a href="https://app.lotusleads.ai/auth" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Start Free Trial</a>
+    </div>
+  </div>
+</nav>
+<!-- Spacer for fixed nav -->
+<div class="h-16"></div>
+<script>
+  document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+</script>
+<script>
+  (function(){
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 10){ nav.classList.add('shadow-md'); }
+      else { nav.classList.remove('shadow-md'); }
+    });
+  })();
+</script>
+
+<!-- NAV_END -->
+
+<!-- Hero -->
+<section class="pt-28 pb-10 text-center px-4">
+  <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-50 text-pink-600 text-xs font-bold uppercase tracking-widest mb-4">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+    AI-Powered Estimates
+  </div>
+  <h1 class="text-3xl sm:text-4xl font-black text-gray-900 mb-3">Property Cost Estimator</h1>
+  <p class="text-lg text-gray-500 max-w-xl mx-auto">Search your property, mark the service area on satellite imagery, and get an instant AI-powered cost estimate with Pro vs DIY options.</p>
+</section>
+
+<!-- Main Wizard -->
+<section class="pb-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-3xl mx-auto">
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 sm:p-8">
+
+      <!-- Step Dots -->
+      <div class="flex items-center justify-center gap-2 mb-6">
+        <div id="dot-1" class="w-3 h-3 rounded-full bg-pink-500 transition-colors"></div>
+        <div class="w-8 h-px bg-gray-300"></div>
+        <div id="dot-2" class="w-3 h-3 rounded-full bg-gray-300 transition-colors"></div>
+        <div class="w-8 h-px bg-gray-300"></div>
+        <div id="dot-3" class="w-3 h-3 rounded-full bg-gray-300 transition-colors"></div>
+        <div class="w-8 h-px bg-gray-300"></div>
+        <div id="dot-4" class="w-3 h-3 rounded-full bg-gray-300 transition-colors"></div>
+      </div>
+
+      <!-- ═══ STEP 1: Service & Address ═══ -->
+      <div id="step-1" class="space-y-6">
+        <div>
+          <p class="text-xs font-bold text-pink-600 uppercase tracking-widest mb-1">Step 1 of 4</p>
+          <h2 class="text-xl font-bold text-gray-900">What service do you need?</h2>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Service Type <span class="text-red-500">*</span></label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="service-grid">
+            <button type="button" data-service="landscaping" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Landscaping</button>
+            <button type="button" data-service="hvac" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">HVAC</button>
+            <button type="button" data-service="solar" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Solar</button>
+            <button type="button" data-service="roofing" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Roofing</button>
+            <button type="button" data-service="security" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Security</button>
+            <button type="button" data-service="plumbing" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Plumbing</button>
+            <button type="button" data-service="electrical" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Electrical</button>
+            <button type="button" data-service="cleaning" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Cleaning</button>
+            <button type="button" data-service="pest-control" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Pest Control</button>
+            <button type="button" data-service="snow-removal" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Snow Removal</button>
+            <button type="button" data-service="painting" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Painting</button>
+            <button type="button" data-service="paving" class="svc-btn px-3 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-pink-300 hover:bg-pink-50 transition-all text-left">Paving</button>
+          </div>
+          <p id="svc-error" class="text-xs text-red-500 mt-1 hidden">Please select a service.</p>
+
+          <!-- Ad Zone: Step 1 — category-targeted partner -->
+          <div id="step1-ads" class="hidden mt-3"></div>
+        </div>
+
+        <div>
+          <label for="address-input" class="block text-sm font-semibold text-gray-700 mb-2">Property Address <span class="text-red-500">*</span></label>
+          <input type="text" id="address-input" placeholder="123 Main St, Chicago, IL 60601" class="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+          <p id="addr-error" class="text-xs text-red-500 mt-1 hidden">Please enter a property address.</p>
+        </div>
+
+        <div>
+          <label for="prop-type" class="block text-sm font-semibold text-gray-700 mb-2">Property Type</label>
+          <select id="prop-type" class="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white">
+            <option value="">Select type...</option>
+            <option value="office">Office Building</option>
+            <option value="retail">Retail / Shopping Center</option>
+            <option value="industrial">Industrial / Warehouse</option>
+            <option value="medical">Medical / Healthcare</option>
+            <option value="hospitality">Hotel / Hospitality</option>
+            <option value="multifamily">Multi-Family Residential</option>
+            <option value="residential">Single-Family Residential</option>
+            <option value="mixed-use">Mixed Use</option>
+            <option value="government">Government / Municipal</option>
+            <option value="education">Education / Campus</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <button type="button" id="btn-find" class="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          Find My Property
+        </button>
+      </div>
+
+      <!-- ═══ STEP 2: Satellite Map + Drawing ═══ -->
+      <div id="step-2" class="step-hidden space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-xs font-bold text-pink-600 uppercase tracking-widest mb-1">Step 2 of 4</p>
+            <h2 class="text-xl font-bold text-gray-900">Mark the service area</h2>
+          </div>
+          <button type="button" id="btn-back-1" class="text-sm text-gray-500 hover:text-pink-600">&larr; Back</button>
+        </div>
+
+        <p class="text-sm text-gray-500">Use the drawing tools to outline the area you need serviced. Draw one or more shapes on the map.</p>
+
+        <!-- Toolbar -->
+        <div class="flex flex-wrap items-center gap-2 bg-gray-50 rounded-lg p-3">
+          <select id="draw-type" class="text-xs px-3 py-2 rounded-lg border border-gray-200 bg-white focus:ring-2 focus:ring-pink-500"></select>
+          <button type="button" id="btn-rect" class="mode-btn active text-xs px-3 py-2 rounded-lg border border-gray-200 bg-white hover:bg-gray-100">&#9634; Rectangle</button>
+          <button type="button" id="btn-poly" class="mode-btn text-xs px-3 py-2 rounded-lg border border-gray-200 bg-white hover:bg-gray-100">&#9178; Polygon</button>
+          <button type="button" id="btn-draw" class="text-xs px-4 py-2 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600">Draw</button>
+          <button type="button" id="btn-clear" class="text-xs px-3 py-2 rounded-lg border border-red-200 text-red-600 hover:bg-red-50 ml-auto">Clear All</button>
+        </div>
+
+        <!-- Map -->
+        <div id="map-container" class="rounded-xl overflow-hidden border border-gray-200 bg-gray-100 relative">
+          <div id="map-loading" class="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+            <div class="text-center">
+              <svg class="w-8 h-8 text-pink-500 spin mx-auto mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              <p class="text-sm text-gray-500">Loading satellite view...</p>
+            </div>
+          </div>
+          <div id="map" class="w-full h-full"></div>
+        </div>
+
+        <!-- Measurements List -->
+        <div id="measurements-list" class="space-y-2"></div>
+        <div id="measurements-total" class="hidden text-sm font-semibold text-gray-700 bg-gray-50 rounded-lg p-3"></div>
+
+        <button type="button" id="btn-estimate" disabled class="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          Get AI Estimate
+        </button>
+      </div>
+
+      <!-- ═══ STEP 3: AI Estimate Results ═══ -->
+      <div id="step-3" class="step-hidden space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-xs font-bold text-pink-600 uppercase tracking-widest mb-1">Step 3 of 4</p>
+            <h2 class="text-xl font-bold text-gray-900">Your Estimate</h2>
+          </div>
+          <button type="button" id="btn-back-2" class="text-sm text-gray-500 hover:text-pink-600">&larr; Edit Measurements</button>
+        </div>
+
+        <!-- Loading state -->
+        <div id="estimate-loading" class="py-16 text-center">
+          <svg class="w-10 h-10 text-pink-500 spin mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <p class="text-gray-600 font-semibold">Generating AI estimate...</p>
+          <p class="text-sm text-gray-400 mt-1">Analyzing area, materials, and regional pricing</p>
+        </div>
+
+        <!-- Results (hidden until loaded) -->
+        <div id="estimate-results" class="hidden space-y-6">
+
+          <!-- Cost Summary -->
+          <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-6 border border-pink-100">
+            <p class="text-xs font-bold text-pink-600 uppercase tracking-widest mb-2">Estimated Cost Range</p>
+            <p id="cost-total" class="text-3xl sm:text-4xl font-black text-gray-900 mb-4"></p>
+            <div id="cost-items" class="space-y-2"></div>
+          </div>
+
+          <!-- Teaser: visible before unlock -->
+          <div id="roi-teaser" class="hidden flex items-center gap-4 bg-gradient-to-r from-gray-50 to-gray-100/80 rounded-xl p-4 border border-gray-200 fade-in">
+            <div class="flex-1">
+              <p id="teaser-roi-headline" class="font-bold text-gray-800 text-sm"></p>
+              <p id="teaser-pros-count" class="text-xs text-gray-500 mt-1"></p>
+            </div>
+          </div>
+
+          <!-- Ad Zone: Results top — featured partner banner -->
+          <div id="results-top-ads" class="hidden"></div>
+
+          <!-- Email Gate Section -->
+          <div id="email-gate-section" class="relative">
+            <div id="gate-overlay" class="absolute inset-0 z-20 flex items-start justify-center pt-16 rounded-xl" style="background:rgba(255,255,255,0.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+              <div class="bg-white rounded-2xl shadow-2xl border border-gray-100 p-8 max-w-md mx-4 text-center fade-in">
+                <div class="w-14 h-14 mx-auto bg-gradient-to-br from-pink-100 to-rose-100 rounded-2xl flex items-center justify-center mb-5">
+                  <svg class="w-7 h-7 text-pink-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Unlock Your Full Report</h3>
+                <p class="text-sm text-gray-500 mb-5">Enter your email to access the complete cost breakdown, project strategy, Pro vs DIY analysis, ROI projections, and matched local contractors.</p>
+                <div class="flex gap-2">
+                  <input type="email" id="gate-email" placeholder="you@company.com" class="flex-1 px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" />
+                  <button type="button" id="btn-unlock" class="px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white text-sm font-bold rounded-xl hover:shadow-lg transition-all whitespace-nowrap">Unlock</button>
+                </div>
+                <p id="gate-error" class="text-xs text-red-500 mt-2 hidden">Please enter a valid email address.</p>
+                <p class="text-xs text-gray-400 mt-4">Free instant access &middot; No spam &middot; Unsubscribe anytime</p>
+              </div>
+            </div>
+
+            <!-- Gated Content (blurred until email captured) -->
+            <div id="gated-content" class="gate-blur space-y-6">
+
+          <!-- Strategy & Approach -->
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button type="button" id="toggle-strategy" class="w-full flex items-center justify-between p-5 hover:bg-gray-50 transition-colors text-left">
+              <div>
+                <p class="font-bold text-gray-900">Strategy & Approach</p>
+                <p id="strategy-approach" class="text-sm text-gray-500 mt-1 line-clamp-2"></p>
+              </div>
+              <svg id="strategy-chevron" class="w-5 h-5 text-gray-400 shrink-0 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="strategy-body" class="hidden border-t border-gray-200 p-5 space-y-4">
+              <div>
+                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Project Phases</p>
+                <div id="strategy-phases" class="space-y-2"></div>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Materials</p>
+                <div id="strategy-materials" class="space-y-1"></div>
+              </div>
+              <div class="flex items-center gap-2 bg-blue-50 rounded-lg px-4 py-3">
+                <svg class="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <p class="text-sm text-blue-700"><span class="font-semibold">Timeline:</span> <span id="strategy-timeline"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pro vs DIY -->
+          <div class="grid sm:grid-cols-2 gap-4">
+            <!-- Hire a Pro -->
+            <div class="border-2 border-pink-200 rounded-xl p-5 bg-pink-50/30">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-pink-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                </div>
+                <h3 class="font-bold text-gray-900">Hire a Pro</h3>
+              </div>
+              <p id="pro-cost" class="text-2xl font-black text-pink-600 mb-3"></p>
+              <p class="text-xs font-semibold text-gray-500 uppercase mb-2">Benefits</p>
+              <ul id="pro-benefits" class="space-y-1 text-sm text-gray-600 mb-3"></ul>
+              <div class="flex items-center gap-1.5 text-sm text-gray-500">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span id="pro-timeline"></span>
+              </div>
+            </div>
+            <!-- DIY -->
+            <div class="border-2 border-blue-200 rounded-xl p-5 bg-blue-50/30">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <h3 class="font-bold text-gray-900">Do It Yourself</h3>
+              </div>
+              <p id="diy-cost" class="text-2xl font-black text-blue-600 mb-3"></p>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-xs font-semibold text-gray-500 uppercase">Difficulty:</span>
+                <span id="diy-difficulty" class="text-xs font-bold px-2 py-0.5 rounded-full"></span>
+              </div>
+              <p class="text-xs font-semibold text-gray-500 uppercase mb-2">Tools Needed</p>
+              <ul id="diy-tools" class="space-y-1 text-sm text-gray-600 mb-3"></ul>
+              <p class="text-xs font-semibold text-gray-500 uppercase mb-2">Tips</p>
+              <ul id="diy-tips" class="space-y-1 text-sm text-gray-600 mb-3"></ul>
+              <div class="flex items-center gap-1.5 text-sm text-gray-500">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span id="diy-timeline"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ad Zone: Inline — between Pro/DIY and ROI -->
+          <div id="results-inline-ads" class="hidden"></div>
+
+          <!-- ROI / Payback -->
+          <div id="roi-section" class="hidden border border-gray-200 rounded-xl overflow-hidden">
+            <div id="roi-header" class="flex items-center gap-3 p-5">
+              <div id="roi-icon" class="w-10 h-10 rounded-full flex items-center justify-center shrink-0"></div>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-widest mb-0.5" id="roi-label"></p>
+                <p id="roi-headline" class="font-bold text-gray-900"></p>
+              </div>
+            </div>
+            <div class="border-t border-gray-200 p-5 space-y-3">
+              <div id="roi-metrics" class="grid sm:grid-cols-2 gap-3"></div>
+              <p id="roi-summary" class="text-sm text-gray-600 bg-gray-50 rounded-lg p-3"></p>
+            </div>
+          </div>
+
+          <!-- Matched Pros -->
+          <div id="pros-section" class="hidden">
+            <h3 class="font-bold text-gray-900 mb-3">Local Pros Near You</h3>
+            <div id="pros-grid" class="grid sm:grid-cols-2 gap-3"></div>
+          </div>
+
+            </div><!-- /gated-content -->
+          </div><!-- /email-gate-section -->
+
+          <!-- Post-Unlock Actions -->
+          <div id="unlock-actions" class="hidden space-y-3 fade-in">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <button type="button" id="btn-download-pdf" class="flex items-center justify-center gap-2 py-3 px-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Download PDF Report
+              </button>
+              <button type="button" id="btn-add-service" class="flex items-center justify-center gap-2 py-3 px-4 border-2 border-pink-200 text-pink-600 font-bold rounded-xl hover:bg-pink-50 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                Estimate Another Service
+              </button>
+            </div>
+            <button type="button" id="btn-connect" class="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              Get Connected with Local Pros
+            </button>
+          </div>
+
+          <!-- Ad Zone: Post-unlock — complementary services -->
+          <div id="post-unlock-ads" class="hidden"></div>
+
+          <!-- Comparison Dashboard -->
+          <div id="compare-dashboard" class="hidden space-y-4 fade-in">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                Service Comparison
+              </h3>
+              <span id="compare-count" class="text-xs font-bold text-pink-600 bg-pink-50 px-3 py-1 rounded-full"></span>
+            </div>
+            <div id="compare-grid" class="grid sm:grid-cols-2 gap-3"></div>
+            <div id="compare-totals" class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-6 text-white">
+              <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Combined Investment</p>
+              <p id="compare-total-range" class="text-2xl sm:text-3xl font-black mb-4"></p>
+              <div id="compare-total-breakdown" class="space-y-2"></div>
+            </div>
+            <button type="button" id="btn-quote-all" class="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              Get Quotes for All Services
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ STEP 4: Lead Capture ═══ -->
+      <div id="step-4" class="step-hidden space-y-6">
+        <div>
+          <p class="text-xs font-bold text-pink-600 uppercase tracking-widest mb-1">Step 4 of 4</p>
+          <h2 class="text-xl font-bold text-gray-900">Get Connected</h2>
+          <p class="text-sm text-gray-500 mt-1">Share your details and we'll have a local pro reach out within 24 hours.</p>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label for="contact-name" class="block text-sm font-semibold text-gray-700 mb-2">Your Name <span class="text-red-500">*</span></label>
+            <input type="text" id="contact-name" placeholder="John Smith" class="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+          </div>
+          <div>
+            <label for="contact-email" class="block text-sm font-semibold text-gray-700 mb-2">Email <span class="text-red-500">*</span></label>
+            <input type="email" id="contact-email" placeholder="john@example.com" class="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+          </div>
+          <div>
+            <label for="contact-phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+            <input type="tel" id="contact-phone" placeholder="(555) 123-4567" class="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+          </div>
+        </div>
+
+        <button type="button" id="btn-submit-lead" class="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center justify-center gap-2">
+          Send My Info to Matched Pros
+        </button>
+
+        <!-- Success state -->
+        <div id="lead-success" class="hidden text-center py-8">
+          <div class="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">You're All Set!</h3>
+          <p class="text-gray-500">A local pro will reach out within 24 hours. Check your email for a copy of your estimate.</p>
+        </div>
+      </div>
+
+    </div><!-- end card -->
+  </div>
+</section>
+
+<!-- Trust Signals -->
+<section class="pb-16 px-4">
+  <div class="max-w-3xl mx-auto grid grid-cols-3 gap-4 text-center">
+    <div>
+      <p class="text-2xl font-black text-pink-600">100%</p>
+      <p class="text-xs text-gray-500 font-medium">Free Estimates</p>
+    </div>
+    <div>
+      <p class="text-2xl font-black text-pink-600">AI</p>
+      <p class="text-xs text-gray-500 font-medium">Powered Analysis</p>
+    </div>
+    <div>
+      <p class="text-2xl font-black text-pink-600">24hr</p>
+      <p class="text-xs text-gray-500 font-medium">Pro Response</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER_START -->
+
+<footer class="bg-[#111827] text-gray-300">
+  <!-- CTA Banner -->
+  <div class="border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-white mb-1">Ready to fill your commercial pipeline?</h3>
+          <p class="text-sm text-gray-400">Start finding and winning accounts in minutes. Free 14-day trial.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="https://app.lotusleads.ai/auth" class="px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white text-sm font-bold rounded-lg hover:shadow-lg transition-all">Start Free Trial</a>
+          <a href="/features" class="px-6 py-3 bg-gray-800 text-gray-300 text-sm font-semibold rounded-lg hover:bg-gray-700 hover:text-white transition-all">See How It Works</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer Grid -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+
+      <!-- Col 1: Brand -->
+      <div class="col-span-2 md:col-span-3 lg:col-span-2">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <img src="/images/logo-icon.png" alt="LotusLeads" class="h-10 brightness-0 invert">
+          <span class="text-2xl font-bold text-white">Lotus</span>
+        </a>
+        <p class="text-sm leading-relaxed text-gray-400 mb-4">AI-powered sales intelligence for B2B field service companies. Find commercial properties, analyze them from satellite, and reach decision-makers automatically.</p>
+        <p class="text-xs text-gray-500 mb-5">A product of <a href="https://nirvanaconsultingcompany.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Nirvana Consulting</a></p>
+        <a href="https://www.linkedin.com/showcase/lotusleads-ai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Follow us on LinkedIn
+        </a>
+      </div>
+
+      <!-- Col 2: Product -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/features" class="hover:text-white transition-colors">How It Works</a></li>
+          <li><a href="/icp" class="hover:text-white transition-colors">AI ICP Builder</a></li>
+          <li><a href="/property-intelligence" class="hover:text-white transition-colors">Property Intelligence</a></li>
+          <li><a href="/lead-management" class="hover:text-white transition-colors">Lead Management</a></li>
+          <li><a href="/campaigns" class="hover:text-white transition-colors">Campaign Outreach</a></li>
+          <li><a href="/competitive-intel" class="hover:text-white transition-colors">Competitive Intel</a></li>
+          <li><a href="/analytics" class="hover:text-white transition-colors">Analytics</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Industries -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Industries</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/industries/solar" class="hover:text-white transition-colors">Solar</a></li>
+          <li><a href="/industries/landscaping" class="hover:text-white transition-colors">Landscaping</a></li>
+          <li><a href="/industries/hvac" class="hover:text-white transition-colors">HVAC</a></li>
+          <li><a href="/industries/roofing" class="hover:text-white transition-colors">Roofing</a></li>
+          <li><a href="/industries/security" class="hover:text-white transition-colors">Security</a></li>
+          <li><a href="/industries/plumbing" class="hover:text-white transition-colors">Plumbing</a></li>
+          <li><a href="/industries/electrical" class="hover:text-white transition-colors">Electrical</a></li>
+          <li><a href="/industries/cleaning" class="hover:text-white transition-colors">Commercial Cleaning</a></li>
+          <li><a href="/industries/snow-removal" class="hover:text-white transition-colors">Snow Removal</a></li>
+          <li><a href="/industries/pest-control" class="hover:text-white transition-colors">Pest Control</a></li>
+          <li><a href="/industries" class="text-pink-400 hover:text-pink-300 font-medium transition-colors">All Industries &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Top Cities -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Top Cities</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/industries/solar/chicago" class="hover:text-white transition-colors">Chicago</a></li>
+          <li><a href="/industries/solar/dallas" class="hover:text-white transition-colors">Dallas-Fort Worth</a></li>
+          <li><a href="/industries/solar/houston" class="hover:text-white transition-colors">Houston</a></li>
+          <li><a href="/industries/solar/atlanta" class="hover:text-white transition-colors">Atlanta</a></li>
+          <li><a href="/industries/solar/phoenix" class="hover:text-white transition-colors">Phoenix</a></li>
+          <li><a href="/industries/solar/los-angeles" class="hover:text-white transition-colors">Los Angeles</a></li>
+          <li><a href="/industries/solar/miami" class="hover:text-white transition-colors">Miami</a></li>
+          <li><a href="/industries/solar/denver" class="hover:text-white transition-colors">Denver</a></li>
+          <li><a href="/industries/solar/seattle" class="hover:text-white transition-colors">Seattle</a></li>
+          <li><a href="/industries/solar/austin" class="hover:text-white transition-colors">Austin</a></li>
+          <li><a href="/industries/solar/new-york-city" class="hover:text-white transition-colors">New York City</a></li>
+          <li><a href="/industries/solar/boston" class="hover:text-white transition-colors">Boston</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: Company & Resources -->
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h4>
+        <ul class="space-y-2.5 text-sm mb-6">
+          <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="/pricing" class="hover:text-white transition-colors">Pricing</a></li>
+          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
+          <li><a href="/compare" class="hover:text-white transition-colors">Compare</a></li>
+          <li><a href="https://app.lotusleads.ai" class="hover:text-white transition-colors">Login</a></li>
+          <li><a href="https://app.lotusleads.ai/auth" class="hover:text-white transition-colors">Start Free Trial</a></li>
+        </ul>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Marketplace</h4>
+        <ul class="space-y-2.5 text-sm mb-6">
+          <li><a href="/pros" class="hover:text-white transition-colors">Find Contractors</a></li>
+          <li><a href="/request-quotes" class="hover:text-white transition-colors">Request Quotes</a></li>
+          <li><a href="/estimate" class="hover:text-white transition-colors">Cost Estimator</a></li>
+        </ul>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Resources</h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/blog/how-to-prospect-commercial-properties" class="hover:text-white transition-colors">Prospecting Guide</a></li>
+          <li><a href="/blog/cold-email-templates-field-service" class="hover:text-white transition-colors">Email Templates</a></li>
+          <li><a href="/blog/icp-ideal-customer-profile-field-service" class="hover:text-white transition-colors">ICP Framework</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+      <span>&copy; 2026 LotusLeads. All rights reserved.</span>
+      <span>Built by <a href="https://nirvanaconsultingcompany.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Nirvana Consulting</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- FOOTER_END -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- JavaScript -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  var EDGE_BASE = 'https://avwzoatmlljinuejaqwv.supabase.co/functions/v1/api-estimator';
+  var GMAPS_KEY = '';
+
+  // Fetch Google Maps key from edge function on page load
+  fetch(EDGE_BASE + '/config').then(function(r) { return r.json(); }).then(function(d) {
+    GMAPS_KEY = d.google_maps_key || '';
+  }).catch(function() {});
+
+  // ── State ──
+  var state = {
+    service: '',
+    address: '',
+    propertyType: '',
+    lat: 0, lng: 0,
+    city: '', stateCode: '',
+    measurements: [],
+    estimate: null,
+    matchedPros: [],
+    emailCaptured: false,
+    capturedEmail: '',
+    estimates: [],
+    drawMode: 'rectangle',
+    isDrawing: false,
+    map: null,
+    polygons: new Map(),
+    drawCleanup: null,
+    drawType: 'roof'
+  };
+
+  // ── Industry-specific measurement types (ported from PropertyMeasurementMap.tsx) ──
+  var COMMON_TYPES = [
+    { value: 'roof', label: 'Roof', color: '#FF4444' },
+    { value: 'boundary', label: 'Property Boundary', color: '#4ECDC4' },
+    { value: 'building', label: 'Building Footprint', color: '#3B82F6' },
+    { value: 'parking', label: 'Parking / Hardscape', color: '#95A5A6' },
+    { value: 'other', label: 'Other', color: '#F39C12' }
+  ];
+
+  var INDUSTRY_TYPES = {
+    solar: [
+      { value: 'solar_panel', label: 'Solar Panel Area', color: '#FF8C00' },
+      { value: 'ev_charging', label: 'EV Charging Zone', color: '#7B61FF' },
+      { value: 'shade_zone', label: 'Shade / Obstruction', color: '#6B7280' }
+    ],
+    landscaping: [
+      { value: 'turf', label: 'Turf / Lawn', color: '#45B649' },
+      { value: 'garden_bed', label: 'Garden / Planting Bed', color: '#059669' },
+      { value: 'irrigation', label: 'Irrigation Zone', color: '#06B6D4' },
+      { value: 'tree_canopy', label: 'Tree Canopy', color: '#166534' },
+      { value: 'hardscape', label: 'Hardscape / Patio', color: '#78716C' }
+    ],
+    hvac: [
+      { value: 'hvac_unit', label: 'HVAC Unit Location', color: '#0EA5E9' },
+      { value: 'ductwork', label: 'Ductwork Zone', color: '#6366F1' },
+      { value: 'conditioned_space', label: 'Conditioned Space', color: '#14B8A6' }
+    ],
+    roofing: [
+      { value: 'flat_roof', label: 'Flat Roof Section', color: '#DC2626' },
+      { value: 'pitched_roof', label: 'Pitched Roof Section', color: '#EA580C' },
+      { value: 'damaged_area', label: 'Damaged Area', color: '#F59E0B' },
+      { value: 'gutter', label: 'Gutter Line', color: '#78716C' }
+    ],
+    cleaning: [
+      { value: 'floor_area', label: 'Floor Area', color: '#0891B2' },
+      { value: 'window_area', label: 'Window / Glass', color: '#38BDF8' },
+      { value: 'restroom', label: 'Restroom Zone', color: '#8B5CF6' }
+    ],
+    security: [
+      { value: 'perimeter', label: 'Perimeter Zone', color: '#DC2626' },
+      { value: 'camera_zone', label: 'Camera Coverage', color: '#7C3AED' },
+      { value: 'access_point', label: 'Access Point', color: '#F59E0B' }
+    ],
+    painting: [
+      { value: 'exterior_wall', label: 'Exterior Wall', color: '#F97316' },
+      { value: 'interior_area', label: 'Interior Area', color: '#8B5CF6' },
+      { value: 'trim', label: 'Trim / Detail Work', color: '#14B8A6' }
+    ],
+    paving: [
+      { value: 'asphalt', label: 'Asphalt Area', color: '#374151' },
+      { value: 'concrete', label: 'Concrete Area', color: '#9CA3AF' },
+      { value: 'crack_repair', label: 'Crack / Repair Zone', color: '#EF4444' },
+      { value: 'striping', label: 'Striping / Marking', color: '#F59E0B' }
+    ]
+  };
+
+  function getMeasurementTypes(service) {
+    var svc = (service || '').toLowerCase().replace(/-/g, '');
+    var matched = [];
+    for (var key in INDUSTRY_TYPES) {
+      if (svc.includes(key) || key.includes(svc)) { matched = INDUSTRY_TYPES[key]; break; }
+    }
+    return matched.concat(COMMON_TYPES);
+  }
+
+  function getColor(type) {
+    var types = getMeasurementTypes(state.service);
+    for (var i = 0; i < types.length; i++) {
+      if (types[i].value === type) return types[i].color;
+    }
+    return '#F39C12';
+  }
+
+  function formatArea(sqft) {
+    if (sqft >= 43560) return (sqft / 43560).toFixed(2) + ' acres';
+    return sqft.toLocaleString(undefined, { maximumFractionDigits: 0 }) + ' sq ft';
+  }
+
+  function calcArea(path) {
+    var mvcPath = new google.maps.MVCArray(path);
+    var areaSqm = google.maps.geometry.spherical.computeArea(mvcPath);
+    var perimeterM = google.maps.geometry.spherical.computeLength(path);
+    return {
+      area_sqft: Math.round(areaSqm * 10.764),
+      area_acres: parseFloat((areaSqm / 4047).toFixed(4)),
+      perimeter_ft: Math.round(perimeterM * 3.281)
+    };
+  }
+
+  function genId() { return 'm_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8); }
+
+  // ── DOM helpers ──
+  function $(id) { return document.getElementById(id); }
+  function showStep(n) {
+    for (var i = 1; i <= 4; i++) {
+      var el = $('step-' + i);
+      if (i === n) el.classList.remove('step-hidden');
+      else el.classList.add('step-hidden');
+      var dot = $('dot-' + i);
+      dot.className = 'w-3 h-3 rounded-full transition-colors ' + (i <= n ? 'bg-pink-500' : 'bg-gray-300');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Step 1: Service selection ──
+  document.querySelectorAll('.svc-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.svc-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      state.service = btn.getAttribute('data-service');
+      $('svc-error').classList.add('hidden');
+      fetchAds(state.service, 'results_top', 'step1-ads', 'card', 1);
+    });
+  });
+
+  // ── Find Property ──
+  $('btn-find').addEventListener('click', async function() {
+    var addr = $('address-input').value.trim();
+    if (!state.service) { $('svc-error').classList.remove('hidden'); return; }
+    if (!addr) { $('addr-error').classList.remove('hidden'); return; }
+    $('addr-error').classList.add('hidden');
+
+    state.address = addr;
+    state.propertyType = $('prop-type').value;
+
+    var btn = $('btn-find');
+    btn.disabled = true;
+    btn.innerHTML = '<svg class="w-5 h-5 spin" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg> Finding...';
+
+    try {
+      var res = await fetch(EDGE_BASE + '/geocode', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ address: addr })
+      });
+      var data = await res.json();
+      if (!res.ok || !data.lat) {
+        alert('Could not find that address. Please check and try again.');
+        return;
+      }
+      state.lat = data.lat;
+      state.lng = data.lng;
+      state.city = data.city;
+      state.stateCode = data.state;
+      state.address = data.formatted_address || addr;
+
+      populateDrawTypes();
+      showStep(2);
+      initMap();
+    } catch (err) {
+      alert('Error finding address: ' + err.message);
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg> Find My Property';
+    }
+  });
+
+  // ── Populate draw type dropdown ──
+  function populateDrawTypes() {
+    var sel = $('draw-type');
+    sel.innerHTML = '';
+    var types = getMeasurementTypes(state.service);
+    types.forEach(function(t) {
+      var opt = document.createElement('option');
+      opt.value = t.value;
+      opt.textContent = t.label;
+      sel.appendChild(opt);
+    });
+    state.drawType = types[0].value;
+    sel.addEventListener('change', function() { state.drawType = sel.value; });
+  }
+
+  // ── Initialize Google Maps ──
+  function initMap() {
+    if (state.map) {
+      state.map.setCenter({ lat: state.lat, lng: state.lng });
+      $('map-loading').classList.add('hidden');
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=' + GMAPS_KEY + '&libraries=geometry,places&v=weekly&callback=__initEstimatorMap';
+    script.async = true;
+    script.defer = true;
+
+    window.__initEstimatorMap = function() {
+      var map = new google.maps.Map($('map'), {
+        center: { lat: state.lat, lng: state.lng },
+        zoom: 18, mapTypeId: 'satellite', tilt: 0,
+        maxZoom: 22, minZoom: 14,
+        disableDefaultUI: false, zoomControl: true, mapTypeControl: false,
+        streetViewControl: false, fullscreenControl: false, rotateControl: false,
+        gestureHandling: 'greedy', disableDoubleClickZoom: true
+      });
+
+      new google.maps.Marker({
+        position: { lat: state.lat, lng: state.lng }, map: map,
+        icon: { path: google.maps.SymbolPath.CIRCLE, scale: 5, fillColor: '#E64B8B', fillOpacity: 1, strokeColor: '#fff', strokeWeight: 2 }
+      });
+
+      google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
+        $('map-loading').classList.add('hidden');
+      });
+
+      state.map = map;
+    };
+
+    document.head.appendChild(script);
+  }
+
+  // ── Drawing modes ──
+  $('btn-rect').addEventListener('click', function() {
+    state.drawMode = 'rectangle';
+    $('btn-rect').classList.add('active');
+    $('btn-poly').classList.remove('active');
+    if (state.isDrawing) startDrawing();
+  });
+
+  $('btn-poly').addEventListener('click', function() {
+    state.drawMode = 'polygon';
+    $('btn-poly').classList.add('active');
+    $('btn-rect').classList.remove('active');
+    if (state.isDrawing) startDrawing();
+  });
+
+  $('btn-draw').addEventListener('click', function() {
+    if (state.isDrawing) {
+      stopDrawing();
+    } else {
+      startDrawing();
+    }
+  });
+
+  $('btn-clear').addEventListener('click', function() {
+    if (state.measurements.length === 0) return;
+    if (!confirm('Clear all measurements?')) return;
+    state.polygons.forEach(function(p) { p.setMap(null); });
+    state.polygons.clear();
+    state.measurements = [];
+    renderMeasurements();
+    stopDrawing();
+  });
+
+  function startDrawing() {
+    if (state.drawCleanup) state.drawCleanup();
+    state.isDrawing = true;
+    $('btn-draw').textContent = 'Stop Drawing';
+    $('btn-draw').classList.replace('bg-pink-500', 'bg-red-500');
+    $('btn-draw').classList.replace('hover:bg-pink-600', 'hover:bg-red-600');
+
+    if (state.drawMode === 'rectangle') startRectDraw();
+    else startPolyDraw();
+  }
+
+  function stopDrawing() {
+    if (state.drawCleanup) { state.drawCleanup(); state.drawCleanup = null; }
+    state.isDrawing = false;
+    $('btn-draw').textContent = 'Draw';
+    $('btn-draw').classList.replace('bg-red-500', 'bg-pink-500');
+    $('btn-draw').classList.replace('hover:bg-red-600', 'hover:bg-pink-600');
+    if (state.map) state.map.setOptions({ draggableCursor: null });
+  }
+
+  // ── Rectangle draw (click-and-drag) ──
+  function startRectDraw() {
+    var map = state.map;
+    if (!map) return;
+    map.setOptions({ draggableCursor: 'crosshair', draggable: false });
+
+    var firstCorner = null, previewRect = null, areaInfo = null;
+    var color = getColor(state.drawType);
+    var listeners = [];
+
+    function cleanup() {
+      listeners.forEach(function(l) { google.maps.event.removeListener(l); });
+      if (previewRect) previewRect.setMap(null);
+      if (areaInfo) areaInfo.close();
+      map.setOptions({ draggableCursor: null, draggable: true });
+    }
+
+    function makeRect(a, b) {
+      return [
+        new google.maps.LatLng(a.lat(), a.lng()),
+        new google.maps.LatLng(a.lat(), b.lng()),
+        new google.maps.LatLng(b.lat(), b.lng()),
+        new google.maps.LatLng(b.lat(), a.lng())
+      ];
+    }
+
+    listeners.push(map.addListener('mousedown', function(e) {
+      if (!e.latLng) return;
+      firstCorner = e.latLng;
+      previewRect = new google.maps.Polygon({
+        fillColor: color, fillOpacity: 0.2, strokeColor: color, strokeWeight: 2, strokeOpacity: 0.8, clickable: false, map: map
+      });
+      areaInfo = new google.maps.InfoWindow({ disableAutoPan: true });
+    }));
+
+    listeners.push(map.addListener('mousemove', function(e) {
+      if (!firstCorner || !e.latLng || !previewRect) return;
+      var pts = makeRect(firstCorner, e.latLng);
+      previewRect.setPath(pts);
+      var calc = calcArea(pts);
+      if (areaInfo) {
+        var bounds = new google.maps.LatLngBounds();
+        pts.forEach(function(p) { bounds.extend(p); });
+        areaInfo.setContent('<div style="font-size:13px;font-weight:700;color:' + color + ';padding:2px 8px;text-shadow:0 1px 2px rgba(0,0,0,0.5)">' + formatArea(calc.area_sqft) + '</div>');
+        areaInfo.setPosition(bounds.getCenter());
+        areaInfo.open(map);
+      }
+    }));
+
+    listeners.push(map.addListener('mouseup', function(e) {
+      if (!firstCorner || !e.latLng) return;
+      var pts = makeRect(firstCorner, e.latLng);
+      var calc = calcArea(pts);
+      if (previewRect) previewRect.setMap(null);
+      if (areaInfo) areaInfo.close();
+      previewRect = null; areaInfo = null;
+      if (calc.area_sqft > 10) createMeasurement(pts);
+      firstCorner = null;
+    }));
+
+    state.drawCleanup = cleanup;
+  }
+
+  // ── Polygon draw (click to place points, snap to close) ──
+  function startPolyDraw() {
+    var map = state.map;
+    if (!map) return;
+    map.setOptions({ draggableCursor: 'crosshair' });
+
+    var color = getColor(state.drawType);
+    var points = [], markers = [];
+    var polyline = new google.maps.Polyline({ strokeColor: color, strokeWeight: 2, strokeOpacity: 0.9, map: map });
+    var previewFill = new google.maps.Polygon({ fillColor: color, fillOpacity: 0.15, strokeWeight: 0, clickable: false, map: map });
+    var areaInfo = new google.maps.InfoWindow({ disableAutoPan: true });
+    var listeners = [];
+
+    function cleanup() {
+      listeners.forEach(function(l) { google.maps.event.removeListener(l); });
+      markers.forEach(function(m) { m.setMap(null); });
+      if (polyline) polyline.setMap(null);
+      if (previewFill) previewFill.setMap(null);
+      if (areaInfo) areaInfo.close();
+      map.setOptions({ draggableCursor: null });
+    }
+
+    function finish() {
+      if (points.length < 3) return;
+      cleanup();
+      createMeasurement(points);
+      startPolyDraw();
+      state.isDrawing = true;
+    }
+
+    listeners.push(map.addListener('click', function(e) {
+      if (!e.latLng) return;
+      var pt = e.latLng;
+
+      if (points.length >= 3) {
+        var dist = google.maps.geometry.spherical.computeDistanceBetween(pt, points[0]);
+        if (dist < 20) { finish(); return; }
+      }
+
+      points.push(pt);
+      var isFirst = points.length === 1;
+      var marker = new google.maps.Marker({
+        position: pt, map: map,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: isFirst ? 7 : 4,
+          fillColor: isFirst ? '#fff' : color,
+          fillOpacity: 1,
+          strokeColor: isFirst ? color : '#fff',
+          strokeWeight: isFirst ? 2 : 1
+        }, zIndex: 1000
+      });
+      if (isFirst) marker.addListener('click', function() { if (points.length >= 3) finish(); });
+      markers.push(marker);
+
+      polyline.setPath(points.concat([points[0]]));
+      if (points.length >= 3) {
+        previewFill.setPath(points);
+        var calc = calcArea(points);
+        var bounds = new google.maps.LatLngBounds();
+        points.forEach(function(p) { bounds.extend(p); });
+        areaInfo.setContent('<div style="font-size:13px;font-weight:700;color:' + color + ';padding:2px 8px;text-shadow:0 1px 2px rgba(0,0,0,0.5)">' + formatArea(calc.area_sqft) + '</div>');
+        areaInfo.setPosition(bounds.getCenter());
+        areaInfo.open(map);
+      }
+    }));
+
+    listeners.push(map.addListener('dblclick', function(e) {
+      if (e.stop) e.stop();
+      finish();
+    }));
+
+    state.drawCleanup = cleanup;
+  }
+
+  // ── Rotation helpers ──
+  function getPolygonCenter(polygon) {
+    var path = polygon.getPath().getArray();
+    var latSum = 0, lngSum = 0;
+    path.forEach(function(pt) { latSum += pt.lat(); lngSum += pt.lng(); });
+    return new google.maps.LatLng(latSum / path.length, lngSum / path.length);
+  }
+
+  function rotatePolygon(polygon, angleDeg) {
+    var center = getPolygonCenter(polygon);
+    var rad = angleDeg * Math.PI / 180;
+    var cos = Math.cos(rad), sin = Math.sin(rad);
+    var path = polygon.getPath();
+    var newPath = path.getArray().map(function(pt) {
+      var dLat = pt.lat() - center.lat();
+      var dLng = pt.lng() - center.lng();
+      return new google.maps.LatLng(
+        center.lat() + dLat * cos - dLng * sin,
+        center.lng() + dLat * sin + dLng * cos
+      );
+    });
+    polygon.setPath(newPath);
+  }
+
+  // Selection state for rotation
+  state.selectedId = null;
+
+  function selectMeasurement(id) {
+    // Deselect previous
+    if (state.selectedId && state.polygons.has(state.selectedId)) {
+      var prev = state.polygons.get(state.selectedId);
+      var prevM = state.measurements.find(function(x) { return x.id === state.selectedId; });
+      if (prev && prevM) prev.setOptions({ strokeWeight: 2, fillOpacity: 0.35 });
+    }
+    state.selectedId = (state.selectedId === id) ? null : id;
+    if (state.selectedId && state.polygons.has(state.selectedId)) {
+      var poly = state.polygons.get(state.selectedId);
+      poly.setOptions({ strokeWeight: 4, fillOpacity: 0.5 });
+    }
+    renderMeasurements();
+  }
+
+  function rotateSelected(deg) {
+    if (!state.selectedId) return;
+    var poly = state.polygons.get(state.selectedId);
+    if (!poly) return;
+    rotatePolygon(poly, deg);
+    // Update measurement data
+    var path = poly.getPath().getArray();
+    var coords = path.map(function(pt) { return { lat: pt.lat(), lng: pt.lng() }; });
+    var c = calcArea(path);
+    var idx = state.measurements.findIndex(function(x) { return x.id === state.selectedId; });
+    if (idx >= 0) {
+      state.measurements[idx].coordinates = coords;
+      state.measurements[idx].area_sqft = c.area_sqft;
+      state.measurements[idx].area_acres = c.area_acres;
+      state.measurements[idx].perimeter_ft = c.perimeter_ft;
+    }
+  }
+
+  // ── Create a measurement from drawn polygon points ──
+  function createMeasurement(points) {
+    var map = state.map;
+    if (!map || points.length < 3) return;
+
+    var color = getColor(state.drawType);
+    var polygon = new google.maps.Polygon({
+      paths: points, fillColor: color, fillOpacity: 0.35,
+      strokeColor: color, strokeWeight: 2, editable: true, draggable: true, map: map
+    });
+
+    var coords = points.map(function(pt) { return { lat: pt.lat(), lng: pt.lng() }; });
+    var calc = calcArea(points);
+    var types = getMeasurementTypes(state.service);
+    var typeLabel = 'Area';
+    for (var i = 0; i < types.length; i++) {
+      if (types[i].value === state.drawType) { typeLabel = types[i].label; break; }
+    }
+
+    var m = {
+      id: genId(),
+      label: typeLabel + ' ' + (state.measurements.length + 1),
+      type: state.drawType,
+      color: color,
+      coordinates: coords,
+      area_sqft: calc.area_sqft,
+      area_acres: calc.area_acres,
+      perimeter_ft: calc.perimeter_ft
+    };
+
+    state.polygons.set(m.id, polygon);
+    state.measurements.push(m);
+
+    // Listen for edits
+    var path = polygon.getPath();
+    function recalc() {
+      var newCoords = path.getArray().map(function(pt) { return { lat: pt.lat(), lng: pt.lng() }; });
+      var c = calcArea(path.getArray());
+      var idx = state.measurements.findIndex(function(x) { return x.id === m.id; });
+      if (idx >= 0) {
+        state.measurements[idx].coordinates = newCoords;
+        state.measurements[idx].area_sqft = c.area_sqft;
+        state.measurements[idx].area_acres = c.area_acres;
+        state.measurements[idx].perimeter_ft = c.perimeter_ft;
+        renderMeasurements();
+      }
+    }
+    google.maps.event.addListener(path, 'set_at', recalc);
+    google.maps.event.addListener(path, 'insert_at', recalc);
+    polygon.addListener('dragend', recalc);
+
+    // Click to select for rotation
+    polygon.addListener('click', function() {
+      if (!state.isDrawing) selectMeasurement(m.id);
+    });
+
+    renderMeasurements();
+  }
+
+  // ── Render measurements list ──
+  function renderMeasurements() {
+    var list = $('measurements-list');
+    var total = $('measurements-total');
+    var btn = $('btn-estimate');
+
+    if (state.measurements.length === 0) {
+      list.innerHTML = '';
+      total.classList.add('hidden');
+      btn.disabled = true;
+      return;
+    }
+
+    btn.disabled = false;
+    var html = '';
+    state.measurements.forEach(function(m) {
+      var isSelected = state.selectedId === m.id;
+      var selBorder = isSelected ? 'ring-2 ring-pink-400 bg-pink-50' : 'bg-gray-50';
+      html += '<div class="flex flex-col rounded-lg px-4 py-2.5 cursor-pointer ' + selBorder + '" onclick="window.__selectMeasurement(\'' + m.id + '\')">' +
+        '<div class="flex items-center justify-between">' +
+        '<div class="flex items-center gap-3">' +
+          '<div class="w-3 h-3 rounded-full" style="background:' + m.color + '"></div>' +
+          '<div><p class="text-sm font-semibold text-gray-800">' + m.label + '</p>' +
+          '<p class="text-xs text-gray-500">' + formatArea(m.area_sqft) + ' &middot; ' + m.perimeter_ft.toLocaleString() + ' ft perimeter</p></div>' +
+        '</div>' +
+        '<div class="flex items-center gap-1">' +
+        (isSelected ?
+          '<button type="button" onclick="event.stopPropagation();window.__rotateMeasurement(-5)" class="text-pink-500 hover:text-pink-700 p-1 rounded hover:bg-pink-100" title="Rotate left 5°">' +
+            '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.5 2v6h6M2.66 8A9 9 0 1 1 3.26 15"/></svg>' +
+          '</button>' +
+          '<button type="button" onclick="event.stopPropagation();window.__rotateMeasurement(5)" class="text-pink-500 hover:text-pink-700 p-1 rounded hover:bg-pink-100" title="Rotate right 5°">' +
+            '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.5 2v6h-6M21.34 8A9 9 0 1 0 20.74 15"/></svg>' +
+          '</button>' : '') +
+        '<button type="button" onclick="event.stopPropagation();window.__deleteMeasurement(\'' + m.id + '\')" class="text-red-400 hover:text-red-600 p-1">' +
+          '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>' +
+        '</button></div></div>' +
+        (isSelected ? '<p class="text-xs text-pink-500 mt-1 ml-6">Click shape on map to drag. Use arrows to rotate.</p>' : '') +
+        '</div>';
+    });
+    list.innerHTML = html;
+
+    var totalSqft = state.measurements.reduce(function(s, m) { return s + m.area_sqft; }, 0);
+    total.innerHTML = '<span class="text-pink-600">Total:</span> ' + formatArea(totalSqft) + ' across ' + state.measurements.length + ' area' + (state.measurements.length > 1 ? 's' : '');
+    total.classList.remove('hidden');
+  }
+
+  window.__deleteMeasurement = function(id) {
+    var poly = state.polygons.get(id);
+    if (poly) poly.setMap(null);
+    state.polygons.delete(id);
+    if (state.selectedId === id) state.selectedId = null;
+    state.measurements = state.measurements.filter(function(m) { return m.id !== id; });
+    renderMeasurements();
+  };
+
+  window.__selectMeasurement = function(id) {
+    selectMeasurement(id);
+  };
+
+  window.__rotateMeasurement = function(deg) {
+    rotateSelected(deg);
+    renderMeasurements();
+  };
+
+  // ── Get Estimate ──
+  $('btn-estimate').addEventListener('click', async function() {
+    if (state.measurements.length === 0) return;
+    stopDrawing();
+    showStep(3);
+
+    $('estimate-loading').classList.remove('hidden');
+    $('estimate-results').classList.add('hidden');
+
+    try {
+      // Fire estimate + match-pros in parallel
+      var [estimateRes, prosRes] = await Promise.all([
+        fetch(EDGE_BASE + '/estimate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            service_type: state.service,
+            address: state.address,
+            city: state.city,
+            state: state.stateCode,
+            lat: state.lat, lng: state.lng,
+            measurements: state.measurements.map(function(m) {
+              return { type: m.type, area_sqft: m.area_sqft, perimeter_ft: m.perimeter_ft, label: m.label };
+            }),
+            property_type: state.propertyType
+          })
+        }),
+        fetch(EDGE_BASE + '/match-pros', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            service_type: state.service,
+            lat: state.lat, lng: state.lng,
+            state: state.stateCode
+          })
+        })
+      ]);
+
+      var estimate = await estimateRes.json();
+      var pros = await prosRes.json();
+
+      if (!estimateRes.ok) {
+        alert('Estimate failed: ' + (estimate.error || 'Unknown error'));
+        showStep(2);
+        return;
+      }
+
+      state.estimate = estimate;
+      state.matchedPros = Array.isArray(pros) ? pros : [];
+      renderEstimate(estimate, state.matchedPros);
+
+    } catch (err) {
+      alert('Error generating estimate: ' + err.message);
+      showStep(2);
+    }
+  });
+
+  // ── Render estimate results ──
+  function renderEstimate(est, pros) {
+    $('estimate-loading').classList.add('hidden');
+    $('estimate-results').classList.remove('hidden');
+
+    // Cost summary
+    var e = est.estimate || {};
+    $('cost-total').textContent = '$' + (e.total_low || 0).toLocaleString() + ' – $' + (e.total_high || 0).toLocaleString();
+
+    var itemsHtml = '';
+    (e.line_items || []).forEach(function(item) {
+      itemsHtml += '<div class="flex items-center justify-between text-sm">' +
+        '<span class="text-gray-600">' + item.description + '</span>' +
+        '<span class="font-semibold text-gray-800">$' + (item.low || 0).toLocaleString() + ' – $' + (item.high || 0).toLocaleString() + '</span></div>';
+    });
+    $('cost-items').innerHTML = itemsHtml;
+
+    // Strategy
+    var s = est.strategy || {};
+    $('strategy-approach').textContent = s.approach || '';
+    $('strategy-timeline').textContent = s.timeline || 'Varies';
+
+    var phasesHtml = '';
+    (s.phases || []).forEach(function(p) {
+      phasesHtml += '<div class="bg-gray-50 rounded-lg p-3"><div class="flex items-center justify-between mb-1">' +
+        '<p class="text-sm font-semibold text-gray-800">' + p.name + '</p>' +
+        '<span class="text-xs text-gray-500">' + p.duration + '</span></div>' +
+        '<p class="text-xs text-gray-500">' + p.details + '</p></div>';
+    });
+    $('strategy-phases').innerHTML = phasesHtml;
+
+    var matsHtml = '';
+    (s.materials || []).forEach(function(m) {
+      matsHtml += '<div class="flex items-center justify-between text-sm">' +
+        '<span class="text-gray-600">' + m.item + ' <span class="text-gray-400">(' + m.quantity + ')</span></span>' +
+        '<span class="font-semibold text-gray-700">' + m.cost_range + '</span></div>';
+    });
+    $('strategy-materials').innerHTML = matsHtml;
+
+    // Pro option
+    var pro = est.pro_option || {};
+    $('pro-cost').textContent = pro.cost_range || '';
+    $('pro-timeline').textContent = pro.timeline || '';
+    var benHtml = '';
+    (pro.benefits || []).forEach(function(b) {
+      benHtml += '<li class="flex items-start gap-2"><svg class="w-4 h-4 text-pink-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>' + b + '</span></li>';
+    });
+    $('pro-benefits').innerHTML = benHtml;
+
+    // DIY option
+    var diy = est.diy_option || {};
+    $('diy-cost').textContent = diy.cost_range || '';
+    $('diy-timeline').textContent = diy.timeline || '';
+
+    var diffEl = $('diy-difficulty');
+    diffEl.textContent = diy.difficulty || 'Moderate';
+    var diffColors = { Easy: 'bg-green-100 text-green-700', Moderate: 'bg-yellow-100 text-yellow-700', Hard: 'bg-orange-100 text-orange-700', Expert: 'bg-red-100 text-red-700' };
+    diffEl.className = 'text-xs font-bold px-2 py-0.5 rounded-full ' + (diffColors[diy.difficulty] || diffColors.Moderate);
+
+    var toolsHtml = '';
+    (diy.tools_needed || []).forEach(function(t) {
+      toolsHtml += '<li class="flex items-start gap-2"><span class="text-blue-400">&#8226;</span><span>' + t + '</span></li>';
+    });
+    $('diy-tools').innerHTML = toolsHtml;
+
+    var tipsHtml = '';
+    (diy.tips || []).forEach(function(t) {
+      tipsHtml += '<li class="flex items-start gap-2"><span class="text-blue-400">&#9733;</span><span>' + t + '</span></li>';
+    });
+    $('diy-tips').innerHTML = tipsHtml;
+
+    // ROI / Payback
+    var roi = est.roi;
+    if (roi && roi.headline) {
+      $('roi-section').classList.remove('hidden');
+      var isFinancial = roi.type === 'financial';
+      $('roi-label').textContent = isFinancial ? 'Return on Investment' : 'Value & Impact';
+      $('roi-label').className = 'text-xs font-bold uppercase tracking-widest mb-0.5 ' + (isFinancial ? 'text-green-600' : 'text-purple-600');
+      $('roi-icon').className = 'w-10 h-10 rounded-full flex items-center justify-center shrink-0 ' + (isFinancial ? 'bg-green-100' : 'bg-purple-100');
+      $('roi-icon').innerHTML = isFinancial
+        ? '<svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>'
+        : '<svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>';
+      $('roi-headline').textContent = roi.headline;
+      $('roi-summary').textContent = roi.summary || '';
+
+      var metricsHtml = '';
+      (roi.metrics || []).forEach(function(m) {
+        var accent = isFinancial ? 'text-green-600' : 'text-purple-600';
+        metricsHtml += '<div class="bg-gray-50 rounded-lg p-3">' +
+          '<p class="text-lg font-black ' + accent + '">' + m.value + '</p>' +
+          '<p class="text-xs font-semibold text-gray-700">' + m.label + '</p>' +
+          (m.detail ? '<p class="text-xs text-gray-500 mt-1">' + m.detail + '</p>' : '') +
+          '</div>';
+      });
+      $('roi-metrics').innerHTML = metricsHtml;
+    } else {
+      $('roi-section').classList.add('hidden');
+    }
+
+    // Matched pros
+    if (pros && pros.length > 0) {
+      $('pros-section').classList.remove('hidden');
+      var prosHtml = '';
+      pros.slice(0, 6).forEach(function(p) {
+        var stars = '';
+        if (p.rating) {
+          for (var i = 0; i < 5; i++) stars += '<svg class="w-3.5 h-3.5 ' + (i < Math.round(p.rating) ? 'text-yellow-400' : 'text-gray-200') + '" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
+        }
+        prosHtml += '<div class="border border-gray-200 rounded-xl p-4 hover:border-pink-200 transition-colors">' +
+          '<p class="font-semibold text-gray-900 text-sm">' + (p.name || 'Local Pro') + '</p>' +
+          '<p class="text-xs text-gray-500 mb-2">' + (p.city || '') + (p.city && p.state ? ', ' : '') + (p.state || '') +
+          (p.distance_miles && p.distance_miles < 9999 ? ' &middot; ' + p.distance_miles + ' mi' : '') + '</p>' +
+          (stars ? '<div class="flex items-center gap-1 mb-2">' + stars + '<span class="text-xs text-gray-400 ml-1">' + p.rating + (p.review_count ? ' (' + p.review_count + ')' : '') + '</span></div>' : '') +
+          '<p class="text-xs text-gray-400">' + (p.category || p.industry || '') + '</p></div>';
+      });
+      $('pros-grid').innerHTML = prosHtml;
+    } else {
+      $('pros-section').classList.add('hidden');
+    }
+
+    // Email gate logic
+    if (state.emailCaptured) {
+      $('gated-content').classList.remove('gate-blur');
+      $('gated-content').classList.add('gate-unlocked');
+      $('gate-overlay').classList.add('hidden');
+      $('unlock-actions').classList.remove('hidden');
+    } else {
+      $('gated-content').classList.add('gate-blur');
+      $('gated-content').classList.remove('gate-unlocked');
+      $('gate-overlay').classList.remove('hidden');
+      $('unlock-actions').classList.add('hidden');
+    }
+
+    // Teaser (always visible above gate)
+    if (roi && roi.headline) {
+      $('roi-teaser').classList.remove('hidden');
+      $('teaser-roi-headline').textContent = roi.headline;
+    } else {
+      $('roi-teaser').classList.add('hidden');
+    }
+    $('teaser-pros-count').textContent = (pros && pros.length > 0) ? pros.length + ' local contractors matched near you' : '';
+
+    // Fetch contextual ads
+    fetchAds(state.service, 'results_top', 'results-top-ads', 'banner', 1);
+    fetchAds(state.service, 'results_inline', 'results-inline-ads', 'card', 2);
+    if (state.emailCaptured) {
+      fetchAds(state.service, 'post_unlock', 'post-unlock-ads', 'card', 2);
+    }
+
+    renderComparison();
+  }
+
+  // ── Strategy toggle ──
+  $('toggle-strategy').addEventListener('click', function() {
+    var body = $('strategy-body');
+    var chevron = $('strategy-chevron');
+    body.classList.toggle('hidden');
+    chevron.style.transform = body.classList.contains('hidden') ? '' : 'rotate(180deg)';
+  });
+
+  // ── Back buttons ──
+  $('btn-back-1').addEventListener('click', function() { showStep(1); });
+  $('btn-back-2').addEventListener('click', function() { showStep(2); });
+
+  // ── Connect with pros ──
+  $('btn-connect').addEventListener('click', function() { showStep(4); });
+
+  // ── Submit lead ──
+  $('btn-submit-lead').addEventListener('click', async function() {
+    var name = $('contact-name').value.trim();
+    var email = $('contact-email').value.trim();
+    var phone = $('contact-phone').value.trim();
+
+    if (!name || !email) {
+      alert('Please enter your name and email.');
+      return;
+    }
+
+    var btn = $('btn-submit-lead');
+    btn.disabled = true;
+    btn.innerHTML = '<svg class="w-5 h-5 spin" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg> Sending...';
+
+    try {
+      await fetch('/api/estimate-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contact_name: name,
+          contact_email: email,
+          contact_phone: phone,
+          service: state.service,
+          address: state.address,
+          city: state.city,
+          state: state.stateCode,
+          property_type: state.propertyType,
+          estimate_summary: state.estimate ? '$' + (state.estimate.estimate?.total_low || 0).toLocaleString() + ' – $' + (state.estimate.estimate?.total_high || 0).toLocaleString() : '',
+          total_sqft: state.measurements.reduce(function(s, m) { return s + m.area_sqft; }, 0),
+          matched_pros: state.matchedPros.slice(0, 5).map(function(p) { return p.name; }),
+          source_url: window.location.href,
+          submitted_at: new Date().toISOString()
+        })
+      });
+    } catch (e) {
+      // Store locally as fallback
+      try {
+        var saved = JSON.parse(localStorage.getItem('ll_estimate_leads') || '[]');
+        saved.push({ name: name, email: email, phone: phone, service: state.service, address: state.address, ts: new Date().toISOString() });
+        localStorage.setItem('ll_estimate_leads', JSON.stringify(saved));
+      } catch (_) {}
+    }
+
+    btn.classList.add('hidden');
+    $('contact-name').parentElement.parentElement.classList.add('hidden');
+    $('lead-success').classList.remove('hidden');
+  });
+
+  // ── Nav scroll shadow ──
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('main-nav');
+    if (nav) nav.classList.toggle('shadow-md', window.scrollY > 10);
+  });
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // CONTEXTUAL AD SYSTEM
+  // ═══════════════════════════════════════════════════════════════════════
+  function hexToRgba(hex, alpha) {
+    hex = (hex || '#E64B8B').replace('#', '');
+    var r = parseInt(hex.substring(0, 2), 16) || 0;
+    var g = parseInt(hex.substring(2, 4), 16) || 0;
+    var b = parseInt(hex.substring(4, 6), 16) || 0;
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+  }
+
+  function renderAdCards(ads, format) {
+    if (!ads || ads.length === 0) return '';
+    var html = '';
+
+    if (format === 'banner') {
+      ads.forEach(function(ad) {
+        html += '<div class="rounded-xl border p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 fade-in" style="background:' + hexToRgba(ad.accent_color, 0.06) + ';border-color:' + hexToRgba(ad.accent_color, 0.2) + '">' +
+          '<div class="flex-1 min-w-0">' +
+            '<div class="flex items-center gap-2 mb-1.5">' +
+              '<span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Sponsored</span>' +
+              (ad.badge_text ? '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full text-white" style="background:' + ad.accent_color + '">' + ad.badge_text + '</span>' : '') +
+            '</div>' +
+            '<p class="font-bold text-gray-900 text-sm">' + ad.headline + '</p>' +
+            (ad.description ? '<p class="text-xs text-gray-500 mt-1 line-clamp-2">' + ad.description + '</p>' : '') +
+            '<p class="text-[10px] text-gray-400 mt-1">' + ad.advertiser_name + '</p>' +
+          '</div>' +
+          '<a href="' + ad.cta_url + '" target="_blank" rel="noopener sponsored" onclick="window.__trackAdClick(\'' + ad.id + '\')" class="shrink-0 px-5 py-2.5 text-white text-xs font-bold rounded-lg hover:shadow-md transition-all whitespace-nowrap" style="background:' + ad.accent_color + '">' + ad.cta_text + '</a>' +
+        '</div>';
+      });
+    } else {
+      var cols = Math.min(ads.length, 2);
+      html += '<div class="grid sm:grid-cols-' + cols + ' gap-3">';
+      ads.forEach(function(ad) {
+        html += '<div class="rounded-xl border border-gray-100 bg-white p-4 hover:shadow-sm transition-all fade-in">' +
+          '<div class="flex items-center gap-2 mb-2">' +
+            '<span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Sponsored</span>' +
+            (ad.badge_text ? '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full text-white" style="background:' + ad.accent_color + '">' + ad.badge_text + '</span>' : '') +
+          '</div>' +
+          '<p class="font-bold text-gray-900 text-sm mb-1">' + ad.headline + '</p>' +
+          (ad.description ? '<p class="text-xs text-gray-500 mb-2 line-clamp-2">' + ad.description + '</p>' : '') +
+          '<div class="flex items-center justify-between mt-2">' +
+            '<span class="text-[10px] text-gray-400">' + ad.advertiser_name + '</span>' +
+            '<a href="' + ad.cta_url + '" target="_blank" rel="noopener sponsored" onclick="window.__trackAdClick(\'' + ad.id + '\')" class="text-xs font-bold hover:underline" style="color:' + ad.accent_color + '">' + ad.cta_text + ' &rarr;</a>' +
+          '</div>' +
+        '</div>';
+      });
+      html += '</div>';
+    }
+    return html;
+  }
+
+  function fetchAds(category, placement, containerId, format, limit) {
+    limit = limit || 2;
+    var params = 'limit=' + limit;
+    if (category) params += '&category=' + encodeURIComponent(category);
+    if (placement) params += '&placement=' + encodeURIComponent(placement);
+
+    fetch(EDGE_BASE + '/ads?' + params).then(function(r) { return r.json(); }).then(function(data) {
+      var ads = data.ads || [];
+      if (ads.length === 0) { $(containerId).classList.add('hidden'); return; }
+      $(containerId).innerHTML = renderAdCards(ads, format || 'card');
+      $(containerId).classList.remove('hidden');
+    }).catch(function() {});
+  }
+
+  window.__trackAdClick = function(adId) {
+    fetch(EDGE_BASE + '/ads/click', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ad_id: adId })
+    }).catch(function() {});
+    if (typeof gtag === 'function') {
+      gtag('event', 'ad_click', { ad_id: adId, service: state.service, page: 'estimator' });
+    }
+  };
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // EMAIL GATE
+  // ═══════════════════════════════════════════════════════════════════════
+  $('btn-unlock').addEventListener('click', function() {
+    var email = $('gate-email').value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      $('gate-error').classList.remove('hidden');
+      return;
+    }
+    $('gate-error').classList.add('hidden');
+    state.emailCaptured = true;
+    state.capturedEmail = email;
+
+    $('gated-content').classList.remove('gate-blur');
+    $('gated-content').classList.add('gate-unlocked');
+    $('gate-overlay').style.opacity = '0';
+    $('gate-overlay').style.transition = 'opacity 0.3s ease';
+    setTimeout(function() { $('gate-overlay').classList.add('hidden'); $('gate-overlay').style.opacity = ''; }, 300);
+    $('unlock-actions').classList.remove('hidden');
+
+    $('contact-email').value = email;
+
+    fetchAds(state.service, 'post_unlock', 'post-unlock-ads', 'card', 2);
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'estimate_email_captured', {
+        service: state.service,
+        address: state.address,
+        estimate_range: state.estimate ? '$' + (state.estimate.estimate?.total_low || 0).toLocaleString() + '-$' + (state.estimate.estimate?.total_high || 0).toLocaleString() : ''
+      });
+    }
+
+    fetch('/api/estimate-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contact_name: '', contact_email: email, contact_phone: '',
+        service: state.service, address: state.address,
+        city: state.city, state: state.stateCode,
+        property_type: state.propertyType,
+        estimate_summary: state.estimate ? '$' + (state.estimate.estimate?.total_low || 0).toLocaleString() + ' – $' + (state.estimate.estimate?.total_high || 0).toLocaleString() : '',
+        total_sqft: state.measurements.reduce(function(s, m) { return s + m.area_sqft; }, 0),
+        matched_pros: state.matchedPros.slice(0, 5).map(function(p) { return p.name; }),
+        source_url: window.location.href + '#email-gate',
+        submitted_at: new Date().toISOString()
+      })
+    }).catch(function() {});
+  });
+
+  $('gate-email').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') $('btn-unlock').click();
+  });
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // PDF REPORT GENERATION
+  // ═══════════════════════════════════════════════════════════════════════
+  $('btn-download-pdf').addEventListener('click', function() {
+    var jsPDF = window.jspdf.jsPDF;
+    var doc = new jsPDF('p', 'mm', 'a4');
+    var W = 210, H = 297, M = 18;
+    var y = 0;
+
+    var PINK = [230, 75, 139];
+    var DARK = [17, 24, 39];
+    var GRAY = [107, 114, 128];
+    var LGRAY = [243, 244, 246];
+
+    function checkPage(needed) {
+      if (y + needed > H - 25) { doc.addPage(); y = M; }
+    }
+
+    // Cover header bar
+    doc.setFillColor(PINK[0], PINK[1], PINK[2]);
+    doc.rect(0, 0, W, 48, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(24);
+    doc.text('Property Cost Estimate', M, 18);
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Powered by LotusLeads AI', M, 28);
+    doc.setFontSize(9);
+    doc.text('Generated ' + new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }), M, 36);
+    doc.text('Ref: LL-' + Date.now().toString(36).toUpperCase(), M, 42);
+    y = 58;
+
+    // Property details
+    var svcLabel = state.service.replace(/-/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+    var totalSqft = state.measurements.reduce(function(s, m) { return s + m.area_sqft; }, 0);
+
+    doc.setTextColor(DARK[0], DARK[1], DARK[2]);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(13);
+    doc.text('Property Details', M, y); y += 8;
+
+    var details = [
+      ['Address', state.address],
+      ['Service', svcLabel],
+      ['Property Type', state.propertyType || 'Not specified'],
+      ['Total Area', totalSqft.toLocaleString() + ' sq ft (' + state.measurements.length + ' area' + (state.measurements.length > 1 ? 's' : '') + ')']
+    ];
+    details.forEach(function(d) {
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(GRAY[0], GRAY[1], GRAY[2]);
+      doc.text(d[0] + ':', M, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(DARK[0], DARK[1], DARK[2]);
+      doc.text(d[1], M + 35, y);
+      y += 6;
+    });
+    y += 6;
+
+    // Cost summary box
+    var est = state.estimate;
+    if (est && est.estimate) {
+      doc.setFillColor(LGRAY[0], LGRAY[1], LGRAY[2]);
+      doc.roundedRect(M, y, W - 2 * M, 22, 3, 3, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(PINK[0], PINK[1], PINK[2]);
+      doc.text('ESTIMATED COST RANGE', M + 5, y + 7);
+      doc.setFontSize(18);
+      doc.setTextColor(DARK[0], DARK[1], DARK[2]);
+      doc.text('$' + (est.estimate.total_low || 0).toLocaleString() + ' – $' + (est.estimate.total_high || 0).toLocaleString(), M + 5, y + 18);
+      y += 30;
+
+      if (est.estimate.line_items && est.estimate.line_items.length > 0) {
+        doc.autoTable({
+          startY: y,
+          head: [['Description', 'Low Estimate', 'High Estimate']],
+          body: est.estimate.line_items.map(function(item) {
+            return [item.description, '$' + (item.low || 0).toLocaleString(), '$' + (item.high || 0).toLocaleString()];
+          }),
+          theme: 'striped',
+          headStyles: { fillColor: PINK, font: 'helvetica', fontStyle: 'bold', fontSize: 9 },
+          bodyStyles: { font: 'helvetica', fontSize: 9 },
+          margin: { left: M, right: M },
+          columnStyles: { 0: { cellWidth: 95 }, 1: { cellWidth: 35, halign: 'right' }, 2: { cellWidth: 35, halign: 'right' } }
+        });
+        y = doc.lastAutoTable.finalY + 10;
+      }
+    }
+
+    // Strategy & Approach
+    if (est && est.strategy) {
+      checkPage(50);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.setTextColor(DARK[0], DARK[1], DARK[2]);
+      doc.text('Strategy & Approach', M, y); y += 7;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(GRAY[0], GRAY[1], GRAY[2]);
+      var approach = doc.splitTextToSize(est.strategy.approach || '', W - 2 * M);
+      doc.text(approach, M, y);
+      y += approach.length * 4.5 + 4;
+      doc.setFont('helvetica', 'bold');
+      doc.text('Timeline: ' + (est.strategy.timeline || 'Varies'), M, y);
+      y += 8;
+
+      if (est.strategy.phases && est.strategy.phases.length > 0) {
+        doc.autoTable({
+          startY: y,
+          head: [['Phase', 'Duration', 'Details']],
+          body: est.strategy.phases.map(function(p) { return [p.name, p.duration, p.details]; }),
+          theme: 'striped',
+          headStyles: { fillColor: DARK, font: 'helvetica', fontStyle: 'bold', fontSize: 9 },
+          bodyStyles: { font: 'helvetica', fontSize: 8 },
+          margin: { left: M, right: M },
+          columnStyles: { 0: { cellWidth: 35 }, 1: { cellWidth: 25 } }
+        });
+        y = doc.lastAutoTable.finalY + 10;
+      }
+
+      if (est.strategy.materials && est.strategy.materials.length > 0) {
+        doc.autoTable({
+          startY: y,
+          head: [['Material', 'Quantity', 'Cost Range']],
+          body: est.strategy.materials.map(function(m) { return [m.item, m.quantity, m.cost_range]; }),
+          theme: 'striped',
+          headStyles: { fillColor: GRAY, font: 'helvetica', fontStyle: 'bold', fontSize: 9 },
+          bodyStyles: { font: 'helvetica', fontSize: 8 },
+          margin: { left: M, right: M }
+        });
+        y = doc.lastAutoTable.finalY + 10;
+      }
+    }
+
+    // Pro vs DIY
+    if (est) {
+      checkPage(55);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.setTextColor(DARK[0], DARK[1], DARK[2]);
+      doc.text('Pro vs DIY Comparison', M, y); y += 8;
+
+      var colW = (W - 2 * M - 6) / 2;
+
+      doc.setFillColor(253, 242, 248);
+      doc.roundedRect(M, y, colW, 50, 2, 2, 'F');
+      doc.setDrawColor(PINK[0], PINK[1], PINK[2]);
+      doc.roundedRect(M, y, colW, 50, 2, 2, 'S');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(PINK[0], PINK[1], PINK[2]);
+      doc.text('Hire a Pro', M + 4, y + 8);
+      doc.setFontSize(14);
+      doc.text((est.pro_option && est.pro_option.cost_range) || '', M + 4, y + 18);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(GRAY[0], GRAY[1], GRAY[2]);
+      doc.text('Timeline: ' + ((est.pro_option && est.pro_option.timeline) || ''), M + 4, y + 26);
+      var proBens = (est.pro_option && est.pro_option.benefits) || [];
+      proBens.slice(0, 4).forEach(function(b, i) {
+        var line = doc.splitTextToSize('• ' + b, colW - 8);
+        doc.text(line[0] || '', M + 4, y + 32 + i * 5);
+      });
+
+      var dx = M + colW + 6;
+      doc.setFillColor(239, 246, 255);
+      doc.roundedRect(dx, y, colW, 50, 2, 2, 'F');
+      doc.setDrawColor(59, 130, 246);
+      doc.roundedRect(dx, y, colW, 50, 2, 2, 'S');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(59, 130, 246);
+      doc.text('Do It Yourself', dx + 4, y + 8);
+      doc.setFontSize(14);
+      doc.text((est.diy_option && est.diy_option.cost_range) || '', dx + 4, y + 18);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(GRAY[0], GRAY[1], GRAY[2]);
+      doc.text('Difficulty: ' + ((est.diy_option && est.diy_option.difficulty) || ''), dx + 4, y + 26);
+      doc.text('Timeline: ' + ((est.diy_option && est.diy_option.timeline) || ''), dx + 4, y + 32);
+      var diyTips = (est.diy_option && est.diy_option.tips) || [];
+      diyTips.slice(0, 3).forEach(function(t, i) {
+        var line = doc.splitTextToSize('• ' + t, colW - 8);
+        doc.text(line[0] || '', dx + 4, y + 38 + i * 5);
+      });
+      y += 58;
+    }
+
+    // ROI / Payback
+    if (est && est.roi && est.roi.headline) {
+      checkPage(45);
+      var isFin = est.roi.type === 'financial';
+      var roiColor = isFin ? [22, 163, 74] : [147, 51, 234];
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.setTextColor(DARK[0], DARK[1], DARK[2]);
+      doc.text(isFin ? 'Return on Investment' : 'Value & Impact', M, y); y += 7;
+      doc.setFontSize(11);
+      doc.setTextColor(roiColor[0], roiColor[1], roiColor[2]);
+      doc.text(est.roi.headline, M, y); y += 6;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(GRAY[0], GRAY[1], GRAY[2]);
+      var roiSummary = doc.splitTextToSize(est.roi.summary || '', W - 2 * M);
+      doc.text(roiSummary, M, y);
+      y += roiSummary.length * 4.5 + 5;
+
+      if (est.roi.metrics && est.roi.metrics.length > 0) {
+        doc.autoTable({
+          startY: y,
+          head: [['Metric', 'Value', 'Detail']],
+          body: est.roi.metrics.map(function(m) { return [m.label, m.value, m.detail || '']; }),
+          theme: 'striped',
+          headStyles: { fillColor: roiColor, font: 'helvetica', fontStyle: 'bold', fontSize: 9 },
+          bodyStyles: { font: 'helvetica', fontSize: 8 },
+          margin: { left: M, right: M }
+        });
+        y = doc.lastAutoTable.finalY + 10;
+      }
+    }
+
+    // Matched contractors
+    if (state.matchedPros && state.matchedPros.length > 0) {
+      checkPage(35);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.setTextColor(DARK[0], DARK[1], DARK[2]);
+      doc.text('Matched Local Contractors', M, y); y += 8;
+      doc.autoTable({
+        startY: y,
+        head: [['Company', 'Location', 'Rating', 'Distance']],
+        body: state.matchedPros.slice(0, 10).map(function(p) {
+          return [
+            p.name || 'Local Pro',
+            (p.city || '') + (p.city && p.state ? ', ' : '') + (p.state || ''),
+            p.rating ? p.rating + '/5' + (p.review_count ? ' (' + p.review_count + ')' : '') : '—',
+            p.distance_miles && p.distance_miles < 9999 ? p.distance_miles + ' mi' : '—'
+          ];
+        }),
+        theme: 'striped',
+        headStyles: { fillColor: PINK, font: 'helvetica', fontStyle: 'bold', fontSize: 9 },
+        bodyStyles: { font: 'helvetica', fontSize: 8 },
+        margin: { left: M, right: M }
+      });
+    }
+
+    // Footer on every page
+    var pages = doc.internal.getNumberOfPages();
+    for (var pg = 1; pg <= pages; pg++) {
+      doc.setPage(pg);
+      doc.setFillColor(DARK[0], DARK[1], DARK[2]);
+      doc.rect(0, H - 14, W, 14, 'F');
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7);
+      doc.setTextColor(156, 163, 175);
+      doc.text('LotusLeads.ai — AI-Powered Property Cost Estimation', M, H - 6);
+      doc.setTextColor(PINK[0], PINK[1], PINK[2]);
+      doc.text('lotusleads.ai/estimate', W / 2, H - 6, { align: 'center' });
+      doc.setTextColor(156, 163, 175);
+      doc.text('Page ' + pg + ' / ' + pages, W - M, H - 6, { align: 'right' });
+    }
+
+    var fn = 'LotusLeads-Estimate-' + svcLabel.replace(/\s+/g, '-') + '-' + new Date().toISOString().slice(0, 10) + '.pdf';
+    doc.save(fn);
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'estimate_pdf_download', { service: state.service });
+    }
+  });
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // ADD ANOTHER SERVICE (comparison mode)
+  // ═══════════════════════════════════════════════════════════════════════
+  $('btn-add-service').addEventListener('click', function() {
+    var svcLabel = state.service.replace(/-/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+    state.estimates.push({
+      service: state.service,
+      serviceName: svcLabel,
+      estimate: state.estimate,
+      measurements: state.measurements.slice(),
+      matchedPros: state.matchedPros.slice(),
+      totalSqft: state.measurements.reduce(function(s, m) { return s + m.area_sqft; }, 0)
+    });
+
+    state.measurements = [];
+    state.polygons.forEach(function(p) { p.setMap(null); });
+    state.polygons.clear();
+    state.estimate = null;
+    state.matchedPros = [];
+    state.selectedId = null;
+    state.service = '';
+    document.querySelectorAll('.svc-btn').forEach(function(b) { b.classList.remove('active'); });
+
+    showStep(1);
+    if (typeof gtag === 'function') {
+      gtag('event', 'estimate_add_service', { count: state.estimates.length });
+    }
+  });
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // COMPARISON DASHBOARD
+  // ═══════════════════════════════════════════════════════════════════════
+  function renderComparison() {
+    var all = state.estimates.slice();
+    if (state.estimate) {
+      var curLabel = state.service.replace(/-/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+      all.push({
+        service: state.service, serviceName: curLabel,
+        estimate: state.estimate,
+        totalSqft: state.measurements.reduce(function(s, m) { return s + m.area_sqft; }, 0)
+      });
+    }
+    if (all.length < 2) { $('compare-dashboard').classList.add('hidden'); return; }
+
+    $('compare-dashboard').classList.remove('hidden');
+    $('compare-count').textContent = all.length + ' Services';
+
+    var gridHtml = '', breakdownHtml = '';
+    var combinedLow = 0, combinedHigh = 0;
+
+    all.forEach(function(item) {
+      var e = (item.estimate && item.estimate.estimate) || {};
+      var low = e.total_low || 0, high = e.total_high || 0;
+      combinedLow += low; combinedHigh += high;
+      var roi = item.estimate && item.estimate.roi;
+      var accent = (roi && roi.type === 'financial') ? 'text-green-600' : 'text-purple-600';
+
+      gridHtml += '<div class="compare-card border border-gray-200 rounded-xl p-4">' +
+        '<div class="flex items-center justify-between mb-2">' +
+          '<p class="font-bold text-gray-900 text-sm">' + item.serviceName + '</p>' +
+          '<span class="text-xs text-gray-400">' + (item.totalSqft || 0).toLocaleString() + ' sqft</span>' +
+        '</div>' +
+        '<p class="text-lg font-black text-pink-600 mb-1">$' + low.toLocaleString() + ' – $' + high.toLocaleString() + '</p>' +
+        (roi && roi.headline ? '<p class="text-xs ' + accent + ' font-semibold">' + roi.headline + '</p>' : '') +
+      '</div>';
+
+      breakdownHtml += '<div class="flex items-center justify-between text-sm">' +
+        '<span class="text-gray-400">' + item.serviceName + '</span>' +
+        '<span class="font-semibold">$' + low.toLocaleString() + ' – $' + high.toLocaleString() + '</span></div>';
+    });
+
+    $('compare-grid').innerHTML = gridHtml;
+    $('compare-total-range').textContent = '$' + combinedLow.toLocaleString() + ' – $' + combinedHigh.toLocaleString();
+    $('compare-total-breakdown').innerHTML = breakdownHtml;
+  }
+
+  $('btn-quote-all').addEventListener('click', function() { showStep(4); });
+
+})();
+</script>
+</body>
+</html>
