@@ -335,20 +335,31 @@
         <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
       </div>
       <h2 class="text-2xl font-black text-gray-900 mb-2">You're In!</h2>
-      <p id="success-msg" class="text-gray-500 mb-6">Welcome aboard. We'll start sending you qualified leads soon.</p>
+      <p id="success-msg" class="text-gray-500 mb-4">Welcome aboard. Your dashboard is ready.</p>
+
+      <!-- Check email prompt -->
+      <div class="bg-blue-50 border border-blue-200 rounded-2xl p-5 mb-8 max-w-md mx-auto">
+        <div class="flex items-center justify-center gap-2 mb-2">
+          <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span class="text-sm font-bold text-blue-800">Check your email</span>
+        </div>
+        <p id="email-note" class="text-sm text-blue-700">We sent a login link to your email. Click it to access your contractor dashboard instantly.</p>
+      </div>
+
       <div class="bg-white rounded-2xl border border-gray-200 p-6 mb-8 text-left max-w-md mx-auto">
-        <h3 class="text-sm font-bold text-gray-900 mb-3">What happens next</h3>
+        <h3 class="text-sm font-bold text-gray-900 mb-3">What's ready for you</h3>
         <ol class="space-y-3 text-sm text-gray-600">
-          <li class="flex items-start gap-3"><span class="w-6 h-6 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>We verify your business (usually same day)</li>
-          <li class="flex items-start gap-3"><span class="w-6 h-6 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>Your profile gets a verified badge and moves up in search</li>
-          <li class="flex items-start gap-3"><span class="w-6 h-6 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>Property managers in your area can find and contact you</li>
-          <li class="flex items-start gap-3"><span class="w-6 h-6 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>Log in to manage leads, see competitor intel, and launch outreach</li>
+          <li class="flex items-start gap-3"><span class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">&check;</span>Your business is verified with a badge</li>
+          <li class="flex items-start gap-3"><span class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">&check;</span>14-day free trial activated (no credit card)</li>
+          <li class="flex items-start gap-3"><span class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">&check;</span>Property managers can now find and contact you</li>
+          <li class="flex items-start gap-3"><span class="w-6 h-6 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">&rarr;</span>Open your dashboard to see leads, competitor intel, and outreach tools</li>
         </ol>
       </div>
-      <a href="https://app.lotusleads.ai/auth" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-xl shadow-lg shadow-pink-500/20 text-base">
-        Set Up My Dashboard
+      <a href="https://app.lotusleads.ai" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold rounded-xl shadow-lg shadow-pink-500/20 text-base">
+        Open My Dashboard
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
       </a>
+      <p class="text-xs text-gray-400 mt-3">Or use the magic link in your email to log in instantly</p>
     </div>
 
   </main>
@@ -545,10 +556,13 @@
 
         $claimForm.classList.add('hidden');
         document.getElementById('success-msg').textContent =
-          `Welcome aboard, ${data.business_name}! We'll start sending you qualified leads soon.`;
+          `Welcome aboard, ${data.business_name}! Your dashboard is ready.`;
+        const userEmail = document.getElementById('f-email').value.trim();
+        document.getElementById('email-note').textContent =
+          `We sent a login link to ${userEmail}. Click it to access your contractor dashboard instantly.`;
         $success.classList.remove('hidden');
 
-        gtag('event', 'claim_profile', { business_id: bizId });
+        gtag('event', 'claim_profile', { business_id: bizId, account_created: data.account_created });
       } catch (err) {
         errEl.textContent = err.message;
         errEl.classList.remove('hidden');
