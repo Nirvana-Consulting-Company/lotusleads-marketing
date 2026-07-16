@@ -9,6 +9,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
   <!-- @seo -->
   <title>Free Property Cost Estimator | LotusLeads</title>
   <meta name="description" content="Get instant AI-powered cost estimates for your property project. Search your address, mark service areas on satellite imagery, and compare Pro vs DIY options."/>
@@ -56,6 +59,9 @@
     .fade-in { animation: fadeIn 0.4s ease-out; }
     .compare-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .compare-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .mapboxgl-popup-content { background: rgba(0,0,0,0.7) !important; border-radius: 6px !important; padding: 2px 6px !important; box-shadow: none !important; }
+    .mapboxgl-popup-tip { border-top-color: rgba(0,0,0,0.7) !important; }
+    .mapboxgl-ctrl-attrib { font-size: 10px !important; }
   </style>
 </head>
 <body class="font-[Inter] bg-white text-gray-900 antialiased">
@@ -705,11 +711,11 @@
   'use strict';
 
   var EDGE_BASE = 'https://avwzoatmlljinuejaqwv.supabase.co/functions/v1/api-estimator';
-  var GMAPS_KEY = '';
+  var MAPBOX_TOKEN = '';
 
-  // Fetch Google Maps key from edge function on page load
   fetch(EDGE_BASE + '/config').then(function(r) { return r.json(); }).then(function(d) {
-    GMAPS_KEY = d.google_maps_key || '';
+    MAPBOX_TOKEN = d.mapbox_token || '';
+    if (MAPBOX_TOKEN) mapboxgl.accessToken = MAPBOX_TOKEN;
   }).catch(function() {});
 
   // ── State ──
@@ -811,10 +817,14 @@
     return sqft.toLocaleString(undefined, { maximumFractionDigits: 0 }) + ' sq ft';
   }
 
-  function calcArea(path) {
-    var mvcPath = new google.maps.MVCArray(path);
-    var areaSqm = google.maps.geometry.spherical.computeArea(mvcPath);
-    var perimeterM = google.maps.geometry.spherical.computeLength(path);
+  function calcArea(coords) {
+    // coords: array of {lat, lng} or mapboxgl.LngLat objects
+    var ring = coords.map(function(c) { return [c.lng, c.lat]; });
+    ring.push(ring[0]); // close the ring
+    var polygon = turf.polygon([ring]);
+    var areaSqm = turf.area(polygon);
+    var line = turf.lineString(ring);
+    var perimeterM = turf.length(line, { units: 'meters' });
     return {
       area_sqft: Math.round(areaSqm * 10.764),
       area_acres: parseFloat((areaSqm / 4047).toFixed(4)),
@@ -905,42 +915,43 @@
     sel.addEventListener('change', function() { state.drawType = sel.value; });
   }
 
-  // ── Initialize Google Maps ──
+  // ── Initialize Mapbox Map ──
   function initMap() {
     if (state.map) {
-      state.map.setCenter({ lat: state.lat, lng: state.lng });
+      state.map.setCenter([state.lng, state.lat]);
       $('map-loading').classList.add('hidden');
       return;
     }
 
-    var script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=' + GMAPS_KEY + '&libraries=geometry,places&v=weekly&callback=__initEstimatorMap';
-    script.async = true;
-    script.defer = true;
+    if (!mapboxgl.accessToken && MAPBOX_TOKEN) {
+      mapboxgl.accessToken = MAPBOX_TOKEN;
+    }
 
-    window.__initEstimatorMap = function() {
-      var map = new google.maps.Map($('map'), {
-        center: { lat: state.lat, lng: state.lng },
-        zoom: 18, mapTypeId: 'satellite', tilt: 0,
-        maxZoom: 22, minZoom: 14,
-        disableDefaultUI: false, zoomControl: true, mapTypeControl: false,
-        streetViewControl: false, fullscreenControl: false, rotateControl: false,
-        gestureHandling: 'greedy', disableDoubleClickZoom: true
-      });
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/satellite-streets-v12',
+      center: [state.lng, state.lat],
+      zoom: 18, pitch: 0, maxZoom: 22, minZoom: 14,
+      doubleClickZoom: false,
+      cooperativeGestures: false
+    });
 
-      new google.maps.Marker({
-        position: { lat: state.lat, lng: state.lng }, map: map,
-        icon: { path: google.maps.SymbolPath.CIRCLE, scale: 5, fillColor: '#E64B8B', fillOpacity: 1, strokeColor: '#fff', strokeWeight: 2 }
-      });
+    map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
 
-      google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
-        $('map-loading').classList.add('hidden');
-      });
+    var markerEl = document.createElement('div');
+    markerEl.style.cssText = 'width:12px;height:12px;border-radius:50%;background:#E64B8B;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,0.3)';
+    new mapboxgl.Marker({ element: markerEl }).setLngLat([state.lng, state.lat]).addTo(map);
 
-      state.map = map;
-    };
+    map.on('load', function() {
+      // Add preview source/layers for drawing
+      map.addSource('preview', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+      map.addLayer({ id: 'preview-fill', type: 'fill', source: 'preview', paint: { 'fill-color': '#F39C12', 'fill-opacity': 0.2 } });
+      map.addLayer({ id: 'preview-line', type: 'line', source: 'preview', paint: { 'line-color': '#F39C12', 'line-width': 2, 'line-opacity': 0.8 } });
+      $('map-loading').classList.add('hidden');
+    });
 
-    document.head.appendChild(script);
+    state.map = map;
+    state.previewPopup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false, className: 'area-popup' });
   }
 
   // ── Drawing modes ──
@@ -969,7 +980,14 @@
   $('btn-clear').addEventListener('click', function() {
     if (state.measurements.length === 0) return;
     if (!confirm('Clear all measurements?')) return;
-    state.polygons.forEach(function(p) { p.setMap(null); });
+    var map = state.map;
+    state.measurements.forEach(function(m) {
+      if (map) {
+        if (map.getLayer('meas-fill-' + m.id)) map.removeLayer('meas-fill-' + m.id);
+        if (map.getLayer('meas-line-' + m.id)) map.removeLayer('meas-line-' + m.id);
+        if (map.getSource('meas-' + m.id)) map.removeSource('meas-' + m.id);
+      }
+    });
     state.polygons.clear();
     state.measurements = [];
     renderMeasurements();
@@ -993,205 +1011,236 @@
     $('btn-draw').textContent = 'Draw';
     $('btn-draw').classList.replace('bg-red-500', 'bg-pink-500');
     $('btn-draw').classList.replace('hover:bg-red-600', 'hover:bg-pink-600');
-    if (state.map) state.map.setOptions({ draggableCursor: null });
+    if (state.map) state.map.getCanvas().style.cursor = '';
   }
 
-  // ── Rectangle draw (click-and-drag) ──
+  // ── Rectangle draw (click two corners) ──
   function startRectDraw() {
     var map = state.map;
     if (!map) return;
-    map.setOptions({ draggableCursor: 'crosshair', draggable: false });
+    map.getCanvas().style.cursor = 'crosshair';
+    map.dragPan.disable();
 
-    var firstCorner = null, previewRect = null, areaInfo = null;
+    var firstCorner = null;
     var color = getColor(state.drawType);
-    var listeners = [];
 
-    function cleanup() {
-      listeners.forEach(function(l) { google.maps.event.removeListener(l); });
-      if (previewRect) previewRect.setMap(null);
-      if (areaInfo) areaInfo.close();
-      map.setOptions({ draggableCursor: null, draggable: true });
-    }
-
-    function makeRect(a, b) {
+    function makeRectCoords(a, b) {
       return [
-        new google.maps.LatLng(a.lat(), a.lng()),
-        new google.maps.LatLng(a.lat(), b.lng()),
-        new google.maps.LatLng(b.lat(), b.lng()),
-        new google.maps.LatLng(b.lat(), a.lng())
+        { lat: a.lat, lng: a.lng },
+        { lat: a.lat, lng: b.lng },
+        { lat: b.lat, lng: b.lng },
+        { lat: b.lat, lng: a.lng }
       ];
     }
 
-    listeners.push(map.addListener('mousedown', function(e) {
-      if (!e.latLng) return;
-      firstCorner = e.latLng;
-      previewRect = new google.maps.Polygon({
-        fillColor: color, fillOpacity: 0.2, strokeColor: color, strokeWeight: 2, strokeOpacity: 0.8, clickable: false, map: map
-      });
-      areaInfo = new google.maps.InfoWindow({ disableAutoPan: true });
-    }));
+    function updatePreview(color, coords) {
+      var ring = coords.map(function(c) { return [c.lng, c.lat]; });
+      ring.push(ring[0]);
+      var geojson = { type: 'Feature', geometry: { type: 'Polygon', coordinates: [ring] } };
+      map.getSource('preview').setData(geojson);
+      map.setPaintProperty('preview-fill', 'fill-color', color);
+      map.setPaintProperty('preview-line', 'line-color', color);
+    }
 
-    listeners.push(map.addListener('mousemove', function(e) {
-      if (!firstCorner || !e.latLng || !previewRect) return;
-      var pts = makeRect(firstCorner, e.latLng);
-      previewRect.setPath(pts);
-      var calc = calcArea(pts);
-      if (areaInfo) {
-        var bounds = new google.maps.LatLngBounds();
-        pts.forEach(function(p) { bounds.extend(p); });
-        areaInfo.setContent('<div style="font-size:13px;font-weight:700;color:' + color + ';padding:2px 8px;text-shadow:0 1px 2px rgba(0,0,0,0.5)">' + formatArea(calc.area_sqft) + '</div>');
-        areaInfo.setPosition(bounds.getCenter());
-        areaInfo.open(map);
-      }
-    }));
+    function onMouseDown(e) {
+      firstCorner = e.lngLat;
+    }
 
-    listeners.push(map.addListener('mouseup', function(e) {
-      if (!firstCorner || !e.latLng) return;
-      var pts = makeRect(firstCorner, e.latLng);
+    function onMouseMove(e) {
+      if (!firstCorner) return;
+      var pts = makeRectCoords(firstCorner, e.lngLat);
+      updatePreview(color, pts);
       var calc = calcArea(pts);
-      if (previewRect) previewRect.setMap(null);
-      if (areaInfo) areaInfo.close();
-      previewRect = null; areaInfo = null;
+      var cx = (firstCorner.lng + e.lngLat.lng) / 2;
+      var cy = (firstCorner.lat + e.lngLat.lat) / 2;
+      state.previewPopup
+        .setLngLat([cx, cy])
+        .setHTML('<div style="font-size:13px;font-weight:700;color:' + color + ';padding:2px 4px;text-shadow:0 1px 2px rgba(0,0,0,0.5)">' + formatArea(calc.area_sqft) + '</div>')
+        .addTo(map);
+    }
+
+    function onMouseUp(e) {
+      if (!firstCorner) return;
+      var pts = makeRectCoords(firstCorner, e.lngLat);
+      var calc = calcArea(pts);
+      map.getSource('preview').setData({ type: 'FeatureCollection', features: [] });
+      state.previewPopup.remove();
       if (calc.area_sqft > 10) createMeasurement(pts);
       firstCorner = null;
-    }));
+    }
 
-    state.drawCleanup = cleanup;
+    map.on('mousedown', onMouseDown);
+    map.on('mousemove', onMouseMove);
+    map.on('mouseup', onMouseUp);
+
+    state.drawCleanup = function() {
+      map.off('mousedown', onMouseDown);
+      map.off('mousemove', onMouseMove);
+      map.off('mouseup', onMouseUp);
+      map.getSource('preview').setData({ type: 'FeatureCollection', features: [] });
+      state.previewPopup.remove();
+      map.getCanvas().style.cursor = '';
+      map.dragPan.enable();
+    };
   }
 
   // ── Polygon draw (click to place points, snap to close) ──
   function startPolyDraw() {
     var map = state.map;
     if (!map) return;
-    map.setOptions({ draggableCursor: 'crosshair' });
+    map.getCanvas().style.cursor = 'crosshair';
 
     var color = getColor(state.drawType);
     var points = [], markers = [];
-    var polyline = new google.maps.Polyline({ strokeColor: color, strokeWeight: 2, strokeOpacity: 0.9, map: map });
-    var previewFill = new google.maps.Polygon({ fillColor: color, fillOpacity: 0.15, strokeWeight: 0, clickable: false, map: map });
-    var areaInfo = new google.maps.InfoWindow({ disableAutoPan: true });
-    var listeners = [];
+
+    function updatePolyPreview() {
+      if (points.length < 2) {
+        map.getSource('preview').setData({ type: 'FeatureCollection', features: [] });
+        return;
+      }
+      var ring = points.map(function(c) { return [c.lng, c.lat]; });
+      ring.push([points[0].lng, points[0].lat]); // close for line
+      var features = [{ type: 'Feature', geometry: { type: 'LineString', coordinates: ring } }];
+      if (points.length >= 3) {
+        var fillRing = points.map(function(c) { return [c.lng, c.lat]; });
+        fillRing.push(fillRing[0]);
+        features.push({ type: 'Feature', geometry: { type: 'Polygon', coordinates: [fillRing] } });
+      }
+      map.getSource('preview').setData({ type: 'FeatureCollection', features: features });
+      map.setPaintProperty('preview-fill', 'fill-color', color);
+      map.setPaintProperty('preview-line', 'line-color', color);
+    }
 
     function cleanup() {
-      listeners.forEach(function(l) { google.maps.event.removeListener(l); });
-      markers.forEach(function(m) { m.setMap(null); });
-      if (polyline) polyline.setMap(null);
-      if (previewFill) previewFill.setMap(null);
-      if (areaInfo) areaInfo.close();
-      map.setOptions({ draggableCursor: null });
+      map.off('click', onClick);
+      map.off('dblclick', onDblClick);
+      markers.forEach(function(m) { m.remove(); });
+      markers = [];
+      map.getSource('preview').setData({ type: 'FeatureCollection', features: [] });
+      state.previewPopup.remove();
+      map.getCanvas().style.cursor = '';
     }
 
     function finish() {
       if (points.length < 3) return;
+      var coordsCopy = points.map(function(p) { return { lat: p.lat, lng: p.lng }; });
       cleanup();
-      createMeasurement(points);
+      createMeasurement(coordsCopy);
       startPolyDraw();
       state.isDrawing = true;
     }
 
-    listeners.push(map.addListener('click', function(e) {
-      if (!e.latLng) return;
-      var pt = e.latLng;
+    function onClick(e) {
+      var pt = e.lngLat;
 
       if (points.length >= 3) {
-        var dist = google.maps.geometry.spherical.computeDistanceBetween(pt, points[0]);
+        var from = turf.point([pt.lng, pt.lat]);
+        var to = turf.point([points[0].lng, points[0].lat]);
+        var dist = turf.distance(from, to, { units: 'meters' });
         if (dist < 20) { finish(); return; }
       }
 
-      points.push(pt);
+      points.push({ lat: pt.lat, lng: pt.lng });
       var isFirst = points.length === 1;
-      var marker = new google.maps.Marker({
-        position: pt, map: map,
-        icon: {
-          path: google.maps.SymbolPath.CIRCLE,
-          scale: isFirst ? 7 : 4,
-          fillColor: isFirst ? '#fff' : color,
-          fillOpacity: 1,
-          strokeColor: isFirst ? color : '#fff',
-          strokeWeight: isFirst ? 2 : 1
-        }, zIndex: 1000
-      });
-      if (isFirst) marker.addListener('click', function() { if (points.length >= 3) finish(); });
+
+      var el = document.createElement('div');
+      el.style.cssText = 'width:' + (isFirst ? '14px' : '8px') + ';height:' + (isFirst ? '14px' : '8px') +
+        ';border-radius:50%;background:' + (isFirst ? '#fff' : color) +
+        ';border:' + (isFirst ? '2px' : '1px') + ' solid ' + (isFirst ? color : '#fff') +
+        ';cursor:pointer;z-index:1000';
+      var marker = new mapboxgl.Marker({ element: el }).setLngLat([pt.lng, pt.lat]).addTo(map);
+      if (isFirst) el.addEventListener('click', function(ev) { ev.stopPropagation(); if (points.length >= 3) finish(); });
       markers.push(marker);
 
-      polyline.setPath(points.concat([points[0]]));
-      if (points.length >= 3) {
-        previewFill.setPath(points);
-        var calc = calcArea(points);
-        var bounds = new google.maps.LatLngBounds();
-        points.forEach(function(p) { bounds.extend(p); });
-        areaInfo.setContent('<div style="font-size:13px;font-weight:700;color:' + color + ';padding:2px 8px;text-shadow:0 1px 2px rgba(0,0,0,0.5)">' + formatArea(calc.area_sqft) + '</div>');
-        areaInfo.setPosition(bounds.getCenter());
-        areaInfo.open(map);
-      }
-    }));
+      updatePolyPreview();
 
-    listeners.push(map.addListener('dblclick', function(e) {
-      if (e.stop) e.stop();
+      if (points.length >= 3) {
+        var calc = calcArea(points);
+        var lngs = points.map(function(p) { return p.lng; });
+        var lats = points.map(function(p) { return p.lat; });
+        var cx = (Math.min.apply(null, lngs) + Math.max.apply(null, lngs)) / 2;
+        var cy = (Math.min.apply(null, lats) + Math.max.apply(null, lats)) / 2;
+        state.previewPopup
+          .setLngLat([cx, cy])
+          .setHTML('<div style="font-size:13px;font-weight:700;color:' + color + ';padding:2px 4px;text-shadow:0 1px 2px rgba(0,0,0,0.5)">' + formatArea(calc.area_sqft) + '</div>')
+          .addTo(map);
+      }
+    }
+
+    function onDblClick(e) {
+      e.preventDefault();
       finish();
-    }));
+    }
+
+    map.on('click', onClick);
+    map.on('dblclick', onDblClick);
 
     state.drawCleanup = cleanup;
   }
 
   // ── Rotation helpers ──
-  function getPolygonCenter(polygon) {
-    var path = polygon.getPath().getArray();
+  function getCoordsCenter(coords) {
     var latSum = 0, lngSum = 0;
-    path.forEach(function(pt) { latSum += pt.lat(); lngSum += pt.lng(); });
-    return new google.maps.LatLng(latSum / path.length, lngSum / path.length);
+    coords.forEach(function(c) { latSum += c.lat; lngSum += c.lng; });
+    return { lat: latSum / coords.length, lng: lngSum / coords.length };
   }
 
-  function rotatePolygon(polygon, angleDeg) {
-    var center = getPolygonCenter(polygon);
+  function rotateCoords(coords, angleDeg) {
+    var center = getCoordsCenter(coords);
     var rad = angleDeg * Math.PI / 180;
     var cos = Math.cos(rad), sin = Math.sin(rad);
-    var path = polygon.getPath();
-    var newPath = path.getArray().map(function(pt) {
-      var dLat = pt.lat() - center.lat();
-      var dLng = pt.lng() - center.lng();
-      return new google.maps.LatLng(
-        center.lat() + dLat * cos - dLng * sin,
-        center.lng() + dLat * sin + dLng * cos
-      );
+    return coords.map(function(c) {
+      var dLat = c.lat - center.lat;
+      var dLng = c.lng - center.lng;
+      return { lat: center.lat + dLat * cos - dLng * sin, lng: center.lng + dLat * sin + dLng * cos };
     });
-    polygon.setPath(newPath);
   }
 
-  // Selection state for rotation
   state.selectedId = null;
 
-  function selectMeasurement(id) {
-    // Deselect previous
-    if (state.selectedId && state.polygons.has(state.selectedId)) {
-      var prev = state.polygons.get(state.selectedId);
-      var prevM = state.measurements.find(function(x) { return x.id === state.selectedId; });
-      if (prev && prevM) prev.setOptions({ strokeWeight: 2, fillOpacity: 0.35 });
+  function updateMeasurementLayer(m) {
+    var map = state.map;
+    if (!map) return;
+    var srcId = 'meas-' + m.id;
+    var ring = m.coordinates.map(function(c) { return [c.lng, c.lat]; });
+    ring.push(ring[0]);
+    var geojson = { type: 'Feature', geometry: { type: 'Polygon', coordinates: [ring] } };
+    if (map.getSource(srcId)) {
+      map.getSource(srcId).setData(geojson);
     }
+  }
+
+  function selectMeasurement(id) {
+    var map = state.map;
+    var prevId = state.selectedId;
     state.selectedId = (state.selectedId === id) ? null : id;
-    if (state.selectedId && state.polygons.has(state.selectedId)) {
-      var poly = state.polygons.get(state.selectedId);
-      poly.setOptions({ strokeWeight: 4, fillOpacity: 0.5 });
+    // Reset previous
+    if (prevId && map && map.getLayer('meas-fill-' + prevId)) {
+      var prevM = state.measurements.find(function(x) { return x.id === prevId; });
+      if (prevM) {
+        map.setPaintProperty('meas-fill-' + prevId, 'fill-opacity', 0.35);
+        map.setPaintProperty('meas-line-' + prevId, 'line-width', 2);
+      }
+    }
+    // Highlight selected
+    if (state.selectedId && map && map.getLayer('meas-fill-' + state.selectedId)) {
+      map.setPaintProperty('meas-fill-' + state.selectedId, 'fill-opacity', 0.5);
+      map.setPaintProperty('meas-line-' + state.selectedId, 'line-width', 4);
     }
     renderMeasurements();
   }
 
   function rotateSelected(deg) {
     if (!state.selectedId) return;
-    var poly = state.polygons.get(state.selectedId);
-    if (!poly) return;
-    rotatePolygon(poly, deg);
-    // Update measurement data
-    var path = poly.getPath().getArray();
-    var coords = path.map(function(pt) { return { lat: pt.lat(), lng: pt.lng() }; });
-    var c = calcArea(path);
     var idx = state.measurements.findIndex(function(x) { return x.id === state.selectedId; });
-    if (idx >= 0) {
-      state.measurements[idx].coordinates = coords;
-      state.measurements[idx].area_sqft = c.area_sqft;
-      state.measurements[idx].area_acres = c.area_acres;
-      state.measurements[idx].perimeter_ft = c.perimeter_ft;
-    }
+    if (idx < 0) return;
+    var m = state.measurements[idx];
+    m.coordinates = rotateCoords(m.coordinates, deg);
+    var c = calcArea(m.coordinates);
+    m.area_sqft = c.area_sqft;
+    m.area_acres = c.area_acres;
+    m.perimeter_ft = c.perimeter_ft;
+    updateMeasurementLayer(m);
   }
 
   // ── Create a measurement from drawn polygon points ──
@@ -1200,13 +1249,8 @@
     if (!map || points.length < 3) return;
 
     var color = getColor(state.drawType);
-    var polygon = new google.maps.Polygon({
-      paths: points, fillColor: color, fillOpacity: 0.35,
-      strokeColor: color, strokeWeight: 2, editable: true, draggable: true, map: map
-    });
-
-    var coords = points.map(function(pt) { return { lat: pt.lat(), lng: pt.lng() }; });
-    var calc = calcArea(points);
+    var coords = points.map(function(pt) { return { lat: pt.lat || pt.lat, lng: pt.lng || pt.lng }; });
+    var calc = calcArea(coords);
     var types = getMeasurementTypes(state.service);
     var typeLabel = 'Area';
     for (var i = 0; i < types.length; i++) {
@@ -1224,32 +1268,23 @@
       perimeter_ft: calc.perimeter_ft
     };
 
-    state.polygons.set(m.id, polygon);
-    state.measurements.push(m);
+    // Add Mapbox source + layers for this measurement
+    var ring = coords.map(function(c) { return [c.lng, c.lat]; });
+    ring.push(ring[0]);
+    var geojson = { type: 'Feature', geometry: { type: 'Polygon', coordinates: [ring] }, properties: { id: m.id } };
+    var srcId = 'meas-' + m.id;
 
-    // Listen for edits
-    var path = polygon.getPath();
-    function recalc() {
-      var newCoords = path.getArray().map(function(pt) { return { lat: pt.lat(), lng: pt.lng() }; });
-      var c = calcArea(path.getArray());
-      var idx = state.measurements.findIndex(function(x) { return x.id === m.id; });
-      if (idx >= 0) {
-        state.measurements[idx].coordinates = newCoords;
-        state.measurements[idx].area_sqft = c.area_sqft;
-        state.measurements[idx].area_acres = c.area_acres;
-        state.measurements[idx].perimeter_ft = c.perimeter_ft;
-        renderMeasurements();
-      }
-    }
-    google.maps.event.addListener(path, 'set_at', recalc);
-    google.maps.event.addListener(path, 'insert_at', recalc);
-    polygon.addListener('dragend', recalc);
+    map.addSource(srcId, { type: 'geojson', data: geojson });
+    map.addLayer({ id: 'meas-fill-' + m.id, type: 'fill', source: srcId, paint: { 'fill-color': color, 'fill-opacity': 0.35 } });
+    map.addLayer({ id: 'meas-line-' + m.id, type: 'line', source: srcId, paint: { 'line-color': color, 'line-width': 2 } });
 
-    // Click to select for rotation
-    polygon.addListener('click', function() {
+    // Click polygon to select for rotation
+    map.on('click', 'meas-fill-' + m.id, function() {
       if (!state.isDrawing) selectMeasurement(m.id);
     });
 
+    state.polygons.set(m.id, srcId);
+    state.measurements.push(m);
     renderMeasurements();
   }
 
@@ -1300,8 +1335,12 @@
   }
 
   window.__deleteMeasurement = function(id) {
-    var poly = state.polygons.get(id);
-    if (poly) poly.setMap(null);
+    var map = state.map;
+    if (map) {
+      if (map.getLayer('meas-fill-' + id)) map.removeLayer('meas-fill-' + id);
+      if (map.getLayer('meas-line-' + id)) map.removeLayer('meas-line-' + id);
+      if (map.getSource('meas-' + id)) map.removeSource('meas-' + id);
+    }
     state.polygons.delete(id);
     if (state.selectedId === id) state.selectedId = null;
     state.measurements = state.measurements.filter(function(m) { return m.id !== id; });
@@ -2012,8 +2051,15 @@
       totalSqft: state.measurements.reduce(function(s, m) { return s + m.area_sqft; }, 0)
     });
 
+    var map = state.map;
+    state.measurements.forEach(function(m) {
+      if (map) {
+        if (map.getLayer('meas-fill-' + m.id)) map.removeLayer('meas-fill-' + m.id);
+        if (map.getLayer('meas-line-' + m.id)) map.removeLayer('meas-line-' + m.id);
+        if (map.getSource('meas-' + m.id)) map.removeSource('meas-' + m.id);
+      }
+    });
     state.measurements = [];
-    state.polygons.forEach(function(p) { p.setMap(null); });
     state.polygons.clear();
     state.estimate = null;
     state.matchedPros = [];
