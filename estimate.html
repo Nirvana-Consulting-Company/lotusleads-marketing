@@ -870,7 +870,7 @@
       });
       var data = await res.json();
       if (!res.ok || !data.lat) {
-        alert('Could not find that address. Please check and try again.');
+        alert(data.error || 'Could not find that address. Please check and try again.');
         return;
       }
       state.lat = data.lat;
