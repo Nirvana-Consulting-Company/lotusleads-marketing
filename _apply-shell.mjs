@@ -69,6 +69,7 @@ const SHARED_NAV = `
         </div>
         <a href="/blog" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Blog</a>
         <a href="/about" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
+        <a href="/partner" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Partner</a>
       </div>
 
       <!-- Right: Login + CTA + Hamburger -->
@@ -102,6 +103,7 @@ const SHARED_NAV = `
       <hr class="my-2 border-gray-100"/>
       <a href="/blog" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Blog</a>
       <a href="/about" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
+      <a href="/partner" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Partner</a>
       <hr class="my-2 border-gray-100"/>
       <a href="https://app.lotusleads.ai" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Login</a>
       <a href="/claim" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">List Your Business</a>
@@ -321,6 +323,11 @@ const PAGE_META = {
     title: 'Claim Your Business Profile | LotusLeads',
     description: 'Claim your free contractor profile on LotusLeads. Receive qualified commercial property leads, manage your listing, and grow your business.',
     canonical: '/claim',
+  },
+  'partner.html': {
+    title: 'Partner with LotusLeads — Sponsored Placement & Advertising',
+    description: 'Reach commercial property managers and contractors at the moment of intent. Sponsored placement in search results and advertising across the LotusLeads marketplace.',
+    canonical: '/partner',
   },
 };
 
