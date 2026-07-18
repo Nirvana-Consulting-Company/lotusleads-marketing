@@ -29,20 +29,17 @@ const SHARED_NAV = `
 
       <!-- Desktop Links -->
       <div class="hidden lg:flex items-center gap-8">
-        <!-- Product Dropdown -->
+        <!-- Marketplace Dropdown -->
         <div class="relative group">
           <button class="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">
-            Product
+            Marketplace
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="absolute left-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
-            <a href="/features" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
-            <a href="/icp" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI Lead Discovery</a>
-            <a href="/property-intelligence" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
-            <a href="/lead-management" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
-            <a href="/campaigns" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
-            <a href="/competitive-intel" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Market Intelligence</a>
-            <a href="/analytics" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
+            <a href="/pros" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Find Contractors</a>
+            <a href="/request-quotes" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Request Quotes</a>
+            <a href="/estimate" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Cost Estimator</a>
+            <a href="/claim" class="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Claim Your Business</a>
           </div>
         </div>
         <!-- Industries Dropdown -->
@@ -71,18 +68,13 @@ const SHARED_NAV = `
           </div>
         </div>
         <a href="/blog" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Blog</a>
-        <a href="/compare" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Compare</a>
-        <a href="/pricing" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Pricing</a>
         <a href="/about" class="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">About</a>
-        <a href="/pros" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Find Contractors</a>
-        <a href="/request-quotes" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">Request Quotes</a>
-        <a href="/estimate" class="text-sm font-semibold text-pink-600 hover:text-pink-700 transition-colors">Cost Estimator</a>
       </div>
 
       <!-- Right: Login + CTA + Hamburger -->
       <div class="flex items-center gap-4">
         <a href="https://app.lotusleads.ai" class="hidden lg:inline-block text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors">Login</a>
-        <a href="https://app.lotusleads.ai/auth" class="hidden lg:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 shadow-sm transition-all">Start Free Trial</a>
+        <a href="/claim" class="hidden lg:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 shadow-sm transition-all">List Your Business</a>
         <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100" aria-label="Toggle menu">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
@@ -93,17 +85,11 @@ const SHARED_NAV = `
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
     <div class="px-4 py-4 space-y-2">
-      <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Product</p>
-      <a href="/features" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Features</a>
-      <a href="/icp" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">AI Lead Discovery</a>
-      <a href="/property-intelligence" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Property Intelligence</a>
-      <a href="/lead-management" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Lead Management</a>
-      <a href="/campaigns" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Campaign Outreach</a>
-      <a href="/competitive-intel" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Market Intelligence</a>
-      <a href="/analytics" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Analytics</a>
-      <hr class="my-2 border-gray-100"/>
-      <a href="/pricing" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Pricing</a>
-      <a href="/about" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
+      <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Marketplace</p>
+      <a href="/pros" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Find Contractors</a>
+      <a href="/request-quotes" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Request Quotes</a>
+      <a href="/estimate" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Cost Estimator</a>
+      <a href="/claim" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Claim Your Business</a>
       <hr class="my-2 border-gray-100"/>
       <p class="px-3 pt-2 pb-1 text-xs font-semibold text-gray-400 uppercase tracking-wider">Industries</p>
       <a href="/industries" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">All Industries</a>
@@ -115,13 +101,10 @@ const SHARED_NAV = `
       <a href="/industries/cleaning" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Commercial Cleaning</a>
       <hr class="my-2 border-gray-100"/>
       <a href="/blog" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Blog</a>
-      <a href="/compare" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Compare</a>
+      <a href="/about" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">About</a>
       <hr class="my-2 border-gray-100"/>
-      <a href="/pros" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-blue-600">Find Contractors</a>
-      <a href="/request-quotes" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-blue-600">Request Quotes</a>
-      <a href="/estimate" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Cost Estimator</a>
       <a href="https://app.lotusleads.ai" class="block px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Login</a>
-      <a href="https://app.lotusleads.ai/auth" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">Start Free Trial</a>
+      <a href="/claim" class="block mx-3 mt-2 text-center px-4 py-2 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-pink-500 to-rose-600">List Your Business</a>
     </div>
   </div>
 </nav>
@@ -154,11 +137,11 @@ const SHARED_FOOTER = `
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <h3 class="text-xl font-bold text-white mb-1">Ready to win more commercial contracts?</h3>
-          <p class="text-sm text-gray-400">Join the marketplace and start landing jobs in minutes. Free 14-day trial.</p>
+          <p class="text-sm text-gray-400">Join 24,000+ contractors already listed on LotusLeads. Free to claim your profile.</p>
         </div>
         <div class="flex items-center gap-3">
-          <a href="https://app.lotusleads.ai/auth" class="px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white text-sm font-bold rounded-lg hover:shadow-lg transition-all">Start Free Trial</a>
-          <a href="/features" class="px-6 py-3 bg-gray-800 text-gray-300 text-sm font-semibold rounded-lg hover:bg-gray-700 hover:text-white transition-all">See How It Works</a>
+          <a href="/claim" class="px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 text-white text-sm font-bold rounded-lg hover:shadow-lg transition-all">List Your Business</a>
+          <a href="/pros" class="px-6 py-3 bg-gray-800 text-gray-300 text-sm font-semibold rounded-lg hover:bg-gray-700 hover:text-white transition-all">Find Contractors</a>
         </div>
       </div>
     </div>
@@ -174,7 +157,7 @@ const SHARED_FOOTER = `
           <img src="/images/logo-icon.png" alt="LotusLeads" class="h-10 brightness-0 invert">
           <span class="text-2xl font-bold text-white">Lotus</span>
         </a>
-        <p class="text-sm leading-relaxed text-gray-400 mb-4">The AI-powered marketplace for commercial service contractors. Find properties, analyze opportunities, outperform competitors, and win more contracts.</p>
+        <p class="text-sm leading-relaxed text-gray-400 mb-4">The marketplace connecting commercial property managers with vetted service contractors. 24,000+ businesses across 12 industries, all 50 states.</p>
         <p class="text-xs text-gray-500 mb-5">A product of <a href="https://nirvanaconsultingcompany.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">Nirvana Consulting</a></p>
         <a href="https://www.linkedin.com/showcase/lotusleads-ai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -182,17 +165,16 @@ const SHARED_FOOTER = `
         </a>
       </div>
 
-      <!-- Col 2: Product -->
+      <!-- Col 2: Platform -->
       <div>
-        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h4>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Platform</h4>
         <ul class="space-y-2.5 text-sm">
+          <li><a href="/pros" class="hover:text-white transition-colors">Find Contractors</a></li>
+          <li><a href="/request-quotes" class="hover:text-white transition-colors">Request Quotes</a></li>
+          <li><a href="/estimate" class="hover:text-white transition-colors">Cost Estimator</a></li>
+          <li><a href="/claim" class="hover:text-white transition-colors">Claim Your Business</a></li>
+          <li><a href="/industries" class="hover:text-white transition-colors">All Industries</a></li>
           <li><a href="/features" class="hover:text-white transition-colors">How It Works</a></li>
-          <li><a href="/icp" class="hover:text-white transition-colors">AI Lead Discovery</a></li>
-          <li><a href="/property-intelligence" class="hover:text-white transition-colors">Property Intelligence</a></li>
-          <li><a href="/lead-management" class="hover:text-white transition-colors">Lead Management</a></li>
-          <li><a href="/campaigns" class="hover:text-white transition-colors">Campaign Outreach</a></li>
-          <li><a href="/competitive-intel" class="hover:text-white transition-colors">Market Intelligence</a></li>
-          <li><a href="/analytics" class="hover:text-white transition-colors">Analytics</a></li>
         </ul>
       </div>
 
@@ -238,17 +220,8 @@ const SHARED_FOOTER = `
         <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h4>
         <ul class="space-y-2.5 text-sm mb-6">
           <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
-          <li><a href="/pricing" class="hover:text-white transition-colors">Pricing</a></li>
           <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
-          <li><a href="/compare" class="hover:text-white transition-colors">Compare</a></li>
           <li><a href="https://app.lotusleads.ai" class="hover:text-white transition-colors">Login</a></li>
-          <li><a href="https://app.lotusleads.ai/auth" class="hover:text-white transition-colors">Start Free Trial</a></li>
-        </ul>
-        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Marketplace</h4>
-        <ul class="space-y-2.5 text-sm mb-6">
-          <li><a href="/pros" class="hover:text-white transition-colors">Find Contractors</a></li>
-          <li><a href="/request-quotes" class="hover:text-white transition-colors">Request Quotes</a></li>
-          <li><a href="/estimate" class="hover:text-white transition-colors">Cost Estimator</a></li>
         </ul>
         <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Resources</h4>
         <ul class="space-y-2.5 text-sm">
