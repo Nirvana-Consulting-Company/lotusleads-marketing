@@ -75,7 +75,7 @@
             Industries
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="absolute left-0 top-full mt-2 w-[480px] bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-4">
+          <div class="absolute left-0 top-full mt-2 w-[calc(100vw-2rem)] sm:w-[480px] bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-4">
             <div class="grid grid-cols-2 gap-x-4 gap-y-1">
               <a href="/industries/solar" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Solar</a>
               <a href="/industries/plumbing" class="block px-3 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Plumbing</a>
@@ -157,34 +157,34 @@
 <!-- NAV_END -->
 
   <!-- Hero -->
-  <section class="relative overflow-hidden bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800">
+  <section class="relative overflow-hidden bg-gradient-to-br from-gray-800 via-gray-900 to-[#111827]">
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -translate-y-1/2 translate-x-1/3"></div>
       <div class="absolute bottom-0 left-0 w-80 h-80 bg-white rounded-full translate-y-1/2 -translate-x-1/4"></div>
     </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 text-center">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-900 text-white leading-tight tracking-tight max-w-4xl mx-auto">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-40 text-center">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-900 text-white leading-tight tracking-tight max-w-4xl mx-auto">
         Find the right contractor for your commercial property
       </h1>
-      <p class="mt-6 text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
+      <p class="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
         Tell us what you need. We'll match you with 2&ndash;4 vetted commercial service providers in your area &mdash; free, fast, no obligation.
       </p>
       <div class="mt-10">
-        <a href="/request-quotes" class="inline-flex items-center px-8 py-4 bg-white text-gray-700 font-semibold text-lg rounded-full shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all duration-200">
+        <a href="/request-quotes" class="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#E64B8B] to-[#d43d7a] text-white font-semibold text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl hover:shadow-pink-500/30 transition-all duration-200">
           Request Free Quotes &rarr;
         </a>
       </div>
-      <p class="mt-8 text-sm text-blue-200 tracking-wide">
+      <p class="mt-8 text-sm text-gray-400 tracking-wide">
         100% free &middot; Vetted contractors only &middot; Responses within 24 hours
       </p>
     </div>
   </section>
 
   <!-- How It Works -->
-  <section class="py-20 sm:py-24 bg-gray-50">
+  <section class="py-12 sm:py-16 lg:py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-800 text-gray-900 tracking-tight">How it works</h2>
+      <div class="text-center mb-10 sm:mb-16">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-800 text-gray-900 tracking-tight">How it works</h2>
         <p class="mt-4 text-lg text-gray-500 max-w-xl mx-auto">Three simple steps to find the right commercial contractor.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -211,84 +211,84 @@
   </section>
 
   <!-- Services We Cover -->
-  <section class="py-20 sm:py-24 bg-white">
+  <section class="py-12 sm:py-16 lg:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-800 text-gray-900 tracking-tight">Services we cover</h2>
+      <div class="text-center mb-10 sm:mb-16">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-800 text-gray-900 tracking-tight">Services we cover</h2>
         <p class="mt-4 text-lg text-gray-500 max-w-xl mx-auto">Request quotes for any commercial service your property needs.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
         <a href="/request-quotes?service=solar" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">Solar</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">Solar</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Commercial solar panel installation, maintenance, and energy audits.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=landscaping" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">Landscaping</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">Landscaping</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Grounds maintenance, irrigation, hardscaping, and seasonal cleanup.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=hvac" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">HVAC</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">HVAC</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Heating, ventilation, and air conditioning for commercial buildings.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=roofing" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">Roofing</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">Roofing</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Flat roof repair, replacement, inspections, and waterproofing.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=security" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">Security</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">Security</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Access control, surveillance cameras, alarm systems, and patrol services.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=commercial-cleaning" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">Commercial Cleaning</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">Commercial Cleaning</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Janitorial, deep cleaning, floor care, and post-construction cleanup.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=plumbing" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">Plumbing</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">Plumbing</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Commercial plumbing repair, backflow prevention, and fixture installation.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=electrical" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">Electrical</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">Electrical</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Panel upgrades, lighting retrofits, EV chargers, and emergency repairs.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=pest-control" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">Pest Control</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">Pest Control</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Integrated pest management, wildlife removal, and recurring treatments.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=snow-removal" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">Snow Removal</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">Snow Removal</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Snow plowing, salting, ice management, and seasonal contracts.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=property-management" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">Property Management</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">Property Management</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Full-service property management, tenant coordination, and vendor oversight.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
         <a href="/request-quotes?service=it-networking" class="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:border-pink-300 hover:shadow-md transition-all">
-          <h3 class="text-lg font-700 text-gray-900 group-hover:text-blue-700 transition-colors">IT & Networking</h3>
+          <h3 class="text-lg font-700 text-gray-900 group-hover:text-[#E64B8B] transition-colors">IT & Networking</h3>
           <p class="mt-2 text-sm text-gray-500 leading-relaxed">Structured cabling, Wi-Fi deployment, server rooms, and managed IT services.</p>
-          <span class="inline-block mt-4 text-sm font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
+          <span class="inline-block mt-4 text-sm font-semibold text-[#E64B8B] group-hover:translate-x-1 transition-transform">Get Quotes &rarr;</span>
         </a>
 
       </div>
@@ -296,10 +296,10 @@
   </section>
 
   <!-- Why Property Managers Choose LotusLeads -->
-  <section class="py-20 sm:py-24 bg-gray-50">
+  <section class="py-12 sm:py-16 lg:py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-800 text-gray-900 tracking-tight">Why property managers choose LotusLeads</h2>
+      <div class="text-center mb-10 sm:mb-16">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-800 text-gray-900 tracking-tight">Why property managers choose LotusLeads</h2>
         <p class="mt-4 text-lg text-gray-500 max-w-xl mx-auto">Built for commercial properties, not residential odd jobs.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -341,10 +341,10 @@
   </section>
 
   <!-- Cities We Serve -->
-  <section class="py-20 sm:py-24 bg-white">
+  <section class="py-12 sm:py-16 lg:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-800 text-gray-900 tracking-tight">Cities we serve</h2>
+      <div class="text-center mb-8 sm:mb-12">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-800 text-gray-900 tracking-tight">Cities we serve</h2>
         <p class="mt-4 text-lg text-gray-500 max-w-xl mx-auto">Find vetted commercial contractors in major markets across the U.S.</p>
       </div>
       <div class="flex flex-wrap justify-center gap-3">
@@ -368,14 +368,14 @@
   </section>
 
   <!-- CTA Banner -->
-  <section class="py-20 sm:py-24 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800">
+  <section class="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-[#E64B8B] via-[#d43d7a] to-[#b8326e]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl sm:text-4xl font-800 text-white tracking-tight">Ready to find the right contractor?</h2>
-      <p class="mt-6 text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-800 text-white tracking-tight">Ready to find the right contractor?</h2>
+      <p class="mt-6 text-base sm:text-lg text-pink-100 max-w-2xl mx-auto leading-relaxed">
         Describe your property and service needs. We'll connect you with vetted commercial contractors in your area.
       </p>
-      <div class="mt-10">
-        <a href="/request-quotes" class="inline-flex items-center px-8 py-4 bg-white text-gray-700 font-semibold text-lg rounded-full shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all duration-200">
+      <div class="mt-8 sm:mt-10">
+        <a href="/request-quotes" class="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#E64B8B] font-semibold text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-200">
           Request Free Quotes &rarr;
         </a>
       </div>
@@ -416,7 +416,7 @@
 
   <!-- Main Footer Grid -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
 
       <!-- Col 1: Brand -->
       <div class="col-span-2 md:col-span-3 lg:col-span-2">
